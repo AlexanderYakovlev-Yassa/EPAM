@@ -1,1 +1,0 @@
-# Repisitory contains complitted tasks
