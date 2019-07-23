@@ -3,121 +3,107 @@ package com.company;
 import java.util.Scanner;
 import java.lang.Math;
 
+/*
+    Класс сравнивает два числа введенных с клавиатуры на наличие в них
+одинаковых цифр.
+    На этапе ввода с клавиатуры проверяется корректность введенных чисел
+(числа должны соответствовать типу double)
+    Целые числа конвертируются в тип int чтобы избежать сравнения
+незначащего нуля после десятичной точки.
+    Для каждого числа вычисляется "спектр" - целое число у которого
+в бинарном виде разряды равные 1 показывают наличие
+соответствующей цифры в данном числе.
+например для числа 92,5:
+   X9876543210 шкала
+ 0b11000100100 спектр
+ 11-й разряд всегда равен 1, добавлен для удобства визуального сравнения при отладке.
+    Далее спектры чисел сравниваются (определяется пересечение спектров)
+В результирующем спектре единица в соответствующем разряде показывает наличие
+цифры в обоих сравниваемых числах.
+    Результат сравнения выводится на консоль.
+ */
+
+
 public class Exercise_3_8 {
 
     public static void main(String[] args) {
-        /*boolean[] b = digitDiagramm(256.9);
-        for (int i = 0; i < 10; i++) {
-            System.out.print(i + " - " + b[i] + "; ");
-        }*/
 
-        //compare();
-        String a = "255552227";
-        String b = "335777";
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println("X9876543210");
-        System.out.println(Integer.toBinaryString(bDigitSpectrum(a)));
-        System.out.println(Integer.toBinaryString(bDigitSpectrum(b)));
-        System.out.println(Integer.toBinaryString(bCompare(bDigitSpectrum(a), bDigitSpectrum(b))));
-
+        compare();
     }
+
 
     public static void compare() {
-        String res;
+        //Ввод данных с клавиатуры и приведение к виду без незначащих нулей после запятой
         System.out.print("Введите первое число");
-        double x1 = insert();
-        String digits1 = (x1 == (int) x1) ? Integer.toString((int) x1) : Double.toString(x1);
-        System.out.println("");
-        System.out.print("Введите второе число");
-        double x2 = insert();
-        String digits2 = (x2 == (int) x2) ? Integer.toString((int) x2) : Double.toString(x2);
-        System.out.println("");
+        double[] x = insert();
+        String digits1 = (x[0] == (int) x[0]) ? Integer.toString((int) x[0]) : Double.toString(x[0]);//Если число целое конвертируем его в int
+        String digits2 = (x[1] == (int) x[1]) ? Integer.toString((int) x[1]) : Double.toString(x[1]);//чтобы убрать незначащий ноль
 
-        boolean[] firstSpectrum = digitSpectrum(digits1);
-        boolean[] secondSpectrum = digitSpectrum(digits2);
+        //определение спектров чисел и спектра их пересечения
+        int spectrumOfFirstNumber = bDigitSpectrum(digits1);
+        int spectrumOfSecondNumber = bDigitSpectrum(digits2);
+        int crossOfSpectrums = spectrumOfFirstNumber & spectrumOfSecondNumber;
 
-        System.out.println("В записи чисел " + digits1 + " и " + digits2 + " есть одинаковые цифры: ");
+        //вывод результатов в консоль
+        if (crossOfSpectrums > 0b10000000000) { //проверяем есть ли совпадающие цифры (нулевой спектр равен 0b10000000000)
+            System.out.println("В записи чисел " + digits1 + " и " + digits2 + " есть одинаковые цифры: ");
 
 
-        for (int i = 0; i < 10; i++) {
-            if (firstSpectrum[i] && secondSpectrum[i]) {
-                System.out.print(i + "  ");
+            String matchingDigits = "";
+            for (int i = 0; i < 10; i++) {
+                if ((crossOfSpectrums / (int)Math.pow(2, i))%2 != 0) { //выделяем совпадающие цифры из спектра
+                    matchingDigits += i + " ";
+                }
             }
+            System.out.println(matchingDigits);
+        } else {
+            System.out.println("В записи чисел " + digits1 + " и " + digits2 + " нет совпадающих цифр");
         }
-
-
-        //return "";
     }
 
-    //Метод получает число double и возвращает диаграмму входящих в него цифр
-    public static boolean[] digitSpectrum(String digits) {
+    //Метод обеспечивает ввод пользователем числа
+    public static double[] insert() {
 
-        //String digits = (a == (int)a) ? Integer.toString((int)a) : Double.toString(a);
+        double[] e = new double[2];
+        Scanner scanner = new Scanner(System.in);
 
-        int digit = 0;
-        boolean[] res = new boolean[10];
-        for (int i = 0; i < 10; i++) {
-            res[i] = false;
-        }
-        for (int i = 0; i < digits.length(); i++) {
-
-            if (Character.isDigit(digits.charAt(i))) {
-                digit = (int) digits.charAt(i) - (int) ('0');
-                res[digit] = true;
-                //System.out.println(i + " " + digit);
+        for (int i = 0; i < 2; i++) {
+            if (i == 0) {
+                System.out.print("Введите первое сравниваемое число");
+            } else {
+                System.out.print("Введите второе сравниваемое число");
             }
-        }
-        return res;
+            System.out.print(" >");
+            while (!scanner.hasNextDouble()) {
+                System.out.print("Ваш ввод не корректный. Введите число >");
+                scanner.next();
+            }
 
+            e[i] = scanner.nextDouble();
+        }
+
+
+        return e;
     }
 
     //Метод возвращает спектр строки number в бинарном виде
     // например для числа 925:
-    // X9876543210 шкала
-    // 11000100100 спектр
+    //   X9876543210 шкала
+    // 0b11000100100 спектр
     public static int bDigitSpectrum(String number) {
+
         int exp;
-        int spectrum = 0;
+        int spectrum = 0b10000000000; //добавлен 1 старший бит для удобства визуального сравнения результатов
+
         for (int i = 0; i < number.length(); i++) {
             if (Character.isDigit(number.charAt(i))) {
                 exp = (int) number.charAt(i) - (int) ('0');
                 spectrum |= (int) Math.pow(2, exp);
             }
         }
-        spectrum |= (int) Math.pow(2, 10); //добавлен 1 старший бит для удобства визуального сравнения результатов
+
         return spectrum;
     }
 
-    public static int bDigitSpectrum(int a) {
-        int spectrum = 1024;
-        
-        return spectrum;
-    }
 
-    public static int bCompare(int a, int b) {
-        int res = a & b;
-        return res;
-    }
-
-
-    //Метод обеспечивает ввод пользователем действительного числа
-    public static double insert() {
-
-        double e;
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print(" >");
-
-        while (!scanner.hasNextDouble()) {
-            System.out.print("Ваш ввод ошибочный. Введите число >");
-            scanner.next();
-        }
-
-        e = scanner.nextDouble();
-
-        //scanner.close();
-
-        return e;
-    }
 }
