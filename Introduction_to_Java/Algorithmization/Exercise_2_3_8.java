@@ -89,18 +89,18 @@ public class Exercise_2_3_8 {
         int k = a;
 
         if (isPrimeNumber(a)) {
-            dividers = addToArray(dividers, a);
+            dividers = addToArray(dividers, a);//spectrum[primeNumbers.length]++
         } else {
             while ((k > 1) && (primeNumbers[prNumCounter] <= k)) {
                 if (k % primeNumbers[prNumCounter] == 0) {
                     k = k / primeNumbers[prNumCounter];
-                    dividers = addToArray(dividers, primeNumbers[prNumCounter]);
+                    dividers = addToArray(dividers, primeNumbers[prNumCounter]);//spectrum[prNumCounter]++
                 } else {
                     prNumCounter++;
                 }
             }
         }
-        return dividers;
+        return dividers;//spectrum
     }
 
    /* public static int[] primeDividersSpectrum(int a) {
