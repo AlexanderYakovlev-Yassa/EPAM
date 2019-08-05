@@ -1,12 +1,74 @@
+
+import java.lang.Math;
+
 public class Exercise_2_3_8 {
 
     public static void main(String[] args) {
-        int[] array = {256, 32};
-        /*int testNumber = 256;
-        printArray(allPrimeDividers(testNumber));*/
+        //printArray(spectrum(1));
+        int[] array = {2, 3, 5, 2, 2, 9, 5, 8, 8, 11, 1, 2, 7, 11};
+        printFraction(array);
+        int[] dividers = new int[array.length / 2];
 
-        printArray(allPrimeDividersForAllNumbers(array));
+        for (int i = 0; i < array.length; i += 2) {
+            dividers[i / 2] = array[i + 1];
+        }
+        //printArray(dividers);
+        int s = smallestCommonX(dividers);
+        //System.out.println(s);
+        int[] array0 = new int[array.length];
+        int[] array1 = new int[array.length/2];
+        int multiplier;
+        for (int i = 0; i < array.length; i += 2) {
+            multiplier = s / array[i + 1];
+            array0[i] = array[i] * multiplier;
+            array0[i + 1] = s;
+        }
+        for (int i = 0; i < array.length; i += 2) {
+            multiplier = s / array[i + 1];
+            array1[i/2] = array[i] * multiplier;
+        }
+        printArray(array1);
+        int maxX = max(array1);
+        System.out.println("the max fraction is " + maxX + "/" + s);
+    }
 
+
+    public static int smallestCommonX(int[] array) {
+        int[] spectrum = allPrimeDividersForAllNumbers(array);
+        int num = 1;
+        //printArray(spectrum);
+        for (int i = 0; i < spectrum.length; i++) {
+
+            num = spectrum[i] != 0 ? num * powInt(primeNumbersByIndex(i), spectrum[i]) : num; //num * primeNumbersByIndex(spectrum[i]) : num;
+            //System.out.println(num);
+        }
+        return num;
+    }
+
+    public static int powInt(int a, int b) {
+        int x = 1;
+        for (int i = 0; i < b; i++) {
+            x *= a;
+        }
+        return x;
+    }
+
+    public static int primeNumbersByIndex(int index) {
+        int prime = 2;
+        int currentIndex = 0;
+        int counter = 2;
+        if (index == 0) {
+            prime = 2;
+        } else {
+            while (currentIndex <= index) {
+                if (isPrimeNumber(counter)) {
+                    prime = counter;
+                    currentIndex++;
+                }
+                counter++;
+            }
+        }
+        return prime;
     }
 
     //collects prime dividers of all the numbers that are required
@@ -14,47 +76,34 @@ public class Exercise_2_3_8 {
     public static int[] allPrimeDividersForAllNumbers(int[] numbers) {
         //System.out.println("*");
         int[] allDividers = new int[0];
-        int[] dividersOfParticularNumber;
+        int[] spectrumOfParticularNumber;
+        int[] spectrumOfAllNumbers = new int[0];
         boolean[] checkList;
         int j = 0; //counter for the loop
         int k = 0; //counter for the loop
 
 
         for (int i = 0; i < numbers.length; i++) { //iterate over all the numbers of the array
-            dividersOfParticularNumber = allPrimeDividers(numbers[i]);
-            checkList = new boolean[dividersOfParticularNumber.length];
+            spectrumOfParticularNumber = spectrum(numbers[i]);
+            spectrumOfAllNumbers = additionOfSpectrums(spectrumOfAllNumbers, spectrumOfParticularNumber);
+        }
+        return spectrumOfAllNumbers;
+    }
 
-            //D E B U G G I N G
-            System.out.println();
-            System.out.println("i=" + i + "  number " + numbers[i]);
-            printArray(dividersOfParticularNumber);
-            System.out.println();
-            //*****************
-
-            j = 0;
-            while (j < allDividers.length)  {
-                k = 0;
-                while (k < dividersOfParticularNumber.length) {
-
-                    if ((allDividers.length == 0) || (allDividers[j] == dividersOfParticularNumber[k]) && !checkList[k]) {
-                        checkList[k] = true;
-                        j++;
-                        System.out.println("***");
-                        break;
-                    } else {
-                        k++;
-                    }
-                }
-                j++;
-            }
-            //printArray(prDivOfPartNumberCheck);
-            for (int m = 0; m < dividersOfParticularNumber.length; m++) {
-                if (!checkList[m]) {
-                    allDividers = addToPrimeDividers(allDividers, dividersOfParticularNumber[m]);
-                }
+    public static int[] additionOfSpectrums(int[] spectrumOfAll, int[] spectrum) {
+        int spLength = spectrumOfAll.length > spectrum.length ? spectrumOfAll.length : spectrum.length;
+        int[] sp = new int[spLength];
+        //System.out.println("sp len " + sp.length);
+        //System.out.println("s all len " + spectrumOfAll.length);
+        //System.out.println("s len " + spectrum.length);
+        for (int i = 0; i < spLength; i++) {
+            if ((i < spectrumOfAll.length) && (i < spectrum.length)) {
+                sp[i] = (spectrumOfAll[i] > spectrum[i]) ? spectrumOfAll[i] : spectrum[i];
+            } else {
+                sp[i] = (spectrumOfAll.length > spectrum.length) ? spectrumOfAll[i] : spectrum[i];
             }
         }
-        return allDividers;
+        return sp;
     }
 
     //adds "anotherDivider" to "primeDividers", so that it stays constantly increasing
@@ -103,20 +152,22 @@ public class Exercise_2_3_8 {
         return dividers;//spectrum
     }
 
-   /* public static int[] primeDividersSpectrum(int a) {
+    /*public static int[] primeDividersSpectrum(int a) {
         int[] primeNumbers = primeNumbers(a);
-        int max = max(primeNumbers);
-        int[] spectrum = new int[a];
+        int maxIndex = maxIndex(primeNumbers);
+        System.out.println("send");
+        printArray(primeNumbers);
+        System.out.println(maxIndex);
+        int[] spectrum = new int[maxIndex];
         int prNumCounter = 0;
         int k = a;
-
         if (isPrimeNumber(a)) {
-            spectrum[a]++;
+            spectrum[primeNumbers.length]++;
         } else {
             while ((k > 1) && (primeNumbers[prNumCounter] <= k)) {
                 if (k % primeNumbers[prNumCounter] == 0) {
                     k = k / primeNumbers[prNumCounter];
-                    dividers = addToArray(dividers, primeNumbers[prNumCounter]);
+                    spectrum[prNumCounter]++;
                 } else {
                     prNumCounter++;
                 }
@@ -125,20 +176,56 @@ public class Exercise_2_3_8 {
         return spectrum;
     }*/
 
-//returns the max number from the "numbers"
-    public static int max(int[] numbers){
+    public static int[] spectrum(int number) {
+        int[] allPrDiv = allPrimeDividers(number);
+        int max = maxIndex(allPrDiv);
+        int[] spectrum = new int[max];
+        //System.out.println("max  " + max);
+        //System.out.println("allPrDiv.length = " + allPrDiv.length);
+        for (int i = 0; i < allPrDiv.length; i++) {
+            spectrum[index(allPrDiv[i])]++;
+            //System.out.println("indices " + index(allPrDiv[i]));
+        }
+        return spectrum;
+    }
+
+    public static int index(int primeNumber) {
+        int[] primeNumbers = primeNumbers(primeNumber);
+        //System.out.println("prnb" + primeNumber);
+        //printArray(primeNumbers);
+        int index = primeNumbers.length - 1;
+        return index;
+    }
+
+    //returns the index of the max prime number from the "numbers"
+    public static int maxIndex(int[] numbers) {
         int max = 0;
-        for (int i = 0; i < numbers.length; i++){
+        int index = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            max = max < numbers[i] ? numbers[i] : max;
+        }
+        //System.out.println("max" + max);
+        for (int i = 2; i <= max; i++) {
+            index = isPrimeNumber(i) ? index + 1 : index;
+        }
+
+        return index;
+    }
+
+    //returns the  max of "numbers"
+    public static int max(int[] numbers) {
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < numbers.length; i++) {
             max = max < numbers[i] ? numbers[i] : max;
         }
 
         return max;
     }
-
     //returns the array of the prime numbers from 2 to maxNumber
     public static int[] primeNumbers(int maxNumber) {
         int[] prime = new int[0];
-        for (int i = 2; i < maxNumber; i++) {
+        for (int i = 2; i <= maxNumber; i++) {
             if (isPrimeNumber(i)) {
                 prime = addToArray(prime, i);
             }
@@ -186,5 +273,12 @@ public class Exercise_2_3_8 {
             }
         }
         return flag;
+    }
+
+    public static void printFraction(int[] array) {
+        for (int i = 0; i < array.length; i += 2) {
+            System.out.print("[" + array[i] + "/" + array[i + 1] + "]  ");
+        }
+        System.out.println("");
     }
 }
