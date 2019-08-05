@@ -1,39 +1,44 @@
-
-import java.lang.Math;
+/*Даны дроби (числитель и знаменатель натуральные). Составить программу, которая приводит эти дроби к общему
+знаменателю и упорядочивает их в порядке возрастания.*/
 
 public class Exercise_2_3_8 {
 
     public static void main(String[] args) {
-        //printArray(spectrum(1));
-        int[] array = {2, 3, 5, 2, 2, 9, 5, 8, 8, 11, 1, 2, 7, 11};
-        printFraction(array);
-        int[] dividers = new int[array.length / 2];
 
-        for (int i = 0; i < array.length; i += 2) {
-            dividers[i / 2] = array[i + 1];
+        //source array of fractions. Odd members are fraction numerator,
+        // even are fraction denominator.
+        int[] sourceFractions = {2, 1, 5, 2, 2, 9, 5, 8, 8, 11, 1, 2, 7, 11};
+        System.out.println("Source fractions is:");
+        printFraction(sourceFractions);
+        System.out.println("");
+
+        int[] denominators = new int[sourceFractions.length / 2];
+
+        for (int i = 0; i < sourceFractions.length; i += 2) {
+            denominators[i / 2] = sourceFractions[i + 1];
         }
-        //printArray(dividers);
-        int s = smallestCommonX(dividers);
-        //System.out.println(s);
-        int[] array0 = new int[array.length];
-        int[] array1 = new int[array.length/2];
-        int multiplier;
-        for (int i = 0; i < array.length; i += 2) {
-            multiplier = s / array[i + 1];
-            array0[i] = array[i] * multiplier;
-            array0[i + 1] = s;
+
+        int l_c_m = leastCommonMultiple(denominators);
+        int[] reducedFractions = new int[sourceFractions.length];
+        int factor;
+
+        //reducing of fractions to the common denominator
+        for (int i = 0; i < sourceFractions.length; i += 2) {
+            factor = l_c_m / sourceFractions[i + 1];
+            reducedFractions[i] = sourceFractions[i] * factor;
+            reducedFractions[i + 1] = l_c_m;
         }
-        for (int i = 0; i < array.length; i += 2) {
-            multiplier = s / array[i + 1];
-            array1[i/2] = array[i] * multiplier;
-        }
-        printArray(array1);
-        int maxX = max(array1);
-        System.out.println("the max fraction is " + maxX + "/" + s);
+        System.out.println("The fractions which are reduced to common denominator:");
+        printFraction(reducedFractions);
+        System.out.println("");
+        sortByShellForFractions(sourceFractions, reducedFractions);
+        System.out.println("Source and reduced fractions sorted from min to max:");
+        printFraction(sourceFractions);
+        printFraction(reducedFractions);
     }
 
-
-    public static int smallestCommonX(int[] array) {
+    //calculates the least common multiple
+    public static int leastCommonMultiple(int[] array) {
         int[] spectrum = allPrimeDividersForAllNumbers(array);
         int num = 1;
         //printArray(spectrum);
@@ -45,6 +50,7 @@ public class Exercise_2_3_8 {
         return num;
     }
 
+    //returns "a" raised to the power of "b"
     public static int powInt(int a, int b) {
         int x = 1;
         for (int i = 0; i < b; i++) {
@@ -53,6 +59,7 @@ public class Exercise_2_3_8 {
         return x;
     }
 
+    //returns prime number by index in array
     public static int primeNumbersByIndex(int index) {
         int prime = 2;
         int currentIndex = 0;
@@ -72,7 +79,7 @@ public class Exercise_2_3_8 {
     }
 
     //collects prime dividers of all the numbers that are required
-    // to calculate of the Smallest Common Multiple
+    // to calculate of the Least Common Multiple
     public static int[] allPrimeDividersForAllNumbers(int[] numbers) {
         //System.out.println("*");
         int[] allDividers = new int[0];
@@ -90,12 +97,11 @@ public class Exercise_2_3_8 {
         return spectrumOfAllNumbers;
     }
 
+    //addition of spectrums according to the rule
     public static int[] additionOfSpectrums(int[] spectrumOfAll, int[] spectrum) {
         int spLength = spectrumOfAll.length > spectrum.length ? spectrumOfAll.length : spectrum.length;
         int[] sp = new int[spLength];
-        //System.out.println("sp len " + sp.length);
-        //System.out.println("s all len " + spectrumOfAll.length);
-        //System.out.println("s len " + spectrum.length);
+
         for (int i = 0; i < spLength; i++) {
             if ((i < spectrumOfAll.length) && (i < spectrum.length)) {
                 sp[i] = (spectrumOfAll[i] > spectrum[i]) ? spectrumOfAll[i] : spectrum[i];
@@ -106,29 +112,6 @@ public class Exercise_2_3_8 {
         return sp;
     }
 
-    //adds "anotherDivider" to "primeDividers", so that it stays constantly increasing
-    public static int[] addToPrimeDividers(int[] primeDividers, int anotherDivider) {
-        int[] newDividers = new int[primeDividers.length + 1];
-        boolean flag = true;
-
-        if (newDividers.length == 1) {
-            newDividers[0] = anotherDivider;
-        } else {
-            for (int i = 0; i < newDividers.length; i++) {
-                if (flag) {
-                    if ((i == newDividers.length - 1) || (anotherDivider <= primeDividers[i])) {
-                        newDividers[i] = anotherDivider;
-                        flag = false;
-                    } else {
-                        newDividers[i] = primeDividers[i];
-                    }
-                } else {
-                    newDividers[i] = primeDividers[i - 1];
-                }
-            }
-        }
-        return newDividers;
-    }
 
     //returns all prime numbers which is dividers of "a"
     public static int[] allPrimeDividers(int a) {
@@ -138,57 +121,36 @@ public class Exercise_2_3_8 {
         int k = a;
 
         if (isPrimeNumber(a)) {
-            dividers = addToArray(dividers, a);//spectrum[primeNumbers.length]++
+            dividers = addToArray(dividers, a);
         } else {
             while ((k > 1) && (primeNumbers[prNumCounter] <= k)) {
                 if (k % primeNumbers[prNumCounter] == 0) {
                     k = k / primeNumbers[prNumCounter];
-                    dividers = addToArray(dividers, primeNumbers[prNumCounter]);//spectrum[prNumCounter]++
+                    dividers = addToArray(dividers, primeNumbers[prNumCounter]);
                 } else {
                     prNumCounter++;
                 }
             }
         }
-        return dividers;//spectrum
+        return dividers;
     }
 
-    /*public static int[] primeDividersSpectrum(int a) {
-        int[] primeNumbers = primeNumbers(a);
-        int maxIndex = maxIndex(primeNumbers);
-        System.out.println("send");
-        printArray(primeNumbers);
-        System.out.println(maxIndex);
-        int[] spectrum = new int[maxIndex];
-        int prNumCounter = 0;
-        int k = a;
-        if (isPrimeNumber(a)) {
-            spectrum[primeNumbers.length]++;
-        } else {
-            while ((k > 1) && (primeNumbers[prNumCounter] <= k)) {
-                if (k % primeNumbers[prNumCounter] == 0) {
-                    k = k / primeNumbers[prNumCounter];
-                    spectrum[prNumCounter]++;
-                } else {
-                    prNumCounter++;
-                }
-            }
-        }
-        return spectrum;
-    }*/
-
+    //returns the spectrum of prime dividers of the number
     public static int[] spectrum(int number) {
-        int[] allPrDiv = allPrimeDividers(number);
-        int max = maxIndex(allPrDiv);
-        int[] spectrum = new int[max];
-        //System.out.println("max  " + max);
-        //System.out.println("allPrDiv.length = " + allPrDiv.length);
-        for (int i = 0; i < allPrDiv.length; i++) {
-            spectrum[index(allPrDiv[i])]++;
-            //System.out.println("indices " + index(allPrDiv[i]));
+        int[] spectrum = {0};
+        if (number != 1) {
+            int[] allPrDiv = allPrimeDividers(number);
+            int max = maxIndex(allPrDiv);
+            spectrum = new int[max];
+
+            for (int i = 0; i < allPrDiv.length; i++) {
+                spectrum[index(allPrDiv[i])]++;
+            }
         }
         return spectrum;
     }
 
+    //returns index of prime number
     public static int index(int primeNumber) {
         int[] primeNumbers = primeNumbers(primeNumber);
         //System.out.println("prnb" + primeNumber);
@@ -204,7 +166,6 @@ public class Exercise_2_3_8 {
         for (int i = 0; i < numbers.length; i++) {
             max = max < numbers[i] ? numbers[i] : max;
         }
-        //System.out.println("max" + max);
         for (int i = 2; i <= max; i++) {
             index = isPrimeNumber(i) ? index + 1 : index;
         }
@@ -212,16 +173,6 @@ public class Exercise_2_3_8 {
         return index;
     }
 
-    //returns the  max of "numbers"
-    public static int max(int[] numbers) {
-        int max = Integer.MIN_VALUE;
-
-        for (int i = 0; i < numbers.length; i++) {
-            max = max < numbers[i] ? numbers[i] : max;
-        }
-
-        return max;
-    }
     //returns the array of the prime numbers from 2 to maxNumber
     public static int[] primeNumbers(int maxNumber) {
         int[] prime = new int[0];
@@ -233,7 +184,7 @@ public class Exercise_2_3_8 {
         return prime;
     }
 
-    //returns the array which is contains "array" and number "a" at the end of it
+    //returns the array which is contains source array and number "a" at the end of it
     public static int[] addToArray(int[] array, int a) {
         int[] newArray = new int[array.length + 1];
         for (int i = 0; i < array.length; i++) {
@@ -243,25 +194,35 @@ public class Exercise_2_3_8 {
         return newArray;
     }
 
-   /* public static int[] addToArray(int[] firstArray, int[] secondArray) {
-        int[] newArray = new int[firstArray.length + secondArray.length]
-    }*/
-
-    //print the array "array"
-    public static void printArray(int[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.print("[" + array[i] + "]  ");
+    //sorts reduced and source arrays of fractions from min to max
+    public static void sortByShellForFractions(int[] sourceFractions, int[] reducedFractions) {
+        int i = 0;
+        while (i < reducedFractions.length - 2) {
+            if (reducedFractions[i] <= reducedFractions[i + 2]) {
+                i += 2;
+            } else {
+                swap(reducedFractions, i, i + 2);
+                swap(reducedFractions, i + 1, i + 3);
+                swap(sourceFractions, i, i + 2);
+                swap(sourceFractions, i + 1, i + 3);
+                if (i > 0) {
+                    i -= 2;
+                } else {
+                    i += 2;
+                }
+            }
         }
-        System.out.println("");
     }
 
-    public static void printArray(boolean[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.print("[" + array[i] + "]  ");
+    //swaps picked elements of the array
+    public static void swap(int[] array, int a, int b) {
+        if ((a >= 0 && b >= 0) && (a < array.length && b < array.length)) {
+            int bubble = array[a];
+            array[a] = array[b];
+            array[b] = bubble;
+        } else {
+            System.out.println("swap - indices is out of bound");
         }
-        System.out.println("");
     }
 
     //Метод определяет является ли целое число простым
@@ -275,6 +236,7 @@ public class Exercise_2_3_8 {
         return flag;
     }
 
+    //printa array as a set of fractions
     public static void printFraction(int[] array) {
         for (int i = 0; i < array.length; i += 2) {
             System.out.print("[" + array[i] + "/" + array[i + 1] + "]  ");
