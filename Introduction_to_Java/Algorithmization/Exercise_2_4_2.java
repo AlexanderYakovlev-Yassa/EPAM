@@ -1,16 +1,17 @@
-public class Exercise_2_4_1 {
+public class Exercise_2_4_2 {
 
     public static void main(String[] args) {
-        int a = 5;
-        int b = 25;
-        System.out.println(greatCommonMultiple(a, b));
-        System.out.println(leastCommonDivider(a, b));
+        int[] numbers = {5, 15, 25, 6};
+        //System.out.println(greatCommonMultiple(5, 25));
+        System.out.println(greatCommonMultipleForMoreThanTwo(numbers));
     }
 
-    //returns least
-    public static int leastCommonDivider(int a, int b) {
-        int lcd = a * b / greatCommonMultiple(a, b);
-        return lcd;
+    public  static int greatCommonMultipleForMoreThanTwo(int[] numbers){
+        int gcm = greatCommonMultiple(numbers[0], numbers[1]);
+        for (int i = 2; i<numbers.length-1; i++){
+            gcm = greatCommonMultiple(gcm, numbers[i]);
+        }
+        return gcm;
     }
 
     //returns great common multiple of two numbers
@@ -36,7 +37,7 @@ public class Exercise_2_4_1 {
             }
 
         } else {
-                                                               //a odd, b odd
+            //a odd, b odd
             if (a > b) {
                 gcm = greatCommonMultiple((a - b) / 2, b);        // a > b
             } else {
