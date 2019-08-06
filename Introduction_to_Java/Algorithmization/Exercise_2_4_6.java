@@ -1,16 +1,20 @@
-public class Exercise_2_4_1 {
+public class Exercise_2_4_6 {
 
     public static void main(String[] args) {
         int a = 5;
-        int b = 25;
-        System.out.println(greatestCommonDivisor(a, b));
-        System.out.println(leastCommonMultiple(a, b));
+        int b = 3;
+        int c = 32;
+
+        System.out.println(isCoPrime(a, b, c));
     }
 
-    //returns least common multiple
-    public static int leastCommonMultiple(int a, int b) {
-        int lcd = a * b / greatestCommonDivisor(a, b);
-        return lcd;
+    //checks whether n1, n2 and n3 are co prime
+    public static boolean isCoPrime(int n1, int n2, int n3){
+        boolean c;
+        c =     (greatestCommonDivisor(n1, n2) == 1) &&
+                (greatestCommonDivisor(n2, n3) == 1) &&
+                (greatestCommonDivisor(n1, n3) == 1);
+        return c;
     }
 
     //returns greatest common divisor of two numbers
