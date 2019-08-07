@@ -8,7 +8,7 @@ public class Exercise_2_4_10 {
     public static void main(String[] args) {
         int n = 1234567890;
         printArray(arrayOfDigits(n));
-        System.out.println(numberOfDigits(n));
+
     }
 
     //returns array of digits which are contained in "number"
@@ -24,20 +24,6 @@ public class Exercise_2_4_10 {
             a /= 10;
         }
         return digits;
-    }
-
-    //returns number of digits which is "number" consisted
-    public static int numberOfDigits(int number){
-        int dig = 0;
-        int[] digits = arrayOfDigits(number);
-        int[] spectrum =new int[10];
-        for (int i = 0; i < digits.length; i++){
-            spectrum[digits[i]] = 1;
-        }
-        for (int i = 0; i<spectrum.length; i++){
-            dig += spectrum[i];
-        }
-        return dig;
     }
 
     //print the array "array"
