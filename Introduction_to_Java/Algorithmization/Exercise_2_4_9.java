@@ -8,55 +8,117 @@ public class Exercise_2_4_9 {
         double[] sides = insertQuadrangleSidesLength();
         //System.out.println(areaOfRightTriangle(3,4));
         //System.out.println(areaOfTriangle(3,4,5));
-        System.out.println(areaOfQuadrangle(sides));
-
+        double[] quadrangle = areaOfQuadrangle(sides);
+        if ((quadrangle[0] > 0) && (quadrangle[2] > 0)) {
+            System.out.println("Для данного набора длинн сторон существует два типа четыречугольников:");
+            if (quadrangle[0] == 1) {
+                System.out.println("Выпуклый четырехугольник с площадью " + quadrangle[1] + " квадратных единиц.");
+            } else {
+                System.out.println("Невыпуклый четырехугольник с площадью " + quadrangle[1] + " квадратных единиц.");
+            }
+            if (quadrangle[2] == 2){
+                System.out.println("Невыпуклый четырехугольник с площадью " + quadrangle[3] + " квадратных единиц.");
+            } else {
+                System.out.println("Самопересекающийся четырехугольник с площадью " + quadrangle[3] + " квадратных единиц.");
+            }
+        } else if ((quadrangle[2] == 0) && (quadrangle[0] == 1)){
+            System.out.println("Для данного набора длинн сторон существует выпуклый четыречугольник \n с площадью " + quadrangle[1] + " квадратных единиц.");
+        } else if ((quadrangle[2] == 0) && (quadrangle[0] == 2)) {
+            System.out.println("Для данного набора длинн сторон существует невыпуклый четыречугольник \n с площадью " + quadrangle[1] + " квадратных единиц.");
+        } else if ((quadrangle[2] == 2) && (quadrangle[0] == 0)) {
+            System.out.println("Для данного набора длинн сторон существует невыпуклый четыречугольник \n с площадью " + quadrangle[3] + " квадратных единиц.");
+        } else if ((quadrangle[2] == 3) && (quadrangle[0] == 0)) {
+            System.out.println("Для данного набора длинн сторон существует самопересекающийся четыречугольник \n с площадью " + quadrangle[3] + " квадратных единиц.");
+        }
     }
 
     public static double[] areaOfQuadrangle(double[] sides) {
-        double[] area = new double[2];
+
+        double[] area = new double[4];
+        double areaOfFirstQuadrangle = 0;
+        double firstQuadrangleType = 0;//type of quadrangle 0 - doesn't exist, 1 - convex, 2 - non convex
+        double secondQuadrangleType = 0;//type of quadrangle 0 - doesn't exist, 2 - non convex, 3 - self-intersecting
         double p = (sides[0] + sides[1] + sides[2] + sides[3]) / 2;
-        //area = Math.sqrt((p - sides[0]) * (p - sides[1]) *(p - sides[2]) *(p - sides[3]));
+
         double x = sides[0];
         double y = sides[1];
         double z = sides[2];
         double t = sides[3];
-        double areaOf_X_Y_SidesTriangle = areaOfRightTriangle(x, y);
-        double e = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));//hypotenuse of triangle X Y E
-        double areaOf_Z_T_SidesTriangle = areaOfTriangle(z, t, e);
-        double areaOfConvexQuadrangle = areaOf_X_Y_SidesTriangle + areaOf_Z_T_SidesTriangle;
 
-        double areaOfSelfIntersectingQuadrangle = 0;
-        double angleAlphaSinus = x / e;
-        double angleBetaSinus = y / e;
-        double k = Math.pow(e, 2) - Math.pow(t, 2) + Math.pow(z, 2);
-        double h = Math.sqrt(Math.pow(z, 2) - Math.pow(k / (2 * e), 2));
-        double angleHammaSinus = h / z;
-        double angleDeltaSinus = h / t;
-        if ((angleAlphaSinus > angleDeltaSinus) && (angleBetaSinus > angleHammaSinus)) {
-            double areaOfNonConvexQuadrangle = areaOf_X_Y_SidesTriangle - areaOf_Z_T_SidesTriangle;
-        } else if ((angleAlphaSinus < angleDeltaSinus) && (angleBetaSinus < angleHammaSinus)) {
-            double areaOfNonConvexQuadrangle = areaOf_Z_T_SidesTriangle - areaOf_X_Y_SidesTriangle;
-        } else if ((angleAlphaSinus > angleDeltaSinus) && (angleBetaSinus < angleHammaSinus)){
-            double angleAlpfa = Math.asin(angleAlphaSinus);
-            double angleDelta = Math.asin(angleDeltaSinus);
-            double angleMu = angleAlpfa - angleDelta;
-            double areaOfFirstTriangle = areaOfTriangleSideAndTwoAngles(y,angleMu,Math.PI/2);
-            double angleNu = Math.PI/2-angleMu;
-            double angleBeta = Math.asin(angleBetaSinus);
-            double angleHamma = Math.asin(angleHammaSinus);
-            double angleFi = angleHamma - angleBeta;
-            double angleEpsilon = Math.PI - angleFi - angleNu;
-            double areaOfSecondTriangle = areaOfTriangleSideAndTwoAngles(z,angleEpsilon,angleFi);
-            double areaOfSelfCrossedQuadrangle = areaOfFirstTriangle + areaOfSecondTriangle;
+        double e = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));//hypotenuse of triangle X Y E
+        double angleZE = angleOfTriangleThreeSide(z, e, t);
+        double angleTE = angleOfTriangleThreeSide(t, e, z);
+        double angleYE = Math.acos(y / e);
+        double angleXE = Math.acos(x / e);
+        double areaOf_X_Y_SidesTriangle = areaOfRightTriangle(x, y);
+        double areaOf_Z_T_SidesTriangle = areaOfTriangle(z, t, e);
+
+        if ((Math.PI != (angleYE + angleZE)) && (Math.PI != (angleXE + angleTE))) {
+            areaOfFirstQuadrangle = areaOf_X_Y_SidesTriangle + areaOf_Z_T_SidesTriangle;
+
+            if ((Math.PI < (angleYE + angleZE)) || (Math.PI < (angleXE + angleTE))) {
+                firstQuadrangleType = 2;
+            } else {
+                firstQuadrangleType = 1;
+            }
+        } else {
+            firstQuadrangleType = 0;
         }
 
-        //area = ;
+        double angleYZ = 0;
+        double angleXT = 0;
+        double areaOfFirstTriangle = 0;
+        double areaOfSecondTriangle = 0;
+
+        double areaOfSecondQuadrangle = 0;
+
+
+        if ((angleYE > angleZE) && (angleXE > angleTE)) {
+            areaOfSecondTriangle = areaOf_X_Y_SidesTriangle - areaOf_Z_T_SidesTriangle;
+            secondQuadrangleType = 2;
+
+        } else if ((angleYE < angleZE) && (angleXE < angleTE)) {
+            areaOfSecondQuadrangle = areaOf_Z_T_SidesTriangle - areaOf_X_Y_SidesTriangle;
+            secondQuadrangleType = 2;
+
+        } else if ((angleYE > angleZE) && (angleXE < angleTE)) {
+            angleYZ = angleYE - angleZE;
+            angleXT = angleTE - angleXE;
+            double angleZT = Math.PI - angleZE - angleTE;
+            System.out.println("xt=" + angleXT + "  zt=" + angleZT);
+            areaOfFirstTriangle = areaOfTriangleSideAndTwoAngles(y, angleYZ, Math.PI / 2);
+            areaOfSecondTriangle = areaOfTriangleSideAndTwoAngles(t, angleXT, angleZT);
+            areaOfSecondQuadrangle = areaOfFirstTriangle + areaOfSecondTriangle;
+            secondQuadrangleType = 3;
+        } else if ((angleYE < angleZE) && (angleXE > angleTE)) {
+            angleYZ = angleZE - angleYE;
+            angleXT = angleXE - angleTE;
+            double angleZT = Math.PI / 2 - angleYZ + angleXT;
+            areaOfFirstTriangle = areaOfTriangleSideAndTwoAngles(x, angleXT, Math.PI / 2);
+            areaOfSecondTriangle = areaOfTriangleSideAndTwoAngles(z, angleYZ, angleZT);
+            areaOfSecondQuadrangle = areaOfFirstTriangle + areaOfSecondTriangle;
+            secondQuadrangleType = 3;
+        } else {
+            secondQuadrangleType = 0;
+        }
+
+        area[0] = firstQuadrangleType;
+        area[1] = areaOfFirstQuadrangle;
+        area[2] = secondQuadrangleType;
+        area[3] = areaOfSecondQuadrangle;
+
         return area;
     }
+
+    public static double angleOfTriangleThreeSide(double adjasentSide_1, double adjasentSide_2, double oppositeSide) {
+        double angle = Math.acos((Math.pow(adjasentSide_1, 2) + Math.pow(adjasentSide_2, 2) - Math.pow(oppositeSide, 2)) / (2 * adjasentSide_1 * adjasentSide_2));
+        return angle;
+    }
+
     //returns area of triangle (angle-side-angle)
-    public static double areaOfTriangleSideAndTwoAngles(double side, double alpha, double beta){
-        double area = Math.pow(side, 2) / 2 * Math.sin(alpha) * Math.sin(beta)/ Math.sin(alpha + beta);
-        return  area;
+    public static double areaOfTriangleSideAndTwoAngles(double side, double alpha, double beta) {
+        double area = Math.pow(side, 2) / 2 * Math.sin(alpha) * Math.sin(beta) / Math.sin(alpha + beta);
+        return area;
     }
 
     //returns the area of a right triangle (side-right angle-side)
