@@ -1,3 +1,6 @@
+/*Даны числа X, Y, Z, Т — длины сторон четырехугольника.
+Написать метод(методы) вычисления его площади, если угол между сторонами длиной X и Y— прямой*/
+
 import java.util.Scanner;
 import java.lang.Math;
 
@@ -6,8 +9,7 @@ public class Exercise_2_4_9 {
     public static void main(String[] args) {
 
         double[] sides = insertQuadrangleSidesLength();
-        //System.out.println(areaOfRightTriangle(3,4));
-        //System.out.println(areaOfTriangle(3,4,5));
+
         double[] quadrangle = areaOfQuadrangle(sides);
         if ((quadrangle[0] > 0) && (quadrangle[2] > 0)) {
             System.out.println("Для данного набора длинн сторон существует два типа четыречугольников:");
@@ -31,7 +33,7 @@ public class Exercise_2_4_9 {
             System.out.println("Для данного набора длинн сторон существует самопересекающийся четыречугольник \n с площадью " + quadrangle[3] + " квадратных единиц.");
         }
     }
-
+    //returns area of existing quadrangles and theirs types
     public static double[] areaOfQuadrangle(double[] sides) {
 
         double[] area = new double[4];
@@ -102,38 +104,38 @@ public class Exercise_2_4_9 {
             secondQuadrangleType = 0;
         }
 
-        area[0] = firstQuadrangleType;
-        area[1] = areaOfFirstQuadrangle;
-        area[2] = secondQuadrangleType;
-        area[3] = areaOfSecondQuadrangle;
+        area[0] = firstQuadrangleType; //type of first quadrangle
+        area[1] = areaOfFirstQuadrangle; //area of first quadrangle
+        area[2] = secondQuadrangleType; //type of second quadrangle
+        area[3] = areaOfSecondQuadrangle; //area of second quadrangle
 
         return area;
     }
-
+    //returns the angle by the known three sides of the triangle
     public static double angleOfTriangleThreeSide(double adjasentSide_1, double adjasentSide_2, double oppositeSide) {
         double angle = Math.acos((Math.pow(adjasentSide_1, 2) + Math.pow(adjasentSide_2, 2) - Math.pow(oppositeSide, 2)) / (2 * adjasentSide_1 * adjasentSide_2));
         return angle;
     }
 
-    //returns area of triangle (angle-side-angle)
+    //returns area of triangle by the known side and two adjacent angles(angle-side-angle)
     public static double areaOfTriangleSideAndTwoAngles(double side, double alpha, double beta) {
         double area = Math.pow(side, 2) / 2 * Math.sin(alpha) * Math.sin(beta) / Math.sin(alpha + beta);
         return area;
     }
 
-    //returns the area of a right triangle (side-right angle-side)
+    //returns the area of a right triangle by the known angle(right angle) and two sides (legs)
     public static double areaOfRightTriangle(double leg_1, double leg_2) {
         double area = leg_1 * leg_2 / 2;
         return area;
     }
 
-    //returns the area of a triangle (side-side-side)
+    //returns the area of a triangle by the known three sides
     public static double areaOfTriangle(double side_a, double side_b, double side_c) {
         double p = (side_a + side_b + side_c) / 2;
         double area = Math.sqrt(p * (p - side_a) * (p - side_b) * (p - side_c));
         return area;
     }
-
+    //provides input of side values of a quadrangle and returns their values in the array
     public static double[] insertQuadrangleSidesLength() {
         double[] sides = new double[4];
         double sZT;
