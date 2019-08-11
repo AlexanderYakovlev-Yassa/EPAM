@@ -6,18 +6,19 @@ import java.lang.Math;
 public class Exercise_2_4_10 {
 
     public static void main(String[] args) {
-        int n = 1234567890;
-        printArray(arrayOfDigits(n));
+        int n = 0;
+        printArray(arrayOfDigits(-152));
 
     }
 
     //returns array of digits which are contained in "number"
-    public static int[] arrayOfDigits(int number){
-        int p = (int)Math.log10(number);
-        int[] digits = new int[p + 1];
-        int a = (int)Math.pow(10,p);
+    public static int[] arrayOfDigits(int number) {
+        number = Math.abs(number);
+        int p = number == 0 ? 1 : (int) Math.log10(number) + 1;
+        int[] digits = new int[p];
+        int a = (int) Math.pow(10, p - 1);
         int i = 0;
-        while (a > 0){
+        while (a > 0) {
             digits[i] = number / a;
             number = number - digits[i] * a;
             i++;
