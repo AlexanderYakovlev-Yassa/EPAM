@@ -2,7 +2,7 @@
 // Вывести данное значение длительности в часах, минутах и секундах в следующей форме:
 //ННч ММмин SSc.
 
-public class Exercise_1_5 {
+public class Task_1_1_5 {
 
     public static void main(String[] args) {
         System.out.println(time(9587));
