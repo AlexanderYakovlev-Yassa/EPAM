@@ -21,7 +21,7 @@
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Exercise_3_8 {
+public class Task_1_3_8 {
     public static void main(String[] args) {
 
         compare();
