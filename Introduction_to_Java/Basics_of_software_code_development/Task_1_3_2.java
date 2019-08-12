@@ -1,7 +1,7 @@
 
 //Вычислить значения функции на отрезке [а,b] c шагом h:
 
-public class Exercise_3_2 {
+public class Task_1_3_2 {
 
     public static void main(String[] args){
         function_3_2(-50, 20, 2);
