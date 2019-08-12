@@ -1,7 +1,7 @@
 // Заданы размеры А, В прямоугольного отверстия и размеры х, у, z кирпича.
 //Определить, пройдет ли кирпич через отверстие.
 
-public class Exercise_2_4 {
+public class Task_1_2_4 {
 
     public static void main(String[] args){
         int holeLength = 120;
