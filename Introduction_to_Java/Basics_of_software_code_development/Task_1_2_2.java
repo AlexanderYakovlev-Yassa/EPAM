@@ -1,6 +1,6 @@
 //2. Найти max{min(a, b), min(c, d)}.
 
-public class Exercise_2_2 {
+public class Task_1_2_2 {
 
     public static void main(String[] args) {
 
