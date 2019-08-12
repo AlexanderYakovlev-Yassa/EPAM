@@ -11,7 +11,7 @@ import java.lang.Math;
 import java.util.Scanner;
 
 
-public class Exercise_3_5 {
+public class Task_1_3_5 {
 
     public static void main(String[] args){
         double e = 0.01;
