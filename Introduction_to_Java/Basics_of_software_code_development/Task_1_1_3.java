@@ -1,6 +1,6 @@
 // Вычислить значение выражения по формуле (все переменные принимают действительные значения):
 
-public class Exercise_1_3 {
+public class Task_1_1_3 {
 
     public static void main(String[] args){
         System.out.println(anglFunction(5, 3));
