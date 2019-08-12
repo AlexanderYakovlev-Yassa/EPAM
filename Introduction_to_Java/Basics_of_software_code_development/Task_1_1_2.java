@@ -1,6 +1,6 @@
 // Вычислить значение выражения по формуле (все переменные принимают действительные значения):
 
-public class Exercise_1_2 {
+public class Task_1_1_2 {
 
     public static void main(String[] args){
 
