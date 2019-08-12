@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
-public class Exercise_3_1 {
+public class Task_1_3_1 {
 
     public static void main(String[] args){
         userFunc();
