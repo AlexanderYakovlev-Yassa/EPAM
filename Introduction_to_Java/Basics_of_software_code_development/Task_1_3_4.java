@@ -6,7 +6,7 @@
 
 import java.math.BigInteger;
 
-public class Exercise_3_4 {
+public class Task_1_3_4 {
 
     public static void main(String[] args){
         System.out.println("Multiplying of first 100 numbers in power of 2 is " + function_3_4());
