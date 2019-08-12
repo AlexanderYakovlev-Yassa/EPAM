@@ -1,7 +1,7 @@
 // Даны два угла треугольника (в градусах).
 // Определить, существует ли такой треугольник, и если да, то будет ли он прямоугольным.
 
-public class Exercise_2_1 {
+public class Task_1_2_1 {
 
     public static void main(String[] args){
 
