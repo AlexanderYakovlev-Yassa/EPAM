@@ -3,7 +3,7 @@
 
 import java.awt.Point;
 
-public class Exercise_2_3 {
+public class Task_1_2_3 {
 
     public static void main(String[] args){
         Point a = new Point(0, 0);
