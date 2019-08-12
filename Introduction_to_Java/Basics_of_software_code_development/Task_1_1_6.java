@@ -4,7 +4,7 @@
 // если точка с координатами (х, у) принадлежит закрашенной области,
 // и false — в противном случае:
 
-public class Exercise_1_6 {
+public class Task_1_1_6 {
 
     public static void main(String[] args) {
         System.out.println(area(-2, 1));
