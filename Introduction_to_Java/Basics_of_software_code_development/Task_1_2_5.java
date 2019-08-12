@@ -2,7 +2,7 @@
 
 import java.lang.Math;
 
-public class Exercise_2_5 {
+public class Task_1_2_5 {
 
     public static void main(String[] args){
         System.out.println(function_0(10));
