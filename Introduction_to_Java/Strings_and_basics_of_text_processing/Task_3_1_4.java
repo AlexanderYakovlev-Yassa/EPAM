@@ -20,14 +20,7 @@ public class Task_3_1_4 {
                 if (!isNumber) {
                     isNumber = true;
                     numbers++;
-                }
-                /*if (i != chars.length - 1) {
-                    while (Character.isDigit(chars[i]) || ((chars[i] == '.') && (Character.isDigit(chars[i + 1])))) {
-                        i++;
-                    }
-                    numbers++;
-                }*/
-
+                }                
             } else {
                 if (chars[i] == '.'){
                     if (!firstPoint && isNumber){
