@@ -7,10 +7,11 @@ public class Task_3_1_5 {
     public static void main(String[] args) {
         String str = " The average Wall Street   salary rose 13 percent last year to    its highest level   since 2008, when    Lehman Brothers Holdings Inc.  collapsed.      ";
         System.out.println(str);
-        System.out.println(sleanSpaces(str));
+        System.out.println(cleanSpaces(str));
     }
 
-    public static String sleanSpaces(String str) {
+    //cleans up from the excess spaces
+    public static String cleanSpaces(String str) {
         str = str.trim();
         int excessSpaces = 0;
         char[] chars = str.toCharArray();
