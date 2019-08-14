@@ -10,32 +10,39 @@ public class Task_3_1_4 {
 
     public static int numberOfNumbers(String str) {
         char[] chars = str.toCharArray();
-
         int numbers = 0;
-        int i = 0;
-        boolean firstPoint = false;
-        boolean isNumber = false;
-        while (i < chars.length) {
-            if (Character.isDigit(chars[i])) {
-                if (!isNumber) {
-                    isNumber = true;
-                    numbers++;
-                }                
-            } else {
-                if (chars[i] == '.'){
-                    if (!firstPoint && isNumber){
-                        firstPoint = true;
-                    } else if (firstPoint && isNumber){
-                        firstPoint = false;
-                        isNumber = false;
-                    }
-                } else {
-                    isNumber = false;
-                }
+
+        numbers = isNumber('x', 'x',chars[0]) ? numbers + 1 : numbers;
+        numbers = isNumber('x', chars[0], chars[1]) ? numbers + 1 : numbers;
+
+        for (int i = 0; i < chars.length-2; i++){
+            if (isNumber(chars[i], chars[i + 1], chars[i + 2])){
+                numbers++;
             }
-            i++;
         }
 
         return numbers;
+    }
+
+    private static boolean isNumber(char first, char second, char third){
+        boolean res;
+
+        if (Character.isDigit(third)){
+            if (Character.isDigit(second)){
+                res = false;
+            } else if (second == '.' || second == ','){
+                if (Character.isDigit(first)){
+                    res = false;
+                } else {
+                    res = true;
+                }
+            } else {
+                res = true;
+            }
+        } else {
+            res = false;
+        }
+
+        return res;
     }
 }
