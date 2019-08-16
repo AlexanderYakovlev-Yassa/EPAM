@@ -20,11 +20,6 @@ public class Task_2_1_10 {
         }
     }
 
-    /*public static void compression(int[] a) {
-        for (int i = 0; i < a.length; i++) {
-            a[i] = i % 2 != 0 ? a[i] = 0 : a[i];
-        }
-    }*/
     public static void compression(int[] a) {
 
         for (int i = 1; i < a.length; i++) {
