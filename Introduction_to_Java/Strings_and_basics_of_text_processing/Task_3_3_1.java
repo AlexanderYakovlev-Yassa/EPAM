@@ -33,7 +33,7 @@ public class Task_3_3_1 {
     }
 
     //splits paragraphs to sentences and words
-    private void processParagraphs(){
+    private void processParagraphs() {
         this.s = new String[this.p.length][];
         this.w = new String[this.p.length][][];
 
@@ -149,25 +149,67 @@ public class Task_3_3_1 {
         }
     }
 
-    public  static void sortByAlphabet(String[] str){
-        int maxLength = lengthOfMaxWord(str);
-        boolean flag = true;
-        int letter = 0;
-        int min;
-        while (flag){
-            for (int i = 0; i < str.length; i++) {
-                min = i;
-                for (int j = 1; j < str.length; j++) {
-                    min = ghost(str[min],maxLength)[letter] < ghost(str[j],maxLength)[letter] ? min : j;
-                }
-                swap(str, i,min);
+    //sorts array of String alphabetically
+    public static void sortAlphabetically(String[] str) {
+        //int maxLength = lengthOfMaxWord(str);
+        //boolean flag = true;
+        //int letter = 0;
+        int min = 0;
+        for (int i = 0; i < str.length; i++) {
+            min = i;
+            for (int j = i + 1; j < str.length; j++) {
+                min = compareWords(str[min], str[j]) <= 0 ? min : j;
             }
-
+            swap(str, min, i);
         }
     }
 
+    //compares two words alphabetically
+    public static int compareWords(String w1, String w2) {
+        int res = 0;
+        int max = (w1.length() <= w2.length()) ? w2.length() : w1.length();
+        char[] g1 = ghost(w1, max);
+        char[] g2 = ghost(w2, max);
+        int letter = 0;
+        while (letter < max) {
+            if (g1[letter] > g2[letter]) {
+                res = 1;
+                break;
+            } else if (g1[letter] < g2[letter]) {
+                res = -1;
+                break;
+            } else {
+                letter++;
+            }
+        }
+        return res;
+    }
+
+    public static int numberOfParticularLetter(String str, char ch) {
+        int c = 0;
+        int k = 0;
+        int start = 0;
+        while (k >= 0) {
+            k = str.indexOf(ch, start);
+            if (k >= 0) {
+                c++;
+                start = k + 1;
+            }
+        }
+        return c;
+    }
+
+    //compare two words by the rule
+    /*public static int compareRule(String w1, String w2, char ch) {
+        int res = 0;
+        int max = (w1.length() <= w2.length()) ? w2.length() : w1.length();
+        char[] g1 = w1.;
+        char[] g2 = w2.toCharArray();
+        int letter = 0;
+    }*/
+
     //returns the length of a word with the maximal length
-    public static int lengthOfMaxWord(String[] str){
+    public static int lengthOfMaxWord(String[] str) {
         int max = str[0].length();
         for (int i = 1; i < str.length; i++) {
             max = max > str[i].length() ? max : str[i].length();
@@ -176,7 +218,7 @@ public class Task_3_3_1 {
     }
 
     //returns the spetial way formatted string to facilitate the sorting
-    public  static char[] ghost(String str, int length){
+    public static char[] ghost(String str, int length) {
         char[] origin = str.toCharArray();
         char[] gh = new char[length];
         for (int i = 0; i < length; i++) {
@@ -187,7 +229,7 @@ public class Task_3_3_1 {
             }
         }
 
-        return  gh;
+        return gh;
     }
 
     //swaps elements in the array of integer
