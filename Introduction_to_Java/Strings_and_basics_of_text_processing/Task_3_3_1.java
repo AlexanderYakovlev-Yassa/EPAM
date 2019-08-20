@@ -8,6 +8,7 @@
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Scanner;
 
 public class Task_3_3_1 {
     String text;
@@ -28,8 +29,60 @@ public class Task_3_3_1 {
     }
 
     public static void main(String[] args) {
-        Task_3_3_1 task = new Task_3_3_1();
-        task.print();
+        Task_3_3_1 text = new Task_3_3_1();
+        //text.print();
+        boolean flag = true;
+        while (flag) {
+            int key = chooseOption();
+            switch (key) {
+                case 1:
+                    text.sortParagraphs();
+                    text.print();
+                    break;
+                case 2:
+                    text.sortAllSentences();
+                    text.print();
+                    break;
+                case 3:
+                    text.sortSentencesByRule('a');
+                    text.print();
+                    break;
+                case 4:
+
+                    break;
+                case 0:
+                    flag = false;
+                    break;
+                default:
+            }
+        }
+
+    }
+
+    private static int chooseOption() {
+
+        int res = 0;
+        Scanner scan = new Scanner(System.in);
+        boolean flag = true;
+        while (flag) {
+            System.out.println("Choose the option:");
+            System.out.println("\tpress 1 for Option 1\n\tpress 2 for Option 2\n\tpress 3 for Option 3\n\tpress 0 for Exit");
+            System.out.print(" >");
+            String str = scan.nextLine();
+            switch (str) {
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                case "0":
+                    res = Integer.valueOf(str);
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("There is no Option " + str + "\n");
+            }
+        }
+        return res;
     }
 
     //splits paragraphs to sentences and words
@@ -60,7 +113,7 @@ public class Task_3_3_1 {
     }
 
     //Second part of the task
-    public void sortAllSentances() {
+    public void sortAllSentences() {
         int min = 0;
         for (int i = 0; i < p.length; i++) {
             for (int j = 0; j < s[i].length; j++) {
@@ -75,6 +128,21 @@ public class Task_3_3_1 {
         }
     }
 
+    //Third part of the task
+    public void sortSentencesByRule(char ch) {
+        int min = 0;
+        for (int i = 0; i < p.length; i++) {
+            for (int j = 0; j < s[i].length; j++) {
+                sortByRule(w[i][j], ch);
+            }
+        }
+    }
+
+  /*  //enter the character
+    public static int enterKey(){
+        boolean flag = true;
+    }
+*/
     //splits source text to paragraphs and return array of paragraphs (String)
     public static String[] splitToParagraphs(String text) {
         String[] paragraphs = text.split("\n");
@@ -150,7 +218,7 @@ public class Task_3_3_1 {
     }
 
     //sorts array of String alphabetically
-    public static void sortAlphabetically(String[] str) {
+    public static void sortByRule(String[] str, char ch) {
         //int maxLength = lengthOfMaxWord(str);
         //boolean flag = true;
         //int letter = 0;
@@ -158,16 +226,30 @@ public class Task_3_3_1 {
         for (int i = 0; i < str.length; i++) {
             min = i;
             for (int j = i + 1; j < str.length; j++) {
-                min = compareWords(str[min], str[j]) <= 0 ? min : j;
+                min = compareWords(str[min], str[j], ch) <= 0 ? min : j;
             }
             swap(str, min, i);
         }
     }
 
     //compares two words alphabetically
-    public static int compareWords(String w1, String w2) {
+    public static int compareWords(String w1, String w2, char ch) {
         int res = 0;
-        int max = (w1.length() <= w2.length()) ? w2.length() : w1.length();
+        int chi1 = charsIn(w1, ch);
+        int chi2 = charsIn(w2, ch);
+        if (chi1 < chi2) {
+            res = 1;
+        } else if (chi1 > chi2) {
+            res = -1;
+        } else {
+            if (w1.compareToIgnoreCase(w2) > 0) {
+                res = 1;
+            } else if (w1.compareToIgnoreCase(w2) < 0) {
+                res = -1;
+            }
+        }
+
+        /*int max = (w1.length() <= w2.length()) ? w2.length() : w1.length();
         char[] g1 = ghost(w1, max);
         char[] g2 = ghost(w2, max);
         int letter = 0;
@@ -181,11 +263,11 @@ public class Task_3_3_1 {
             } else {
                 letter++;
             }
-        }
+        }*/
         return res;
     }
 
-    public static int numberOfParticularLetter(String str, char ch) {
+    public static int charsIn(String str, char ch) {
         int c = 0;
         int k = 0;
         int start = 0;
