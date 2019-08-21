@@ -18,37 +18,53 @@ public class Task_3_3_1 {
 
     public Task_3_3_1() {
         this.text = sourceText();
-        this.p = this.text.split("\n");
+        processText();
         processParagraphs();
     }
 
     public Task_3_3_1(String text) {
         this.text = text;
-        this.p = this.text.split("\n");
+        processText();
         processParagraphs();
     }
 
     public static void main(String[] args) {
-        Task_3_3_1 text = new Task_3_3_1();
+        String sourceText = "The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma,[15][16] with internal convective motion that generates a magnetic field via a dynamo process.[17] It is by far the most important source of energy for life on Earth. Its diameter is about 1.39 million kilometers (864,000 miles), or 109 times that of Earth, and its mass is about 330,000 times that of Earth. It accounts for about 99.86% of the total mass of the Solar System.[18] Roughly three quarters of the Sun's mass consists of hydrogen (~73%); the rest is mostly helium (~25%), with much smaller quantities of heavier elements, including oxygen, carbon, neon, and iron.[19]\n" +
+                "\n" +
+                "The Sun is a G-type main-sequence star (G2V) based on its spectral class. As such, it is informally and not completely accurately referred to as a yellow dwarf (its light is closer to white than yellow). It formed approximately 4.6 billion[a][11][20] years ago from the gravitational collapse of matter within a region of a large molecular cloud. Most of this matter gathered in the center, whereas the rest flattened into an orbiting disk that became the Solar System. The central mass became so hot and dense that it eventually initiated nuclear fusion in its core. It is thought that almost all stars form by this process.\n" +
+                "\n" +
+                "The Sun currently fuses about 600 million tons of hydrogen into helium every second, converting 4 million tons of matter into energy every second as a result. This energy, which can take between 10,000 and 170,000 years to escape from its core, is the source of the Sun's light and heat. When hydrogen fusion in its core has diminished to the point at which the Sun is no longer in hydrostatic equilibrium, its core will undergo a marked increase in density and temperature while its outer layers expand to eventually become a red giant. It is calculated that the Sun will become sufficiently large to engulf the current orbits of Mercury and Venus, and render Earth uninhabitable. After this, it will shed its outer layers and become a dense type of cooling star known as a white dwarf, and no longer produce energy by fusion, but still glow and give off heat from its previous fusion.\n" +
+                "\n" +
+                "The enormous effect of the Sun on Earth has been recognized since prehistoric times, and the Sun has been regarded by some cultures as a deity. The synodic rotation of Earth and its orbit around the Sun are the basis of solar calendars, one of which is the predominant calendar in use today.";
+        Task_3_3_1 text = new Task_3_3_1(sourceText);
         //text.print();
         boolean flag = true;
+        char keySymbol;
         while (flag) {
             int key = chooseOption();
             switch (key) {
                 case 1:
                     text.sortParagraphs();
-                    text.print();
+                    System.out.println("\nParagraphs are sorted by number of sentences:");
+                    text.printParagraphs();
                     break;
                 case 2:
                     text.sortAllSentences();
-                    text.print();
+                    System.out.println("\nWords in every sentence are sorted by number of letters:");
+                    text.printSentences();
                     break;
                 case 3:
-                    text.sortSentencesByRule('a');
-                    text.print();
+                    System.out.println("To complete third part of the task needs a \"key\" symbol");
+                    keySymbol = chooseSymbol();
+                    text.sortSentencesByRule(keySymbol);
+                    System.out.println("\nWords in every sentence are sorted by number of symbol " + "\'" + keySymbol + "\' in every word or if they haven't this symbol by alphabet:");
+                    text.printSentences();
                     break;
                 case 4:
-
+                    text.processText();
+                    text.processParagraphs();
+                    System.out.println("This text has been returned to original state");
+                    text.printParagraphs();
                     break;
                 case 0:
                     flag = false;
@@ -65,8 +81,8 @@ public class Task_3_3_1 {
         Scanner scan = new Scanner(System.in);
         boolean flag = true;
         while (flag) {
-            System.out.println("Choose the option:");
-            System.out.println("\tpress 1 for Option 1\n\tpress 2 for Option 2\n\tpress 3 for Option 3\n\tpress 0 for Exit");
+            System.out.println("\nChoose the option:");
+            System.out.println("\tpress 1 for Option 1\n\tpress 2 for Option 2\n\tpress 3 for Option 3\n\tpress 4 to return to original state\n\tpress 0 for Exit");
             System.out.print(" >");
             String str = scan.nextLine();
             switch (str) {
@@ -82,7 +98,26 @@ public class Task_3_3_1 {
                     System.out.println("There is no Option " + str + "\n");
             }
         }
+
         return res;
+    }
+
+    public static char chooseSymbol() {
+        Scanner scan = new Scanner(System.in);
+        boolean flag = true;
+        String symbol;
+        char ch = ' ';
+        while (flag) {
+            System.out.print("Type a \"key\" symbol >");
+            symbol = scan.nextLine();
+            if (symbol.length() == 1) {
+                flag = false;
+                ch = symbol.charAt(0);
+            } else {
+                System.out.println("It must be an only one symbol, please try again");
+            }
+        }
+        return ch;
     }
 
     //splits paragraphs to sentences and words
@@ -97,6 +132,11 @@ public class Task_3_3_1 {
                 this.w[i][j] = splitToWords(this.s[i][j]);
             }
         }
+    }
+
+    //splits text to paragraphs
+    private void processText() {
+        this.p = this.text.split("\n");
     }
 
     //First part of the task
@@ -131,6 +171,7 @@ public class Task_3_3_1 {
     //Third part of the task
     public void sortSentencesByRule(char ch) {
         int min = 0;
+        ch = Character.toLowerCase(ch);
         for (int i = 0; i < p.length; i++) {
             for (int j = 0; j < s[i].length; j++) {
                 sortByRule(w[i][j], ch);
@@ -138,11 +179,6 @@ public class Task_3_3_1 {
         }
     }
 
-  /*  //enter the character
-    public static int enterKey(){
-        boolean flag = true;
-    }
-*/
     //splits source text to paragraphs and return array of paragraphs (String)
     public static String[] splitToParagraphs(String text) {
         String[] paragraphs = text.split("\n");
@@ -165,7 +201,8 @@ public class Task_3_3_1 {
     //splits the sentence to words and returns array of words (String)
     public static String[] splitToWords(String sentence) {
         String[] words = new String[0];
-        Pattern word = Pattern.compile("[\\w]+");
+        //Pattern word = Pattern.compile("[\\w]+");
+        Pattern word = Pattern.compile("[(\\w)&(\\D)]+");
         Matcher m = word.matcher(sentence);
         while (m.find()) {
             words = appendToArray(words, sentence.substring(m.start(), m.end()));
@@ -183,16 +220,8 @@ public class Task_3_3_1 {
         return newArray;
     }
 
-    //returns the default source text
-    public static String sourceText() {
-        String text = "There were four of us - George, and William? Samuel Harris, and myself, and Montmorency. We were! Sitting in my room, smoking, and talking about how bad we were - bad from a medical point of view I mean, of course.\n" +
-                "We were all feeling seedy, and we were getting quite nervous about it. Harris said he felt such extraordinary fits of giddiness come over him at times, that he hardly knew what he was doing; and then George said that HE had fits of giddiness too, and hardly knew what HE was doing. With me, it was my liver that was out of order. I knew it was my liver that was out of order, because I had just been reading a patent liver-pill circular, in which were detailed the various symptoms by which a man could tell when his liver was out of order. I had them all.\n" +
-                "It is a most extraordinary thing, but I never read a patent medicine advertisement without being impelled to the conclusion that I am suffering from the particular disease therein dealt with in its most virulent form. The diagnosis seems in every case to correspond exactly with all the sensations that I have ever felt.\n" +
-                "I remember going to the British Museum one day to read up the treatment for some slight ailment of which I had a touch - hay fever, I fancy it was. I got down the book, and read all I came to read; and then, in an unthinking moment, I idly turned the leaves, and began to indolently study diseases, generally. I forget which was the first distemper I plunged into - some fearful, devastating scourge, I know - and, before I had glanced half down the list of \"premonitory symptoms,\" it was borne in upon me that I had fairly got it.";
-        return text;
-    }
-
     //prints the entire object Test_3_3_1
+
     public void print() {
         for (int i = 0; i < this.p.length; i++) {
             System.out.println("p[" + i + "] = " + this.p[i]);
@@ -204,8 +233,8 @@ public class Task_3_3_1 {
             }
         }
     }
-
     //sorts the array of integers
+
     public static void sortArray(int[] array) {
         int min = 0;
         for (int i = 0; i < array.length - 1; i++) {
@@ -216,12 +245,9 @@ public class Task_3_3_1 {
             swap(array, i, min);
         }
     }
-
     //sorts array of String alphabetically
+
     public static void sortByRule(String[] str, char ch) {
-        //int maxLength = lengthOfMaxWord(str);
-        //boolean flag = true;
-        //int letter = 0;
         int min = 0;
         for (int i = 0; i < str.length; i++) {
             min = i;
@@ -231,8 +257,8 @@ public class Task_3_3_1 {
             swap(str, min, i);
         }
     }
-
     //compares two words alphabetically
+
     public static int compareWords(String w1, String w2, char ch) {
         int res = 0;
         int chi1 = charsIn(w1, ch);
@@ -249,48 +275,24 @@ public class Task_3_3_1 {
             }
         }
 
-        /*int max = (w1.length() <= w2.length()) ? w2.length() : w1.length();
-        char[] g1 = ghost(w1, max);
-        char[] g2 = ghost(w2, max);
-        int letter = 0;
-        while (letter < max) {
-            if (g1[letter] > g2[letter]) {
-                res = 1;
-                break;
-            } else if (g1[letter] < g2[letter]) {
-                res = -1;
-                break;
-            } else {
-                letter++;
-            }
-        }*/
         return res;
     }
-
     public static int charsIn(String str, char ch) {
+        char[] letters = str.toCharArray();
         int c = 0;
         int k = 0;
         int start = 0;
-        while (k >= 0) {
-            k = str.indexOf(ch, start);
-            if (k >= 0) {
+        for (int i = 0; i < letters.length; i++) {
+            if (ch == Character.toLowerCase(letters[i])){
                 c++;
-                start = k + 1;
             }
         }
+
         return c;
     }
 
-    //compare two words by the rule
-    /*public static int compareRule(String w1, String w2, char ch) {
-        int res = 0;
-        int max = (w1.length() <= w2.length()) ? w2.length() : w1.length();
-        char[] g1 = w1.;
-        char[] g2 = w2.toCharArray();
-        int letter = 0;
-    }*/
-
     //returns the length of a word with the maximal length
+
     public static int lengthOfMaxWord(String[] str) {
         int max = str[0].length();
         for (int i = 1; i < str.length; i++) {
@@ -298,8 +300,8 @@ public class Task_3_3_1 {
         }
         return max;
     }
-
     //returns the spetial way formatted string to facilitate the sorting
+
     public static char[] ghost(String str, int length) {
         char[] origin = str.toCharArray();
         char[] gh = new char[length];
@@ -313,25 +315,65 @@ public class Task_3_3_1 {
 
         return gh;
     }
+    public void printParagraphs() {
+        char[] pChars = new char[p.length];
+        int carriage = 0;
+        for (int i = 0; i < p.length; i++) {
+            pChars = p[i].toCharArray();
+            System.out.println("");
+            System.out.print("\t");
+            for (int j = 0; j < pChars.length; j++) {
+                if (carriage > 100 && pChars[j - 1] == ' ') {
+                    System.out.println("");
+                    carriage = 0;
+                }
+                System.out.print(pChars[j]);
+                carriage++;
+            }
+            System.out.println("");
+        }
+    }
+
+    public void printSentences() {
+        System.out.println("");
+        for (int i = 0; i < p.length; i++) {
+            for (int j = 0; j < s[i].length; j++) {
+                for (int k = 0; k < w[i][j].length; k++) {
+                    System.out.print(w[i][j][k] + " ");
+                }
+                System.out.println("");
+            }
+        }
+    }
 
     //swaps elements in the array of integer
+
     public static void swap(int[] array, int ind1, int ind2) {
         int bubble = array[ind1];
         array[ind1] = array[ind2];
         array[ind2] = bubble;
     }
-
     //swaps elements in the array of String
+
     public static void swap(String[] array, int ind1, int ind2) {
         String bubble = array[ind1];
         array[ind1] = array[ind2];
         array[ind2] = bubble;
     }
-
     //swaps elements(arrays of string) in the array of array of String
+
     public static void swap(String[][] array, int ind1, int ind2) {
         String[] bubble = array[ind1];
         array[ind1] = array[ind2];
         array[ind2] = bubble;
+    }
+
+    //returns the default source text
+    public static String sourceText() {
+        String text = "There were four of us - George, and William Samuel Harris, and myself, and Montmorency. We were sitting in my room, smoking, and talking about how bad we were - bad from a medical point of view I mean, of course.\n" +
+                "We were all feeling seedy, and we were getting quite nervous about it. Harris said he felt such extraordinary fits of giddiness come over him at times, that he hardly knew what he was doing; and then George said that HE had fits of giddiness too, and hardly knew what HE was doing. With me, it was my liver that was out of order. I knew it was my liver that was out of order, because I had just been reading a patent liver-pill circular, in which were detailed the various symptoms by which a man could tell when his liver was out of order. I had them all.\n" +
+                "It is a most extraordinary thing, but I never read a patent medicine advertisement without being impelled to the conclusion that I am suffering from the particular disease therein dealt with in its most virulent form. The diagnosis seems in every case to correspond exactly with all the sensations that I have ever felt.\n" +
+                "I remember going to the British Museum one day to read up the treatment for some slight ailment of which I had a touch - hay fever, I fancy it was. I got down the book, and read all I came to read; and then, in an unthinking moment, I idly turned the leaves, and began to indolently study diseases, generally. I forget which was the first distemper I plunged into - some fearful, devastating scourge, I know - and, before I had glanced half down the list of \"premonitory symptoms,\" it was borne in upon me that I had fairly got it.";
+        return text;
     }
 }
