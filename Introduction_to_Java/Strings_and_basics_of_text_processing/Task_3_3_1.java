@@ -17,12 +17,6 @@ public class Task_3_3_1 {
     String[][][] w;
     String[][][] l;
 
-    public Task_3_3_1() {
-        this.text = sourceText();
-        processText();
-        processParagraphs();
-    }
-
     public Task_3_3_1(String text) {
         this.text = text;
         processText();
@@ -381,14 +375,5 @@ public class Task_3_3_1 {
         String[] bubble = array[ind1];
         array[ind1] = array[ind2];
         array[ind2] = bubble;
-    }
-
-    //returns the default source text
-    public static String sourceText() {
-        String text = "There were four of us - George, and William-Samuel Harris, and myself, and Montmorency. We were sitting in my room, smoking, and talking about how bad we were - bad from a medical point of view I mean, of course.\n" +
-                "We were all feeling seedy, and we were getting quite nervous about it. Harris said he felt such extraordinary fits of giddiness come over him at times, that he hardly knew what he was doing; and then George said that HE had fits of giddiness too, and hardly knew what HE was doing. With me, it was my liver that was out of order. I knew it was my liver that was out of order, because I had just been reading a patent liver-pill circular, in which were detailed the various symptoms by which a man could tell when his liver was out of order. I had them all.\n" +
-                "It is a most extraordinary thing, but I never read a patent medicine advertisement without being impelled to the conclusion that I am suffering from the particular disease therein dealt with in its most virulent form. The diagnosis seems in every case to correspond exactly with all the sensations that I have ever felt.\n" +
-                "I remember going to the British Museum one day to read up the treatment for some slight ailment of which I had a touch - hay fever, I fancy it was. I got down the book, and read all I came to read; and then, in an unthinking moment, I idly turned the leaves, and began to indolently study diseases, generally. I forget which was the first distemper I plunged into - some fearful, devastating scourge, I know - and, before I had glanced half down the list of \"premonitory symptoms,\" it was borne in upon me that I had fairly got it.";
-        return text;
     }
 }
