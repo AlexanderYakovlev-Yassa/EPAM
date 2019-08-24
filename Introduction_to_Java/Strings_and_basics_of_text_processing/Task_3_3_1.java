@@ -30,16 +30,8 @@ public class Task_3_3_1 {
     }
 
     public static void main(String[] args) {
-        String sourceText = inputText();/*"The Sun is the star at the center of the Solar System. " +
-                "It is a nearly perfect sphere of hot plasma,[15][16] with internal-convective motion that generates a magnetic field via a dynamo process." +
-                " It is by far the most important source of energy for life on Earth." +
-                " Its diameter is about 1.39 million kilometers (864,000 miles), or 109 times that of Earth, and its mass is about 330,000 times that of Earth." +
-                " It accounts for about 99.86% of the total mass of the Solar System." +
-                " Roughly three quarters of the Sun's mass consists of hydrogen (~73%); the rest is mostly helium (~25%), with much smaller quantities of heavier elements, including " +
-                "oxygen, carbon, neon, and iron.\n";*/
-
+        String sourceText = inputText();
         Task_3_3_1 text = new Task_3_3_1(sourceText);
-        //text.print();
         boolean flag = true;
         char keySymbol;
         while (flag) {
@@ -78,23 +70,22 @@ public class Task_3_3_1 {
         System.out.println("\nGOOD BYE...");
     }
 
-    public static String inputText(){
+    public static String inputText() {
         Scanner scan = new Scanner(System.in);
         StringBuilder text = new StringBuilder("");
         String newPhrase = " ";
         boolean flag = true;
         System.out.print("Insert text ");
-        while (flag){
+        while (flag) {
             System.out.print(">");
             newPhrase = scan.nextLine();
 
-            if(!newPhrase.equals("")){
-                if (newPhrase.charAt(newPhrase.length()-1) == '\n'){
+            if (!newPhrase.equals("")) {
+                if (newPhrase.charAt(newPhrase.length() - 1) == '\n') {
                     text.append(newPhrase);
                 } else {
                     text.append(newPhrase + "\n");
                 }
-                System.out.println(text.toString());
             } else {
                 flag = false;
             }
@@ -127,7 +118,6 @@ public class Task_3_3_1 {
                     System.out.println("There is no Option " + str + "\n");
             }
         }
-
         return res;
     }
 
@@ -175,13 +165,14 @@ public class Task_3_3_1 {
 
     //First part of the task
     public void sortParagraphs() {
-        int min = 0;
+        int min;
         for (int i = 0; i < p.length; i++) {
             min = i;
             for (int j = i + 1; j < p.length; j++) {
                 min = s[j].length < s[min].length ? j : min;
             }
             swap(p, i, min);
+            swap(s, i, min);
         }
         processParagraphs();
     }
@@ -236,7 +227,7 @@ public class Task_3_3_1 {
     public static String[] splitToWords(String sentence) {
         String[] words = new String[0];
         //Pattern word = Pattern.compile("[\\w]+");
-        Pattern word = Pattern.compile("[A-Za-z]+[-]?[A-Za-z]+");//|^([\\d][\\,\\.]?[\\d]?)|^([\\[][\\d]+[\\]])");
+        Pattern word = Pattern.compile("[A-Za-z]+[-]?[A-Za-z]+");
         Matcher m = word.matcher(sentence);
         while (m.find()) {
             words = appendToArray(words, sentence.substring(m.start(), m.end()));
@@ -248,7 +239,6 @@ public class Task_3_3_1 {
     public static String[] splitToLexemes(String sentence) {
         String[] words = new String[0];
         Pattern word = Pattern.compile("([.\\S&&[^\"\\-\\$~()\\d,\\.\\[\\]:;]])+|([~\\$]?[\\d]+[\\,\\.]?[%\\d]+)");
-        //Pattern word = Pattern.compile("[A-Za-z]+[-]?[A-Za-z]+|([\\d][\\,\\.]?[\\d]?)|[\\[][\\d]+[\\]]");
         Matcher m = word.matcher(sentence);
         while (m.find()) {
             words = appendToArray(words, sentence.substring(m.start(), m.end()));
@@ -265,31 +255,6 @@ public class Task_3_3_1 {
         newArray[newArray.length - 1] = str;
         return newArray;
     }
-
- /*   //prints the entire object Test_3_3_1
-    public void print() {
-        for (int i = 0; i < this.p.length; i++) {
-            System.out.println("p[" + i + "] = " + this.p[i]);
-            for (int j = 0; j < this.s[i].length; j++) {
-                System.out.println("\ts[" + i + "][" + j + "] = " + this.s[i][j]);
-                for (int k = 0; k < this.w[i][j].length; k++) {
-                    System.out.println("\t\tw[" + i + "][" + j + "][" + k + "] = " + this.w[i][j][k]);
-                }
-            }
-        }
-    }*/
-
-    /*//sorts the array of integers
-    public static void sortArray(int[] array) {
-        int min = 0;
-        for (int i = 0; i < array.length - 1; i++) {
-            min = i;
-            for (int j = i + 1; j < array.length; j++) {
-                min = array[min] < array[j] ? min : j;
-            }
-            swap(array, i, min);
-        }
-    }*/
 
     //sorts array of String alphabetically
     public static void sortByRule(String[] str, char ch) {
@@ -319,21 +284,20 @@ public class Task_3_3_1 {
                 res = -1;
             }
         }
-
         return res;
     }
 
+    //counts the number of the specified symbol in the word
     public static int charsIn(String str, char ch) {
         char[] letters = str.toCharArray();
         int c = 0;
         int k = 0;
         int start = 0;
         for (int i = 0; i < letters.length; i++) {
-            if (ch == Character.toLowerCase(letters[i])){
+            if (ch == Character.toLowerCase(letters[i])) {
                 c++;
             }
         }
-
         return c;
     }
 
@@ -357,24 +321,19 @@ public class Task_3_3_1 {
                 gh[i] = 'a';
             }
         }
-
         return gh;
     }
+
+    //prints paragraphs
     public void printParagraphs() {
         char[] pChars = new char[p.length];
         int carriage = 0;
         for (int i = 0; i < p.length; i++) {
             pChars = p[i].toCharArray();
-            //System.out.println("");
+
             System.out.print("\t");
-            for (int j = 0; j < pChars.length; j++) {
-                /*if (j != 0 && (carriage > 70 && pChars[j - 1] == ' ')) {
-                    System.out.println("");
-                    carriage = 0;
-                }*/
-                System.out.print(pChars[j]);
-                carriage++;
-            }
+            System.out.println(p[i]);
+            //System.out.println("sentences" + s[i].length);
             System.out.println("");
         }
     }
@@ -402,22 +361,22 @@ public class Task_3_3_1 {
             }
         }
     }
-    //swaps elements in the array of integer
 
+    //swaps elements in the array of integer
     public static void swap(int[] array, int ind1, int ind2) {
         int bubble = array[ind1];
         array[ind1] = array[ind2];
         array[ind2] = bubble;
     }
-    //swaps elements in the array of String
 
+    //swaps elements in the array of String
     public static void swap(String[] array, int ind1, int ind2) {
         String bubble = array[ind1];
         array[ind1] = array[ind2];
         array[ind2] = bubble;
     }
-    //swaps elements(arrays of string) in the array of array of String
 
+    //swaps elements(arrays of string) in the array of array of String
     public static void swap(String[][] array, int ind1, int ind2) {
         String[] bubble = array[ind1];
         array[ind1] = array[ind2];
