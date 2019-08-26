@@ -17,7 +17,6 @@ public class Task_3_3_2_1 {
 
     public Task_3_3_2_1(int id, String Tag, int start, int end) {
         this.tagID = id;
-        //this.parentTagID = parentID;
         this.openTag = Tag;
         this.name = takeTagName(Tag);
         this.attributes = takeAttributes(Tag);
@@ -53,7 +52,7 @@ public class Task_3_3_2_1 {
                 "  </component>\n" +
                 "</module>";*/
 
-                nodes(text);
+        nodes(text);
     }
 
     public static void nodes(String str) {
@@ -71,37 +70,29 @@ public class Task_3_3_2_1 {
         //defining of nodes
         while (m.find()) {
             tagType = typeOfTag(m.group());
-            System.out.println("tag " + m.group() + " tag type " + typeOfTag(m.group()));//********************************
             if ((tagType == 0) || (tagType == 2)) {
-                //level++;
-                /*if (level > parents.length - 1) {
-                    parents = appendToArray(parents, i);
-                } else {
-                    parents[level] = i;
-                }*/
                 node = new Task_3_3_2_1(i, m.group(), m.start(), m.end());
                 nodes = appendToArray(nodes, node);
-                i++;
                 if (tagType == 2){
-                    nodes[parents[level + 1]].closeTagStart = m.start();
-                    nodes[parents[level + 1]].closeTagEnd = m.end();
+                    nodes[i].closeTag = m.group();
                 }
+                i++;
             } else {
-                /*level--;
-                if (takeTagName(m.group()).equals(nodes[parents[level + 1]].name)) {
-                    nodes[parents[level + 1]].closeTag = m.group();
-                    nodes[parents[level + 1]].closeTagStart = m.start();
-                    nodes[parents[level + 1]].closeTagEnd = m.end();
-                    nodes[parents[level + 1]].value = takeValueOfNode(str, nodes[parents[level + 1]]);
-                } else {
-                    nodes[parents[level + 1]].closeTag = "Error of node";
-                    nodes[parents[level + 1]].value = "Error of node";
-                }*/
+                int j = nodes.length - 1;
+                while (j >= 0){
+                    if (nodes[j].name.equals(takeTagName(m.group()))){
+                        nodes[j].closeTag = m.group();
+                        nodes[j].closeTagStart = m.start();
+                        nodes[j].closeTagEnd = m.end();
+                        break;
+                    }
+                    j--;
+                }
             }
         }
 
         for (int j = 0; j < nodes.length; j++) {
-           printNod(nodes[j]);
+            printNod(nodes[j]);
         }
 
     }
@@ -120,7 +111,6 @@ public class Task_3_3_2_1 {
     //returns a name of the tag
     public static String takeTagName(String tag) {
         String name;
-        //System.out.println("tag " + tag + " tag type " + typeOfTag(tag));
         int start = (typeOfTag(tag) == 1) ? 2 : 1;
         int spacePosition = tag.indexOf(' ');
         int finish;
@@ -161,12 +151,12 @@ public class Task_3_3_2_1 {
     }
 
     //returns a type of the tag: 0-opening tag; 1-closing tag; 2-self-closing tag.
-    public static int typeOfTag(String teg) {
+    public static int typeOfTag(String tag) {
         int res;
         Pattern p1 = Pattern.compile("^[<][/][\\w\\s=\"\\.]+[>]$");
-        Matcher m1 = p1.matcher(teg);
+        Matcher m1 = p1.matcher(tag);
         Pattern p2 = Pattern.compile("^[<][\\w\\s=\"\\.]+[/][>]$");
-        Matcher m2 = p1.matcher(teg);
+        Matcher m2 = p2.matcher(tag);
         if (m1.find()) {
             res = 1;
         } else if (m2.find()){
