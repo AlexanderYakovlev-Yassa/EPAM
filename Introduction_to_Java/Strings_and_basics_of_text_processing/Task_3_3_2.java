@@ -3,40 +3,26 @@ import java.util.regex.Pattern;
 
 public class Task_3_3_2 {
 
-    String tagName;
-    boolean closeTag;
-    String valueOfTag;
+    String name;
+    String openTag;
+    String closeTag;
     int tagID;
     int parentTagID;
     String[] attributes;
-    int openPosition;
-    int closePosition;
+    int openTagStart;
+    int openTagEnd;
+    int closeTagStart;
+    int closeTagEnd;
+    String value;
 
-    //private static boolean matches;
-
-    public Task_3_3_2(int id, int parentID, boolean closeTag ) {
-        this.tagName = "NoName";
+    public Task_3_3_2(int id, int parentID, String Tag, int start, int end) {
         this.tagID = id;
         this.parentTagID = parentID;
-        this.attributes = new String[0];
-        this.closeTag = closeTag;
-        this.valueOfTag = "";
-    }
-
-    public void setTagName(String tagName) {
-        this.tagName = tagName;
-    }
-
-    public void setValueOfTag(String valueOfTag) {
-        this.valueOfTag = valueOfTag;
-    }
-
-    public void setOpenPosition(int openPosition) {
-        this.openPosition = openPosition;
-    }
-
-    public void setClosePosition(int closePosition) {
-        this.closePosition = closePosition;
+        this.openTag = Tag;
+        this.name = takeTagName(Tag);
+        this.attributes = takeAttributes(Tag);
+        this.openTagStart = start;
+        this.openTagEnd = end;
     }
 
     public static void main(String[] args) {
@@ -55,49 +41,81 @@ public class Task_3_3_2 {
                 "</note>\n" +
                 "</notes>";
 
-        nodes(text);
+        /*String text = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<module type=\"JAVA_MODULE\" version=\"4\">\n" +
+                "  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\n" +
+                "    <exclude-output />\n" +
+                "    <content url=\"file://$MODULE_DIR$\">\n" +
+                "      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\n" +
+                "    </content>\n" +
+                "    <orderEntry type=\"inheritedJdk\" />\n" +
+                "    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n" +
+                "  </component>\n" +
+                "</module>";*/
+
+                nodes(text);
     }
 
     public static void nodes(String str) {
         Task_3_3_2[] nodes = new Task_3_3_2[0];
+        Task_3_3_2 node;
         Pattern p = Pattern.compile("[<][/]?[\\w\\s=\"]+[>]");
         Matcher m = p.matcher(str);
-        int[] nestingLevels = new int[1];
-        nestingLevels[0] = -1;
-        int currentLevelOfNesting = 0;
+        int[] parents = new int[1];
+        parents[0] = -1;
+        int level = 0;
         int i = 0;
         int parent = -1;
         boolean tegClosing;
+
+        //defining of nodes
         while (m.find()) {
-            tegClosing = isTegClose(m.group());
-            if (tegClosing){
-                currentLevelOfNesting--;
-            } else {
-                currentLevelOfNesting++;
-                if (currentLevelOfNesting > nestingLevels.length-1){
-                    nestingLevels = appendToArray(nestingLevels,i);
+            tegClosing = isTagClose(m.group());
+            if (!tegClosing) {
+                level++;
+                if (level > parents.length - 1) {
+                    parents = appendToArray(parents, i);
                 } else {
-                    nestingLevels[currentLevelOfNesting] = i;
+                    parents[level] = i;
+                }
+                node = new Task_3_3_2(i, parents[level - 1], m.group(), m.start(), m.end());
+                nodes = appendToArray(nodes, node);
+                i++;
+            } else {
+                level--;
+                if (takeTagName(m.group()).equals(nodes[parents[level + 1]].name)) {
+                    nodes[parents[level + 1]].closeTag = m.group();
+                    nodes[parents[level + 1]].closeTagStart = m.start();
+                    nodes[parents[level + 1]].closeTagEnd = m.end();
+                    nodes[parents[level + 1]].value = takeValueOfNode(str, nodes[parents[level + 1]]);
+                } else {
+                    nodes[parents[level + 1]].closeTag = "Error of node";
+                    nodes[parents[level + 1]].value = "Error of node";
                 }
             }
-            parent = nestingLevels[currentLevelOfNesting];
-            Task_3_3_2 node = new Task_3_3_2(i,  parent, tegClosing);
-            node.setValueOfTag(m.group());
-            nodes = appendToArray(nodes, node);
-            i++;
         }
 
         for (int j = 0; j < nodes.length; j++) {
-            System.out.print(nodes[j].valueOfTag + "  ");
-            System.out.println("ID =" + nodes[j].tagID + " close = " + nodes[j].closeTag + " parent " + nodes[j].parentTagID);
-
+           printNod(nodes[j]);
         }
+
+    }
+
+    public  static String takeValueOfNode(String text, Task_3_3_2 node){
+        String value = "";
+        Pattern p = Pattern.compile("[<>]+");
+        Matcher m = p.matcher(text.substring(node.openTagEnd, node.closeTagStart));
+        if(!m.find()){
+            value = text.substring(node.openTagEnd, node.closeTagStart);
+        }
+
+        return value;
     }
 
     //returns a name of the tag
     public static String takeTagName(String tag) {
         String name;
-        int start = isTegClose(tag) ? 2 : 1;
+        int start = isTagClose(tag) ? 2 : 1;
         int spacePosition = tag.indexOf(' ');
         int finish = spacePosition > 0 ? spacePosition : tag.length() - 1;
         name = tag.substring(start, finish).trim();
@@ -129,7 +147,7 @@ public class Task_3_3_2 {
     }
 
     //checks whether tag is the closing or not
-    public static boolean isTegClose(String teg) {
+    public static boolean isTagClose(String teg) {
         boolean res;
         Pattern p = Pattern.compile("^[<][/]{1}[\\w\\s=\"]+[>]$");
         Matcher m = p.matcher(teg);
@@ -165,5 +183,21 @@ public class Task_3_3_2 {
         }
         newArray[newArray.length - 1] = n;
         return newArray;
+    }
+
+    //prints node info
+    public static void printNod(Task_3_3_2 node) {
+        System.out.println("Node: " + node.tagID);
+        System.out.println("Opening tag: " + node.openTag);
+        System.out.println("Closing tag: " + node.closeTag);
+        System.out.println("Name of node: \"" + node.name + "\"");
+        if (node.attributes.length > 0) {
+            System.out.println("Node attributes:");
+            for (int i = 0; i < node.attributes.length; i += 2) {
+                System.out.println("\t" + node.attributes[i] + " = " + node.attributes[i + 1]);
+            }
+        }
+        System.out.println("Value of node: \"" + node.value + "\"");
+        System.out.println("");
     }
 }
