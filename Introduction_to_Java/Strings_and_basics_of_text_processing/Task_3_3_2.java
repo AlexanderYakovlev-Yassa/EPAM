@@ -1,3 +1,22 @@
+/*Дана строка, содержащая следующий текст (xml-документ):
+        <notes>
+        <note id = "1">
+        <to>Вася</to>
+        <from>Света</from>
+        <heading>Напоминание</heading>
+        <body>Позвони мне завтра!</body>
+        </note>
+        <note id = "2">
+        <to>Петя</to>
+        <from>Маша</from>
+        <heading>Важное напоминание</heading>
+        <body/>
+        </note>
+        </notes>
+Напишите анализатор, позволяющий последовательно возвращать содержимое узлов xml-документа
+и его тип (открывающий тег, закрывающий тег, содержимое тега, тег без тела).
+Пользоваться готовыми парсерами XML для решения данной задачи нельзя.*/
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,7 +26,6 @@ public class Task_3_3_2 {
     String openTag;
     String closeTag;
     int tagID;
-    int parentTagID;
     String[] attributes;
     int openTagStart;
     int openTagEnd;
@@ -15,9 +33,8 @@ public class Task_3_3_2 {
     int closeTagEnd;
     String value;
 
-    public Task_3_3_2(int id, int parentID, String Tag, int start, int end) {
+    public Task_3_3_2(int id, String Tag, int start, int end) {
         this.tagID = id;
-        this.parentTagID = parentID;
         this.openTag = Tag;
         this.name = takeTagName(Tag);
         this.attributes = takeAttributes(Tag);
@@ -41,62 +58,49 @@ public class Task_3_3_2 {
                 "</note>\n" +
                 "</notes>";
 
-        /*String text = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-                "<module type=\"JAVA_MODULE\" version=\"4\">\n" +
-                "  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\n" +
-                "    <exclude-output />\n" +
-                "    <content url=\"file://$MODULE_DIR$\">\n" +
-                "      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\n" +
-                "    </content>\n" +
-                "    <orderEntry type=\"inheritedJdk\" />\n" +
-                "    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n" +
-                "  </component>\n" +
-                "</module>";*/
-
-                nodes(text);
+        nodes(text);
     }
 
     public static void nodes(String str) {
         Task_3_3_2[] nodes = new Task_3_3_2[0];
         Task_3_3_2 node;
-        Pattern p = Pattern.compile("[<][/]?[\\w\\s=\"]+[>]");
+        Pattern p = Pattern.compile("[<][/]?[. &[^<>]]+[>]");
         Matcher m = p.matcher(str);
         int[] parents = new int[1];
         parents[0] = -1;
-        int level = 0;
         int i = 0;
-        int parent = -1;
-        boolean tegClosing;
+        int tagType;
 
         //defining of nodes
         while (m.find()) {
-            tegClosing = isTagClose(m.group());
-            if (!tegClosing) {
-                level++;
-                if (level > parents.length - 1) {
-                    parents = appendToArray(parents, i);
-                } else {
-                    parents[level] = i;
-                }
-                node = new Task_3_3_2(i, parents[level - 1], m.group(), m.start(), m.end());
+            tagType = typeOfTag(m.group());
+            if ((tagType == 0) || (tagType == 2)) {
+                node = new Task_3_3_2(i, m.group(), m.start(), m.end());
                 nodes = appendToArray(nodes, node);
+                if (tagType == 2){
+                    nodes[i].closeTag = m.group();
+                    nodes[i].value = "";
+                }
                 i++;
             } else {
-                level--;
-                if (takeTagName(m.group()).equals(nodes[parents[level + 1]].name)) {
-                    nodes[parents[level + 1]].closeTag = m.group();
-                    nodes[parents[level + 1]].closeTagStart = m.start();
-                    nodes[parents[level + 1]].closeTagEnd = m.end();
-                    nodes[parents[level + 1]].value = takeValueOfNode(str, nodes[parents[level + 1]]);
-                } else {
-                    nodes[parents[level + 1]].closeTag = "Error of node";
-                    nodes[parents[level + 1]].value = "Error of node";
+                int j = nodes.length - 1;
+                while (j >= 0){
+                    if (nodes[j].name.equals(takeTagName(m.group()))){
+                        nodes[j].closeTag = m.group();
+                        nodes[j].closeTagStart = m.start();
+                        nodes[j].closeTagEnd = m.end();
+                        nodes[j].value = takeValueOfNode(str,nodes[j]);
+                        break;
+                    }
+                    j--;
                 }
             }
         }
 
+
+
         for (int j = 0; j < nodes.length; j++) {
-           printNod(nodes[j]);
+            printNod(nodes[j]);
         }
 
     }
@@ -115,10 +119,9 @@ public class Task_3_3_2 {
     //returns a name of the tag
     public static String takeTagName(String tag) {
         String name;
-        int start = isTagClose(tag) ? 2 : 1;
-        int spacePosition = tag.indexOf(' ');
-        int finish = spacePosition > 0 ? spacePosition : tag.length() - 1;
-        name = tag.substring(start, finish).trim();
+        Pattern pName = Pattern.compile("[^</]?[\\w-]+[^\\s/>]?");
+        Matcher mName = pName.matcher(tag);
+        name = mName.find() ? mName.group() : "NameNotFound";
         return name;
     }
 
@@ -126,16 +129,16 @@ public class Task_3_3_2 {
     //odd element is a name of the attribute and even element is a value
     public static String[] takeAttributes(String tag) {
         String[] attributes = new String[0];
-        Pattern attr = Pattern.compile("[\\s][\\w]+[\\s]?[=][\\s]?[\"][\\w]+[\"]");
+        Pattern attr = Pattern.compile("[\\s][\\w-]+[\\s]?[=][\\s]?[\"][\\w-:/\\.\\$]+[\"]");//[\\w-/\\.\\$]
         Matcher attrM = attr.matcher(tag);
-        Pattern attrName = Pattern.compile("[\\s][\\w]+[\\s]?[=]");
+        Pattern attrName = Pattern.compile("[\\s][\\w-]+[\\s]?[=]");
         Matcher attrNameM;
-        Pattern attrValue = Pattern.compile("[\"][\\w]+[\"]");
+        Pattern attrValue = Pattern.compile("[\"][\\w-:/\\.\\$]+[\"]");
         Matcher attrValueM;
         String currentAttribute;
 
         while (attrM.find()) {
-            currentAttribute = tag.substring(attrM.start(), attrM.end());
+            currentAttribute = attrM.group();//tag.substring(attrM.start(), attrM.end());
             attrNameM = attrName.matcher(currentAttribute);
             attrValueM = attrValue.matcher(currentAttribute);
             attrNameM.find();
@@ -146,12 +149,21 @@ public class Task_3_3_2 {
         return attributes;
     }
 
-    //checks whether tag is the closing or not
-    public static boolean isTagClose(String teg) {
-        boolean res;
-        Pattern p = Pattern.compile("^[<][/]{1}[\\w\\s=\"]+[>]$");
-        Matcher m = p.matcher(teg);
-        res = m.find();
+    //returns a type of the tag: 0-opening tag; 1-closing tag; 2-self-closing tag.
+    public static int typeOfTag(String tag) {
+        int res;
+
+        Pattern p1 = Pattern.compile("^[<][/][\\w\\W]+[>]$");
+        Matcher m1 = p1.matcher(tag);
+        Pattern p2 = Pattern.compile("^[<][\\w\\W]+[/][>]$");
+        Matcher m2 = p2.matcher(tag);
+        if (m1.find()) {
+            res = 1;
+        } else if (m2.find()){
+            res = 2;
+        } else {
+            res = 0;
+        }
         return res;
     }
 
@@ -190,7 +202,7 @@ public class Task_3_3_2 {
         System.out.println("Node: " + node.tagID);
         System.out.println("Opening tag: " + node.openTag);
         System.out.println("Closing tag: " + node.closeTag);
-        System.out.println("Name of node: \"" + node.name + "\"");
+        System.out.println("Type of node: \"" + node.name + "\"");
         if (node.attributes.length > 0) {
             System.out.println("Node attributes:");
             for (int i = 0; i < node.attributes.length; i += 2) {
