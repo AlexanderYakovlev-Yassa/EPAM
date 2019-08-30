@@ -1,3 +1,9 @@
+/*4. Создайте класс Train, содержащий поля: название пункта назначения, номер поезда, время отправления.
+Создайте данные в массив из пяти элементов типа Train, добавьте возможность сортировки элементов массива
+по номерам поездов. Добавьте возможность вывода информации о поезде, номер которого введен пользователем.
+Добавьте возможность сортировки массив по пункту назначения, причем поезда с одинаковыми пунктами
+назначения должны быть упорядочены по времени отправления.*/
+
 import java.util.Scanner;
 
 public class TrainScheduel {
@@ -22,6 +28,7 @@ public class TrainScheduel {
         trainInfoRequest(trains);
     }
 
+    //print the array of trains (schedule)
     public static void printSchedule(Train[] trains) {
         System.out.println(String.format("%-6s   %-18s %s", "N поезда", "пункт назначения", "время оправления"));
         System.out.println("_______________________________________________");
@@ -31,6 +38,7 @@ public class TrainScheduel {
         System.out.println("_______________________________________________");
     }
 
+    //prints the info about train. User insert number of train.
     public static void trainInfoRequest(Train[] trains) {
         int number;
         Scanner scan = new Scanner(System.in);
@@ -48,6 +56,7 @@ public class TrainScheduel {
         }
     }
 
+    //input of integer
     private static int inptuInt() {
         int res = -1;
         Scanner scan = new Scanner(System.in);
@@ -64,6 +73,7 @@ public class TrainScheduel {
         return res;
     }
 
+    //returns index of the array row (schedule) which contains searched info
     private static int searchByTrainNumber(Train[] trains, int searchedNum){
         int i = 0;
         int index = -1;
@@ -79,6 +89,7 @@ public class TrainScheduel {
         return index;
     }
 
+    //sorts schedule by numbers of trains
     public static void sortByTrainNumber(Train[] trains) {
         int min;
         boolean flag;
@@ -97,6 +108,7 @@ public class TrainScheduel {
         }
     }
 
+    //sorts schedule by destination
     public static void sortByDestination(Train[] trains) {
         int min;
         boolean flag;
@@ -119,6 +131,7 @@ public class TrainScheduel {
         }
     }
 
+    //swaps picked rows in the schedule
     private static void swapTrain(Train[] trains, int first, int second) {
         Train bubble = new Train();
         trains[first].copyTo(bubble);
