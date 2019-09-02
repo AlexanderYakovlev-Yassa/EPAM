@@ -3,40 +3,26 @@
 вычисления площади, периметра и точки пересечения медиан.*/
 
 import java.lang.Math;
+import java.util.Objects;
 
 public class Triangle {
-    private double aX;
-    private double aY;
-    private double bX;
-    private double bY;
-    private double cX;
-    private double cY;
+    private Point a;
+    private Point b;
+    private Point c;
 
-    public Triangle(double aX, double aY, double bX, double bY, double cX, double cY) {
-        this.aX = aX;
-        this.aY = aY;
-        this.bX = bX;
-        this.bY = bY;
-        this.cX = cX;
-        this.cY = cY;
+    public Triangle(Point a, Point b, Point c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
-    private double sideLength(double x1, double y1, double x2, double y2) {
-        double dx = x1 - x2;
-        double dy = y1 - y2;
-        double length = Math.sqrt(dx * dx + dy * dy);
-        return length;
-    }
-
-    //returns a perimeter of triangle or
-    // 0 - if the triangle is not existing,
-    // -1 - if the perimeter can't be calculated
+    //Returns a perimeter of the triangle
     public double perimeter() {
         double perimeter = 0;
         if (isTriangleExist()) {
-            double sideABLength = sideLength(aX, aY, bX, bY);
-            double sideBCLength = sideLength(bX, bY, cX, cY);
-            double sideACLength = sideLength(aX, aY, cX, cY);
+            double sideABLength = Point.distance(a, b);
+            double sideBCLength = Point.distance(b, c);
+            double sideACLength = Point.distance(a, c);
             perimeter = sideABLength + sideBCLength + sideACLength;
         }
         perimeter = (Double.isNaN(perimeter) || Double.isInfinite(perimeter)) ? -1 : perimeter;
@@ -44,24 +30,22 @@ public class Triangle {
         return perimeter;
     }
 
-    //returns an area of triangle or
-    // 0 - if the triangle is not existing,
-    // -1 - if the area can't be calculated
+    //Returns an area of the triangle.
     public double area() {
         double area = 0;
         if (isTriangleExist()) {
-            double sideABLength = sideLength(aX, aY, bX, bY);
-            double sideBCLength = sideLength(bX, bY, cX, cY);
-            double sideACLength = sideLength(aX, aY, cX, cY);
+            double sideABLength = Point.distance(a, b);
+            double sideBCLength = Point.distance(b, c);
+            double sideACLength = Point.distance(a, c);
             double halfPerimeter = perimeter() / 2;
             area = Math.sqrt(halfPerimeter * (halfPerimeter - sideABLength) * (halfPerimeter - sideBCLength) * (halfPerimeter - sideACLength));
         }
-        area = (Double.isNaN(area) || Double.isInfinite(area)) ? -1 : area;
         return area;
     }
 
 
-    //determines whether the triangle is existing
+
+    //Determines whether or not the triangle is existing.
     public boolean isTriangleExist() {
         boolean res = true;
         if (isSamePoints()) {
@@ -74,21 +58,23 @@ public class Triangle {
         return res;
     }
 
+    //Determines whether or not the points have same coordinates.
     private boolean isSamePoints() {
         boolean res = false;
-        if (((aX == bX) && (aY == bY)) ||
-                ((bX == cX) && (bY == cY)) ||
-                ((aX == cX) && (aY == cY))) {
+        if (a.equals(b) ||
+                b.equals(c) ||
+                a.equals(c)) {
             res = true;
         }
         return res;
     }
 
+    //Determines whether or not the points are on the one line.
     private boolean isInSameLine() {
-        double dX1 = aX - bX;
-        double dX2 = aX - cX;
-        double dY1 = aY - bY;
-        double dY2 = aY - cY;
+        double dX1 = a.getX() - b.getX();
+        double dX2 = a.getX() - c.getX();
+        double dY1 = a.getY() - b.getY();
+        double dY2 = a.getY() - c.getY();
         boolean res = false;
         double tg1 = dY1 / dX1;
         double tg2 = dY2 / dX2;
@@ -96,5 +82,9 @@ public class Triangle {
             res = true;
         }
         return res;
+    }
+    class LineEquationFactors{
+        private double a;
+        private double b;
     }
 }
