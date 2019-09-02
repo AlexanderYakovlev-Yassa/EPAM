@@ -28,45 +28,72 @@ public class Triangle {
         return length;
     }
 
+    //returns a perimeter of triangle or
+    // 0 - if the triangle is not existing,
+    // -1 - if the perimeter can't be calculated
     public double perimeter() {
-        double sideABLength = sideLength(aX, aY, bX, bY);
-        double sideBCLength = sideLength(bX, bY, cX, cY);
-        double sideACLength = sideLength(aX, aY, cX, cY);
-        double perimeter = sideABLength + sideBCLength + sideACLength;
+        double perimeter = 0;
+        if (isTriangleExist()) {
+            double sideABLength = sideLength(aX, aY, bX, bY);
+            double sideBCLength = sideLength(bX, bY, cX, cY);
+            double sideACLength = sideLength(aX, aY, cX, cY);
+            perimeter = sideABLength + sideBCLength + sideACLength;
+        }
+        perimeter = (Double.isNaN(perimeter) || Double.isInfinite(perimeter)) ? -1 : perimeter;
+
         return perimeter;
     }
 
+    //returns an area of triangle or
+    // 0 - if the triangle is not existing,
+    // -1 - if the area can't be calculated
     public double area() {
-        double sideABLength = sideLength(aX, aY, bX, bY);
-        double sideBCLength = sideLength(bX, bY, cX, cY);
-        double sideACLength = sideLength(aX, aY, cX, cY);
-        double halfPerimeter = perimeter() / 2;
-        double area = Math.sqrt(halfPerimeter * (halfPerimeter - sideABLength) * (halfPerimeter - sideBCLength) * (halfPerimeter - sideACLength));
+        double area = 0;
+        if (isTriangleExist()) {
+            double sideABLength = sideLength(aX, aY, bX, bY);
+            double sideBCLength = sideLength(bX, bY, cX, cY);
+            double sideACLength = sideLength(aX, aY, cX, cY);
+            double halfPerimeter = perimeter() / 2;
+            area = Math.sqrt(halfPerimeter * (halfPerimeter - sideABLength) * (halfPerimeter - sideBCLength) * (halfPerimeter - sideACLength));
+        }
+        area = (Double.isNaN(area) || Double.isInfinite(area)) ? -1 : area;
         return area;
     }
 
-    public boolean isInSameLine() {
-        //double tolerance = 0.0001;
+
+    //determines whether the triangle is existing
+    public boolean isTriangleExist() {
+        boolean res = true;
+        if (isSamePoints()) {
+            res = false;
+        } else {
+            if (isInSameLine()) {
+                res = false;
+            }
+        }
+        return res;
+    }
+
+    private boolean isSamePoints() {
+        boolean res = false;
+        if (((aX == bX) && (aY == bY)) ||
+                ((bX == cX) && (bY == cY)) ||
+                ((aX == cX) && (aY == cY))) {
+            res = true;
+        }
+        return res;
+    }
+
+    private boolean isInSameLine() {
         double dX1 = aX - bX;
         double dX2 = aX - cX;
         double dY1 = aY - bY;
         double dY2 = aY - cY;
-
-        boolean res;
-        if ((dX1 == 0) || (dX2 == 0)) {                                       //
-            if (((dX1 == 0) && (dY1 == 0)) || ((dX2 == 0) && (dY2 == 0))) {   // this part is for avoid
-                res = true;                                                   //   division by zero
-            } else {                                                          //
-                res = false;                                                  //
-            }
-        } else {
-            double tg1 = (double) dY1 / (double) dX1;
-            double tg2 = (double) dY2 / (double) dX2;
-            if (tg1 == tg2) {
-                res = true;
-            } else {
-                res = false;
-            }
+        boolean res = false;
+        double tg1 = dY1 / dX1;
+        double tg2 = dY2 / dX2;
+        if (tg1 == tg2) {
+            res = true;
         }
         return res;
     }
