@@ -31,4 +31,8 @@ public class Line {
         Point p = new Point(x, y);
         return p;
     }
+
+    public boolean isPointInLine(Point a){
+        return (a.getY() == this.a * a.getX() + this.b);
+    }
 }
