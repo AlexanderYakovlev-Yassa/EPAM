@@ -44,7 +44,6 @@ public class Triangle {
     }
 
 
-
     //Determines whether or not the triangle is existing.
     public boolean isTriangleExist() {
         boolean res = true;
@@ -83,8 +82,14 @@ public class Triangle {
         }
         return res;
     }
-    class LineEquationFactors{
-        private double a;
-        private double b;
+
+    //The intersection point of the medians of the triangle.
+    public Point mediansIntersection() {
+        Point mA = Point.midPoint(b, c);
+        Point mB = Point.midPoint(a, c);
+        Line median1 = new Line(a, mA);
+        Line median2 = new Line(b, mB);
+        Point cross = Line.intersection(median1, median2);
+        return cross;
     }
 }
