@@ -9,6 +9,7 @@ public class Triangle {
     private Point a;
     private Point b;
     private Point c;
+    private boolean exists;
 
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
