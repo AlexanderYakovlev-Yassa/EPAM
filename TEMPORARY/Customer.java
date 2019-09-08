@@ -43,6 +43,16 @@ public class Customer {
         this.id = ++lastID;
     }
 
+   /* public Customer clon(Customer oldCustomer){
+        String newFirstName = oldCustomer.firstName;
+        String newSecondName = oldCustomer.secondName;
+        String newThirdName = oldCustomer.thirdName;
+        String newAddress = oldCustomer.address;
+        String newCreditCardNumber = oldCustomer.creditCardNumber;
+        String newAccountIBAN = oldCustomer.accountIBAN;
+        //Customer newCustomer = new Customer();
+
+    }*/
     public String getFirstName() {
         return firstName;
     }
