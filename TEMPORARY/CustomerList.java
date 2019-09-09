@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class CustomerList {
     private Customer[] list;
@@ -30,5 +31,14 @@ public class CustomerList {
         String file = "D:\\Temp\\untitled\\src\\Clients.txt";
         FileWriter fileWriter = new FileWriter(file);
 
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder("Список клиентов:\n");
+        for (int i = 0; i < this.list.length; i++) {
+            res.append("\n" + this.list[i].toString() + "\n");
+        }
+        return res.toString();
     }
 }

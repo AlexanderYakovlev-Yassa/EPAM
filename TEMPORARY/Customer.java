@@ -18,6 +18,9 @@
  *a) список покупателей в алфавитном порядке;
  *b) список покупателей, у которых номер кредитной карточки находится в заданном интервале*/
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Customer {
     private int id;
     private String firstName;
@@ -33,26 +36,53 @@ public class Customer {
         lastID = 1234;
     }
 
+    public Customer() {
+        this.firstName = "";
+        this.secondName = "";
+        this.thirdName = "";
+        this.address = "";
+        this.creditCardNumber = "";
+        this.accountIBAN = "";
+        this.id = ++lastID;
+    }
+
     public Customer(String firstName, String secondName, String thirdName, String address, String creditCardNumber, String accountIBAN) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.thirdName = thirdName;
         this.address = address;
-        this.creditCardNumber = creditCardNumber;
-        this.accountIBAN = accountIBAN;
+        this.creditCardNumber = checkCCN(creditCardNumber);
+        this.accountIBAN = checkIBAN(accountIBAN);
         this.id = ++lastID;
     }
 
-   /* public Customer clon(Customer oldCustomer){
-        String newFirstName = oldCustomer.firstName;
-        String newSecondName = oldCustomer.secondName;
-        String newThirdName = oldCustomer.thirdName;
-        String newAddress = oldCustomer.address;
-        String newCreditCardNumber = oldCustomer.creditCardNumber;
-        String newAccountIBAN = oldCustomer.accountIBAN;
-        //Customer newCustomer = new Customer();
+    private static String checkIBAN(String str){
+        str = str.trim();
+        System.out.println(str);
+        String newStr;
+        Pattern p = Pattern.compile("^(\\p{Alpha}{2}\\d{2}?)\\s*(\\w{4}?)\\s*(\\d{4}?)\\s*(\\w{4}?)\\s*(\\w{4}?)\\s*(\\w{4}?)\\s*(\\w{4}?)$");
+        Matcher m = p.matcher(str);
+        if(m.find()){
+            newStr = m.group(1) + " " + m.group(2) + " " + m.group(3);// + " " + m.group(4) + " " + m.group(5) + " " + m.group(6) + " " + m.group(7);
+        } else {
+            newStr = "*";
+        }
+        return newStr;
+    }
 
-    }*/
+    private static String checkCCN(String str) {
+        str = str.trim();
+        String newStr;
+        Pattern p = Pattern.compile("^(\\d{4}?)\\s*(\\d{4}?)\\s*(\\d{4}?)\\s*(\\d{4}?)\\s*$");
+        Matcher m = p.matcher(str);
+         if(m.find()){
+             newStr = m.group(1) + " " + m.group(2) + " " + m.group(3) + " " + m.group(4);
+         } else {
+             newStr = "";
+         }
+        return newStr;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -111,14 +141,10 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", thirdName='" + thirdName + '\'' +
-                ", address='" + address + '\'' +
-                ", creditCardNumber='" + creditCardNumber + '\'' +
-                ", accountIBAN='" + accountIBAN + '\'' +
-                '}';
+        return "id " + id + "\n" +
+                firstName + " " + secondName + " " + thirdName + "\n" +
+                "address " + address + "\n" +
+                "CCN " + creditCardNumber + "\n" +
+                "IBAN " + accountIBAN;
     }
 }
