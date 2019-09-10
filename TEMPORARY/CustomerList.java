@@ -17,21 +17,49 @@ public class CustomerList {
         return list;
     }
 
-    public void addToList(Customer newCustomer){
+    public void addToList(Customer newCustomer) {
         Customer[] newList = new Customer[this.list.length + 1];
         for (int i = 0; i < list.length; i++) {
             newList[i] = this.list[i];
         }
-        newList[newList.length-1] = newCustomer;
+        newList[newList.length - 1] = newCustomer;
         this.list = newList;
     }
 
-    public static void main(String[] args) throws IOException {
+    public void printCustomersAlphabet() {
+        String[] customerNames = new String[list.length];
+        for (int i = 0; i < customerNames.length; i++) {
+            customerNames[i] = list[i].getFirstName() + " " +
+                    list[i].getSecondName() + " " +
+                    list[i].getThirdName();
+        }
+        //********сортировка пузырьком по алфавиту***********
+        boolean flag;
+        for (int i = 0; i < customerNames.length; i++) {
+            flag = true;
+            for (int j = 0; j < customerNames.length - i -1; j++) {
 
-        String file = "D:\\Temp\\untitled\\src\\Clients.txt";
-        FileWriter fileWriter = new FileWriter(file);
+                if (customerNames[j].compareTo(customerNames[j + 1]) > 0){
+                    String bubble = customerNames[j];
+                    customerNames[j] = customerNames[j + 1];
+                    customerNames[j + 1] = bubble;
+                    flag = false;
+                }
+            }
+            if (flag){
+                System.out.println("*** " + i);
+                break;
+            }
+        }
+        //***************************************************
 
+        for (int i = 0; i < customerNames.length; i++) {
+            System.out.println(customerNames[i]);
+        }
     }
+
+
+
 
     @Override
     public String toString() {

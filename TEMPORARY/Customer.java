@@ -58,12 +58,11 @@ public class Customer {
 
     private static String checkIBAN(String str){
         str = str.trim();
-        System.out.println(str);
         String newStr;
-        Pattern p = Pattern.compile("^(\\p{Alpha}{2}\\d{2}?)\\s*(\\w{4}?)\\s*(\\d{4}?)\\s*(\\w{4}?)\\s*(\\w{4}?)\\s*(\\w{4}?)\\s*(\\w{4}?)$");
+        Pattern p = Pattern.compile("^(\\p{Alpha}{2}\\d{2})\\s?(\\w{4})\\s?(\\d{4})\\s?(\\w{4})\\s?(\\w{4})\\s?(\\w{4})\\s?(\\w{4})$");
         Matcher m = p.matcher(str);
         if(m.find()){
-            newStr = m.group(1) + " " + m.group(2) + " " + m.group(3);// + " " + m.group(4) + " " + m.group(5) + " " + m.group(6) + " " + m.group(7);
+            newStr = m.group(1) + " " + m.group(2) + " " + m.group(3) + " " + m.group(4) + " " + m.group(5) + " " + m.group(6) + " " + m.group(7);
         } else {
             newStr = "*";
         }
@@ -75,11 +74,11 @@ public class Customer {
         String newStr;
         Pattern p = Pattern.compile("^(\\d{4}?)\\s*(\\d{4}?)\\s*(\\d{4}?)\\s*(\\d{4}?)\\s*$");
         Matcher m = p.matcher(str);
-         if(m.find()){
-             newStr = m.group(1) + " " + m.group(2) + " " + m.group(3) + " " + m.group(4);
-         } else {
-             newStr = "";
-         }
+        if(m.find()){
+            newStr = m.group(1) + " " + m.group(2) + " " + m.group(3) + " " + m.group(4);
+        } else {
+            newStr = "";
+        }
         return newStr;
     }
 
@@ -120,7 +119,7 @@ public class Customer {
     }
 
     public void setCreditCardNumber(String creditCardNumber) {
-        this.creditCardNumber = creditCardNumber;
+        this.creditCardNumber = checkCCN(creditCardNumber);
     }
 
     public String getAccountIBAN() {
@@ -128,7 +127,7 @@ public class Customer {
     }
 
     public void setAccountIBAN(String accountIBAN) {
-        this.accountIBAN = accountIBAN;
+        this.accountIBAN = checkIBAN(accountIBAN);
     }
 
     public int getId() {
@@ -141,10 +140,10 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "id " + id + "\n" +
+        return "id  " + id + "\n" +
                 firstName + " " + secondName + " " + thirdName + "\n" +
-                "address " + address + "\n" +
-                "CCN " + creditCardNumber + "\n" +
-                "IBAN " + accountIBAN;
+                "address  " + address + "\n" +
+                "CCN  " + creditCardNumber + "\n" +
+                "IBAN  " + accountIBAN;
     }
 }
