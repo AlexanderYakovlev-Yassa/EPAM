@@ -33,7 +33,7 @@ public class Customer {
 
 
     static {
-        lastID = 1234;
+        lastID = 1234;//Assume that some records is already existed
     }
 
     public Customer() {
@@ -56,6 +56,8 @@ public class Customer {
         this.id = ++lastID;
     }
 
+    //Checks whether IBAN is correct and returns IBAN as seven  groups of symbols.
+    // If IBAN doesn't meet requirements, returns the empty string.
     private static String checkIBAN(String str){
         str = str.trim();
         String newStr;
@@ -69,7 +71,9 @@ public class Customer {
         return newStr;
     }
 
-    private static String checkCCN(String str) {
+    //Checks whether CCN is correct and returns CCN as four  groups of digits.
+    // If CCN doesn't meet requirements, returns the empty string.
+    public static String checkCCN(String str) {
         str = str.trim();
         String newStr;
         Pattern p = Pattern.compile("^(\\d{4}?)\\s*(\\d{4}?)\\s*(\\d{4}?)\\s*(\\d{4}?)\\s*$");

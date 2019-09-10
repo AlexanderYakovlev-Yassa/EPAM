@@ -110,6 +110,8 @@ public class testCustomerList {
         System.out.println(thisBankList.toString());
 
         thisBankList.printCustomersAlphabet();
+        thisBankList.printCreditCardOf("1111222233337587", "1111 2222 3333 7777");
+
         /*String file = "D:\\Temp\\untitled\\src\\Clients.txt";
         FileWriter fileWriter = new FileWriter(file);
         String divider = ", ";
