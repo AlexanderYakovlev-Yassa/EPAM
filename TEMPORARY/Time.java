@@ -81,11 +81,18 @@ public class Time {
         value = collectTime(time);
     }
 
-    public String showTime() {
+    public String toString() {
         int[] sTime = separateTime(value);
         String time = String.format("%02d:%02d:%02d", sTime[0], sTime[1], sTime[2]);
         return time;
     }
+
+    public String toStringShort() {
+        int[] sTime = separateTime(value);
+        String time = String.format("%02d:%02d", sTime[0], sTime[1]);
+        return time;
+    }
+
 
     //returns int[3] array where [0] - hours, [1] - minutes, [2] - seconds
     private int[] separateTime(int value) {
@@ -117,14 +124,14 @@ public class Time {
 
     public static void main(String[] args) {
         Time t = new Time();
-        System.out.println(t.showTime());
+        System.out.println(t.toString());
         t.addHours(-5);
-        System.out.println(t.showTime());
+        System.out.println(t.toString());
         Time t1 = new Time("12:58:57");
         Time t2 = new Time("00:00:00");
-        System.out.println(t1.showTime() + "\n" + t2.showTime() + "\n" + t1.compare(t2));
+        System.out.println(t1.toString() + "\n" + t2.toString() + "\n" + t1.compare(t2));
         t.setTime("12:15:52");
-        System.out.println(t.showTime());
+        System.out.println(t.toString());
     }
 
 

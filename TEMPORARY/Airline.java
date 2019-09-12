@@ -18,9 +18,69 @@ c) список рейсов для заданного дня недели, вр
 */
 
 public class Airline {
-    private String destination;
     private int flightNumber;
-    private String planeType;
-    private int departure;
-    private String dayOfWeek;
+    private CodeIATA destination;
+    private DayOfWeek dayOfWeek;
+    private Time departure;
+    private Airliner airliner;
+
+    public Airline(int flightNumber, CodeIATA destination, DayOfWeek dayOfWeek, Time departure, Airliner airliner) {
+        this.flightNumber = flightNumber;
+        this.destination = destination;
+        this.dayOfWeek = dayOfWeek;
+        this.departure = departure;
+        this.airliner = airliner;
+    }
+
+    public int getFlightNumber() {
+        return flightNumber;
+    }
+
+    public void setFlightNumber(int flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    public CodeIATA getDestination() {
+        return destination;
+    }
+
+    public void setDestination(CodeIATA destination) {
+        this.destination = destination;
+    }
+
+    public DayOfWeek getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
+    public Time getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(Time departure) {
+        this.departure = departure;
+    }
+
+    public Airliner getAirliner() {
+        return airliner;
+    }
+
+    public void setAirliner(Airliner airliner) {
+        this.airliner = airliner;
+    }
+
+    @Override
+    public String toString() {
+        String s = String.format("Рейс N %s%s to %s %s %s %s",
+                this.destination,
+                this.flightNumber,
+                this.destination.getLongName(),
+                this.dayOfWeek.getRusShort(),
+                this.departure.toStringShort(),
+                this.airliner);
+        return s;
+    }
 }
