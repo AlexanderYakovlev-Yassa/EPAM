@@ -129,7 +129,7 @@ public class Book {
         res.append(this.toStringShort());
         res.append(this.publisher + " " + this.year + "\n");
         res.append("pages " + this.pages + ".\nbinding " + this.binding + "\n");
-        res.append("price " + this.price + ".");
+        res.append("price " + this.price + ".\n");
 
         return res.toString();
     }
