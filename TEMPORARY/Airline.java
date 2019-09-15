@@ -17,6 +17,8 @@ b) список рейсов для заданного дня недели;
 c) список рейсов для заданного дня недели, время вылета для которых больше заданного.
 */
 
+import java.util.Objects;
+
 public class Airline {
     private int flightNumber;
     private CodeIATA destination;
@@ -73,14 +75,37 @@ public class Airline {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Airline airline = (Airline) o;
+        return flightNumber == airline.flightNumber &&
+                destination == airline.destination &&
+                dayOfWeek == airline.dayOfWeek &&
+                Objects.equals(departure, airline.departure) &&
+                airliner == airline.airliner;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flightNumber, destination, dayOfWeek, departure, airliner);
+    }
+
+    @Override
     public String toString() {
-        String s = String.format("Рейс N %s%s to %s %s %s %s",
-                this.destination,
+        String destination = this.destination != null ? this.destination.getCity() : "nd";
+        String dayOfWeek = this.dayOfWeek != null ?  this.dayOfWeek.getRusShort() : "nd";
+        String departure = this.departure != null ? this.departure.toStringShort() : "nd";
+        String airliner = this.airliner != null ? this.airliner.longName : "nd";
+
+        String s = String.format("Рейс N %s to %s %s %s %s",
                 this.flightNumber,
-                this.destination.getLongName(),
-                this.dayOfWeek.getRusShort(),
-                this.departure.toStringShort(),
-                this.airliner);
+                destination,
+                dayOfWeek,
+                departure,
+                airliner);
         return s;
     }
+
+
 }

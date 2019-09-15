@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,7 +39,7 @@ public class Time {
             minutes = Integer.valueOf(m.group(2));
             seconds = Integer.valueOf(m.group(3));
         } else {
-
+            throw new IllegalArgumentException();
         }
         this.setHours(hours);
         this.setMinutes(minutes);
@@ -120,6 +121,19 @@ public class Time {
             res = 0;
         }
         return res;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return value == time.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 
     public static void main(String[] args) {

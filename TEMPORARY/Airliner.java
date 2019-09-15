@@ -1,6 +1,6 @@
 public enum Airliner {
     A220("Airbus A220"),
-    A320("Airbus A320 family"),
+    A320("Airbus A320"),
     B737300("Boeing 737-300"),
     B737500("Boeing 737-500"),
     B737800("Boeing 737-800"),
