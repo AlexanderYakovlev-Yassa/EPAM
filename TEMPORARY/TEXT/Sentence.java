@@ -1,57 +1,52 @@
+import java.util.Arrays;
+
 public class Sentence {
-    private  Word[] words; //массив слов входящих в предложение
-    private Boolean isFirstLetterCapital; //true если предложение должно начинаться с заглавной буквы
-    private Boolean hasEndPoint; //true если в конце должна быть точка
+    private  Word[] words; //массив слов входящих в предложение. Слово это набор символов между пробелами.
+    //private Boolean isFirstLetterCapital; //true если предложение должно начинаться с заглавной буквы
+    //private Boolean hasEndPoint; //true если в конце должна быть точка
 
     Sentence(){
         this.words = new Word[0];
-        this.isFirstLetterCapital = true;
-        this.hasEndPoint = true;
+        //this.isFirstLetterCapital = true;
+        //this.hasEndPoint = true;
     }
 
     Sentence(Word[] words){
         this.words = words;
-        this.isFirstLetterCapital = true;
-        this.hasEndPoint = true;
+        //this.isFirstLetterCapital = true;
+        //this.hasEndPoint = true;
     }
 
-    public Boolean getFirstLetterCapital() {
+    public void addWord(Word newWord){
+        this.words = Arrays.copyOf(this.words, this.words.length + 1);
+        this.words[this.words.length-1] = newWord;
+    }
+
+    /*public Boolean isFirstLetterCapital() {
         return isFirstLetterCapital;
-    }
+    }*/
 
-    public void setFirstLetterCapital(Boolean firstLetterCapital) {
+    /*public void setFirstLetterCapital(Boolean firstLetterCapital) {
         isFirstLetterCapital = firstLetterCapital;
-    }
+    }*/
 
-    public Boolean getHasEndPoint() {
+    /*public Boolean HasEndPoint() {
         return hasEndPoint;
-    }
+    }*/
 
-    public void setHasEndPoint(Boolean hasEndPoint) {
+    /*public void setEndPoint(Boolean hasEndPoint) {
         this.hasEndPoint = hasEndPoint;
-    }
+    }*/
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (this.isFirstLetterCapital) {
-            char[] firstWord = this.words[0].getWord().clone();
-            firstWord[0] = Character.toUpperCase(firstWord[0]);
-            sb.append(firstWord);
-        } else {
-            sb.append(this.words[0]);
-        }
-        sb.append(" ");
 
-        for (int i = 1; i < this.words.length; i++) {
+
+        for (int i = 0; i < this.words.length; i++) {
             sb.append(this.words[i] + " ");
         }
 
-        if (this.hasEndPoint) {
-            sb.append("\b.");
-        } else {
-            sb.append("\b");
-        }
         return sb.toString();
     }
 }
