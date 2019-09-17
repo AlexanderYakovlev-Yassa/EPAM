@@ -1,10 +1,10 @@
 import java.util.Arrays;
 
 public class Word {
-    private char[] word; //набор последовательно расположенных символов кроме пробела и управляющих символов.
+    private String word; //набор последовательно расположенных символов кроме пробела и управляющих символов.
 
     Word() {
-        this.word = new char[0];
+        this.word = "";
     }
 
     /*
@@ -29,14 +29,17 @@ public class Word {
 
     public void setWord(String str) {
         char[] oldWord = str.trim().toCharArray();
-        char[] newWord = new char[0];
+        StringBuilder newWord = new StringBuilder();
         for (int i = 0; i < oldWord.length; i++) {
             if ((oldWord[i] != ' ') && (oldWord[i] != ' ')) {
-                newWord = Arrays.copyOf(newWord, newWord.length + 1);
-                newWord[newWord.length - 1] = oldWord[i];
+                if (isLegal(oldWord[i])) {
+                    newWord.append(oldWord[i]);
+                }
+            } else {
+                break;
             }
         }
-        this.word = newWord.toString().toCharArray();
+        this.word = newWord.toString();
     }
 
     private static boolean isLegal(char ch){
@@ -51,6 +54,6 @@ public class Word {
 
     @Override
     public String toString() {
-        return String.copyValueOf(this.word);
+        return this.word;
     }
 }

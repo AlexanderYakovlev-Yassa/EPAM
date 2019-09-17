@@ -8,15 +8,22 @@ public class Test {
         Word w4 = new Word("day");
 
         //проверяем метод Word.toString
-        System.out.println(w1);
+        System.out.println(w1.toString());
 
-        /*//создаем объект типа Sentence
+       //создаем объект типа Sentence
         Word[] words = {w1, w2, w3, w4};
         Sentence s1 = new Sentence(words);
 
         //проверяем метод Sentence.toString
         System.out.println(s1);
 
+        Sentence s2 = new Sentence("Орест     стал персонажем множества пьес, рассказывающих о матереубийстве и суде ареопага, а также о конфликте между Орестом и Неоптолемом; в том числе это сохранившиеся трагедии Эсхила (трилогия «Орестея»), Софокла («Электра»), Еврипида («Электра», «Орест», «Андромаха»), поэма позднеантичного драматурга Драконция, в которых миф подвергся существенной трансформации.");
+        System.out.println(s2);
+
+        for (Word s : s2.getWords()){
+            System.out.println(s);
+        }
+ /*
         //печатаем предложение как набор слов,
         //без заглавной буквы и точки
         //s1.setFirstLetterCapital(false);
