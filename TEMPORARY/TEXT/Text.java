@@ -23,22 +23,29 @@ public class Text {
 
     public static Text parseText(String rowText){
         Text processedText = new Text();
-        Pattern pSentence = Pattern.compile("[\\w\\s]+[\\.\\!\\?]");
+        //String[] rowSentence = rowText.split("\\.\\s");
+        Pattern pSentence = Pattern.compile("\\.\\s");
         Matcher m = pSentence.matcher(rowText);
-        Pattern pWord = Pattern.compile("[\\w]+[^\\p{Punct}]");
-        Matcher m1;
-        Word nextWord;
-        Sentence nextSentence;
+        //Pattern pWord = Pattern.compile("[\\w]+[^\\p{Punct}]");
+        //Matcher m1;
+        //Word nextWord;
+        Sentence nextSentence = new Sentence();
+        int last = 0;
         while (m.find()){
-            nextSentence = new Sentence();
-            m1 = pWord.matcher(m.group());
-            while (m1.find()){
-                nextWord = new Word(m1.group());
-                nextSentence.appendWord(nextWord);
-            }
+            nextSentence = new Sentence(rowText.substring(last, m.end()-1));
+            last = m.end();
+            //m1 = pWord.matcher(m.group());
+            //while (m1.find()){
+            //    nextWord = new Word(m1.group());
+            //    nextSentence.appendWord(nextWord);
+
             processedText.appendSentence(nextSentence);
         }
         return processedText;
+    }
+
+    public Sentence[] getSentences() {
+        return text;
     }
 
     @Override

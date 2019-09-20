@@ -34,20 +34,15 @@ public class Demo {
         }
 
 
- /*
-        //печатаем предложение как набор слов,
-        //без заглавной буквы и точки
-        //s1.setFirstLetterCapital(false);
-        //s1.setEndPoint(false);
-        System.out.println(s1);
-        String originalText = "The chief beauty of this book lies not so much " +
-                "in its literary style or in the extent and usefulness " +
+
+        String originalText = "The chief beauty of this book: lies not so much " +
+                "in its literary style or in the \"extent\" and usefulness " +
                 "of the information it conveys as in its " +
                 "simple truthfulness. Its pages form the record " +
                 "of events that really happened. All that has " +
                 "been done is to color them. And for this no extra " +
                 "charge has been made. George and Harris " +
-                "and Montmorency are not poetic ideals but " +
+                "and Montmorency; are not poetic ideals but " +
                 "things of flesh and blood especially George " +
                 "who weighs about twelve stone. Other works " +
                 "may excel this in depth of thought and knowledge " +
@@ -60,7 +55,14 @@ public class Demo {
                 "lend additional weight to the lesson that the " +
                 "story teaches.";
         Text text = Text.parseText(originalText);
-        System.out.println(text);*/
+        System.out.println(text);
+        System.out.println("***");
+        for (int i = 0; i < text.getSentences().length; i++) {
+            System.out.println(text.getSentences()[i]);
+            for (int j = 0; j < text.getSentences()[i].getWords().length; j++) {
+                System.out.println(text.getSentences()[i].getWords()[j]);
+            }
+        }
     }
 
 }
