@@ -1,28 +1,106 @@
 import java.util.Arrays;
 
 public class Sentence {
-    private  Word[] words; //массив слов входящих в предложение.
-    //private Boolean isFirstLetterCapital; //true если предложение должно начинаться с заглавной буквы
-    //private Boolean hasEndPoint; //true если в конце должна быть точка
+    private Word[] words; //массив слов входящих в предложение.
+    private char endSymbol; //символ в конце предложения (.?!)
 
-    Sentence(){
+    Sentence() {
         this.words = new Word[0];
-        //this.isFirstLetterCapital = true;
-        //this.hasEndPoint = true;
+        this.endSymbol = '.';
     }
 
-    Sentence(Word[] words){
+    Sentence(Word[] words) {
+        this.setEndSymbol(lastSymbolIs(words[words.length - 1])); //присваиваем атрибуту endSymbol значение последнего символа последнего слова если это (.?!)
+        words[words.length - 1] = cutEndPoint(words[words.length - 1]);//обрезаем у последнего слова последний символ если это (.?!)
         this.words = words;
-        //this.isFirstLetterCapital = true;
-        //this.hasEndPoint = true;
     }
 
-    Sentence(String str){
-        this.words = parseToSentence(str);
+    Sentence(String str) {
+        Word[] words = parseToSentence(str);//раэбираем строку на литералы
+        this.setEndSymbol(lastSymbolIs(words[words.length - 1]));//присваиваем атрибуту endSymbol значение последнего символа последнего слова если это (.?!)
+        words[words.length - 1] = cutEndPoint(words[words.length - 1]);//обрезаем у последнего слова последний символ если это (.?!)
+        this.words = words;
     }
 
-    private Word[] parseToSentence(String str){
-        String[] rowWords = str.split("\\s");
+    //присваивает значение атрибуту endSymbol
+    public void setEndSymbol(char symbol) {
+        switch (symbol) {
+            case ('?'):
+                this.endSymbol = '?';
+                break;
+            case ('!'):
+                this.endSymbol = '!';
+                break;
+            default:
+                this.endSymbol = '.';
+                break;
+        }
+    }
+
+
+    //добавляет слово в конец предложения
+
+    public void appendWord(Word newWord) {
+        this.words = Arrays.copyOf(this.words, this.words.length + 1);
+        this.words[this.words.length - 1] = newWord;
+    }
+    /*
+     *добавляет слово "word" в предложение в указанное место "index"
+     *остальные слова сдвигаются вправо
+     *возвращает 0 если слово успешно добавлено, иначе возвращает -1
+     **/
+
+    public boolean addWord(Word word, int index) {
+        boolean res = false;
+        if (index < this.words.length && index >= 0) {
+            Word[] newSentence = new Word[this.words.length + 1];
+            for (int i = 0; i < newSentence.length; i++) {
+                if (i < index) {
+                    newSentence[i] = this.words[i];
+                } else if (i == index) {
+                    newSentence[i] = word;
+                } else {
+                    newSentence[i] = this.words[i - 1];
+                }
+            }
+            this.words = newSentence;
+            res = true;
+        } else if (index == this.words.length) {
+            this.appendWord(word);
+            res = true;
+        }
+
+        return res;
+    }
+
+    //удаляет слово с указанным индексом
+    public boolean deleteWord(int index) {
+        boolean res = false;
+        if (index < this.words.length && index >= 0) {
+            Word[] newSentence = new Word[this.words.length - 1];
+            for (int i = 0; i < newSentence.length; i++) {
+                if (index > i) {
+                    newSentence[i] = this.words[i];
+                } else {
+                    newSentence[i] = this.words[i + 1];
+                }
+            }
+            res = true;
+            this.words = newSentence;
+        }
+        return res;
+    }
+
+    //возвращает все слова в предложении как массив типа Word
+    public Word[] getWords() {
+        return words;
+    }
+
+    //обрезает в слове последний символ если он является
+    //разбирает строку на литералы.
+    // Разделитель - любой пробельный символ или несколько пробельных символов вместе
+    private Word[] parseToSentence(String str) {
+        String[] rowWords = str.split("\\s+");
         Word[] processedWords = new Word[rowWords.length];
         for (int i = 0; i < rowWords.length; i++) {
             processedWords[i] = new Word(rowWords[i]);
@@ -30,47 +108,56 @@ public class Sentence {
         return processedWords;
     }
 
-    private String delExcessWhitespases(String str){
-        StringBuilder newStr = new StringBuilder();
-        char[] oldStr = str.trim().toCharArray();
-        for (int i = 1; i < oldStr.length; i++) {
-            if ((oldStr[i] == ' ') || (oldStr[i] == '   ')) && )
+    //признаком конца предложения (.?!)
+    private static Word cutEndPoint(Word word) {
+        StringBuilder newWord = new StringBuilder();
+        newWord.append(word.getWord());
+        if (isEndPoint(newWord.charAt(newWord.length() - 1))) {
+            newWord = new StringBuilder(newWord.substring(0, newWord.length() - 1));
         }
+        return new Word(newWord.toString());
     }
 
-    public void addWord(Word newWord){
-        this.words = Arrays.copyOf(this.words, this.words.length + 1);
-        this.words[this.words.length-1] = newWord;
+    //возвращает true если символ является признаком конца предложения (.?!)
+    private static boolean isEndPoint(char ch) {
+        boolean res = false;
+        if (ch == '.' || ch == '?' || ch == '!') {
+            res = true;
+        }
+        return res;
     }
 
-    public Word[] getWords() {
-        return words;
+    //возвращает последний символ в слове типа Word
+    private static char lastSymbolIs(Word word) {
+        char ch = word.getWord().charAt(word.getWord().length() - 1);
+        return ch;
     }
-/*public Boolean isFirstLetterCapital() {
-        return isFirstLetterCapital;
-    }*/
 
-    /*public void setFirstLetterCapital(Boolean firstLetterCapital) {
-        isFirstLetterCapital = firstLetterCapital;
-    }*/
-
-    /*public Boolean HasEndPoint() {
-        return hasEndPoint;
-    }*/
-
-    /*public void setEndPoint(Boolean hasEndPoint) {
-        this.hasEndPoint = hasEndPoint;
-    }*/
+    //возвращает слово переданное в параметры метода
+    // где первая буква переведена в верхний регистр
+    private static Word capitalizeWord(Word oldWord) {
+        char[] word = oldWord.getWord().toCharArray();
+        word[0] = Character.toUpperCase(word[0]);
+        StringBuilder str = new StringBuilder();
+        str.append(word);
+        Word newWord = new Word(str.toString());
+        return newWord;
+    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
-
-        for (int i = 0; i < this.words.length; i++) {
-            sb.append(this.words[i] + " ");
+        if (this.words.length > 0) {
+            Word firstWord = capitalizeWord(this.words[0]);
+            sb.append(firstWord);
+            if (this.words.length > 1) {
+                for (int i = 1; i < this.words.length; i++) {
+                    sb.append(" " + this.words[i]);
+                }
+                //sb.append(this.words[this.words.length - 1]);
+            }
+            sb.append(this.endSymbol);
         }
-
         return sb.toString();
     }
 }

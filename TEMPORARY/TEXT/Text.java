@@ -16,7 +16,7 @@ public class Text {
         this.text = sentences;
     }
 
-    public void addSentence(Sentence newSentence){
+    public void appendSentence(Sentence newSentence){
         this.text = Arrays.copyOf(this.text, this.text.length + 1);
         this.text[this.text.length-1] = newSentence;
     }
@@ -30,18 +30,14 @@ public class Text {
         Word nextWord;
         Sentence nextSentence;
         while (m.find()){
-            //System.out.println(m.group());
             nextSentence = new Sentence();
             m1 = pWord.matcher(m.group());
             while (m1.find()){
-                //System.out.println(m1.group());
                 nextWord = new Word(m1.group());
-                nextSentence.addWord(nextWord);
+                nextSentence.appendWord(nextWord);
             }
-            //System.out.println("*** " + nextSentence);
-            processedText.addSentence(nextSentence);
+            processedText.appendSentence(nextSentence);
         }
-        //String[] rowSentences = rowText.split(". ");
         return processedText;
     }
 
