@@ -53,6 +53,7 @@ public class Bank {
                 break;
             }
         }
+        return  res;
     }
 
     public boolean isAccountExist(Account account){
@@ -66,12 +67,33 @@ public class Bank {
         return  res;
     }
 
-    public int makeAccount(String name, AccountTypes type, Currency currency){
+    /*
+    * ищет клиента банка по имени и фамилии
+    * возвращает индекс клиента в списке клиентов банка
+    * если клиента списке банка не существует возвращает -1
+    * */
+   public int findClient(String clientName){
+        int res = -1;
+        String[] name = parseName(clientName);
+       for (int i = 0; i < clients.length; i++) {
+           if (clients[i].getFirstName() == name[0] && clients[i].getLastName() == name[1]){
+               res = i;
+           }
+       }
+       return res;
+   }
+
+
+
+    public int makeAccount(String firstName, String lastName, AccountTypes type, Currency currency){
         int res;
         res = 0;
 
-        if (!isClientExist(name)){
 
+        Client newClient = new Client(firstName, lastName);
+
+        if (isClientExist(newClient)){
+            //Account newAccount = new Account(type, ne)
         }
 
         return res;
