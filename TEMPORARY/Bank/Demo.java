@@ -17,6 +17,15 @@ public class Demo {
         bankNB.makeAccount("Петр", "Петров", AccountTypes.DEPOSIT, Currency.BYN);
         bankNB.makeAccount("Петр", "Петров", AccountTypes.CARD, Currency.BYN);
         bankNB.makeAccount("Петр", "Петров", AccountTypes.FOREIGN_CURRENCY, Currency.EUR);
+        bankNB.makeAccount("Петр", "Петров", AccountTypes.PAYMENT, Currency.BYN);
+
+        bankNB.makeAccount("Яков", "Яковлев", AccountTypes.CURRENT, Currency.BYN);
+        bankNB.makeAccount("Сидор", "Сидоров", AccountTypes.CURRENT, Currency.BYN);
+        bankNB.makeAccount("Ирина", "Иринова", AccountTypes.CURRENT, Currency.BYN);
+        bankNB.makeAccount("Ольга", "Ольгина", AccountTypes.CURRENT, Currency.BYN);
+        bankNB.makeAccount("Ольга", "Ольгина", AccountTypes.CURRENT, Currency.BYN);
+
+        bankNB.makeAccount("Федор", "Федоров", AccountTypes.CURRENT, Currency.BYN);
 
 
         bankNB.printAllClients();

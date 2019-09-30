@@ -148,19 +148,25 @@ public class Bank {
         Account account;
         if ((account = findAccount(firstName, lastName, type, currency)) != null) {
             res = account;
+            System.out.println("такой счет уже существует");
         } else {
             client = findClient(firstName, lastName);
             if (client == null) {
                 client = new Client(firstName, lastName);
                 addClient(client);
+                account = new Account(client,type,currency);
                 addAccount(account);
             } else {
                 if (type == AccountTypes.PAYMENT &&
                 isCurrentExist(client)) {
                     res = null; // у одного клиента не может быть одновременно и расетный и текущий счет
+                    System.out.println("у этого клиента уже есть рассчетный счет\n" +
+                            "текущий счет не может быть открыт");
                 } else if(type == AccountTypes.CURRENT &&
                         isPaymentExist(client)) {
                     res = null; // у одного клиента не может быть одновременно и расетный и текущий счет
+                    System.out.println("у этого клиента уже есть текущий счет\n" +
+                            "расчетный счет не может быть открыт");
                 } else {
                     account = new Account(client, type, currency);
                     addAccount(account);
