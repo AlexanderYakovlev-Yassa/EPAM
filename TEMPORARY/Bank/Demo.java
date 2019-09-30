@@ -12,6 +12,18 @@ public class Demo {
         System.out.println(bankNB.addClient(new Client("Ирина", "Иринова")));
         System.out.println(bankNB.addClient(new Client("Ольга", "Ольгина")));
 
+        //
+        bankNB.makeAccount("Петр", "Петров", AccountTypes.CURRENT, Currency.BYN);
+        bankNB.makeAccount("Петр", "Петров", AccountTypes.DEPOSIT, Currency.BYN);
+        bankNB.makeAccount("Петр", "Петров", AccountTypes.CARD, Currency.BYN);
+        bankNB.makeAccount("Петр", "Петров", AccountTypes.FOREIGN_CURRENCY, Currency.EUR);
+
+
+        bankNB.printAllClients();
+
+        System.out.println("");
+
+        bankNB.printAllAccounts();
         //заводим счета для клиентов
         //Account tmpAccount = new Account();
 

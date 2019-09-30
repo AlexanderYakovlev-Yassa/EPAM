@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Client {
     private String firstName;
@@ -8,6 +9,7 @@ public class Client {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -23,5 +25,19 @@ public class Client {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(firstName, client.firstName) &&
+                Objects.equals(lastName, client.lastName);
+    }
+
+    @Override
+    public String toString() {
+        return firstName + lastName;
     }
 }
