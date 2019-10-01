@@ -28,10 +28,10 @@ public class Bank {
             clients = Arrays.copyOf(clients, clients.length + 1);
             clients[clients.length - 1] = client;
             res = 0;
-            printLog("\tклиент добавлен");
+            printLog("\t","клиент добавлен");
         } else {
             res = 1;
-            printLog("\tтакой клиент уже есть в базе");
+            printLog("\t","такой клиент уже есть в базе");
         }
         return res;
     }
@@ -43,10 +43,10 @@ public class Bank {
             accounts = Arrays.copyOf(accounts, accounts.length + 1);
             accounts[accounts.length - 1] = account;
             res = 0;
-            printLog("\tсчет добавлен");
+            printLog("\t","счет добавлен");
         } else {
             res = 1;
-            printLog("\tтакой счет уже есть в базе");
+            printLog("\t","такой счет уже есть в базе");
         }
         return res;
     }
@@ -60,7 +60,7 @@ public class Bank {
                 break;
             }
         }
-        printLog("\tрезультат " + res);
+        printLog("\t","результат " + res);
         return res;
     }
 
@@ -75,7 +75,7 @@ public class Bank {
             }
         }
 
-        printLog("\tрезультат " + res);
+        printLog("\t","результат " + res);
         return res;
     }
 
@@ -89,7 +89,7 @@ public class Bank {
             }
         }
 
-        printLog("\tрезультат " + res);
+        printLog("\t","результат " + res);
         return res;
     }
 
@@ -109,7 +109,7 @@ public class Bank {
             }
         }
 
-        printLog("\tрезультат " + res);
+        printLog("\t","результат " + res);
         return res;
     }
 
@@ -119,35 +119,19 @@ public class Bank {
      * если счет в списке счетов банка не существует возвращает null
      * */
     public Account findAccount(String firstName, String lastName, AccountTypes type, Currency currency) {
-        Account res = null;
+        printLog();
+        Account account = null;
         for (Account a : accounts) {
             if (a.getClient().getFirstName() == firstName &&
                     a.getClient().getLastName() == lastName &&
                     a.getType() == type &&
                     a.getCurrency() == currency) {
-                res = a;
+                account = a;
                 break;
             }
         }
-        return res;
-    }
-
-    /*
-     * ищет счет в списке счетов банка
-     * возвращает счет из списка
-     * если счет в списке счетов банка не существует возвращает null
-     * */
-    public Account findAccount(Client client, AccountTypes type, Currency currency) {
-        Account res = null;
-        for (Account a : accounts) {
-            if (a.getClient().equals(client) &&
-                    a.getType() == type &&
-                    a.getCurrency() == currency) {
-                res = a;
-                break;
-            }
-        }
-        return res;
+        printLog("\t", "результат " + account);
+        return account;
     }
 
     /*
@@ -156,15 +140,16 @@ public class Bank {
      * при невозможности открытия счета возвращает null (предусмотрено на будущее)
      * */
     public Account openCurrentAccount(String firstName, String lastName) {
+        printLog(firstName,lastName);
         Account account;
         AccountTypes type = AccountTypes.CURRENT;
         Currency currency = nationalCurrency;
         Client client;
 
-        printLog(String.format("попытка открыть %s счет", type.rusName));
+        printLog("\t","попытка открыть счет", type.rusName);
         account = findAccount(firstName, lastName, type, currency);
         if ((account) != null) {                                                    //если такой счет существует;                                                              //возвращаем существующий счет
-            printLog("такой счет уже существует");                              //и бросаем сообщение в лог
+            printLog("\t", "такой счет уже существует");                              //и бросаем сообщение в лог
         } else {                                                                    //есл не существует
             client = findClient(firstName, lastName);
             if (client == null) {                                                       //если такого клиента нет
@@ -187,14 +172,15 @@ public class Bank {
      * при невозможности открытия счета возвращает null (предусмотрено на будущее)
      * */
     public Account openForeignCurrencyAccount(String firstName, String lastName, Currency currency) {
+        printLog();
         Account account;
         AccountTypes type = AccountTypes.FOREIGN_CURRENCY;
         Client client;
 
-        printLog(String.format("попытка открыть %s счет", type.rusName));
+        printLog("\t","попытка открыть счет", type.rusName);
         account = findAccount(firstName, lastName, type, currency);
         if ((account) != null) {                                                    //если такой счет существует                                                            //возвращаем существующий счет
-            System.out.println("такой счет уже существует");                            //бросаем сообщение в лог
+            printLog("\t", "такой счет уже существует");                            //бросаем сообщение в лог
         } else {                                                                    //есл не существует
             client = findClient(firstName, lastName);
             if (client == null) {                                                       //если такого клиента нет
@@ -217,14 +203,15 @@ public class Bank {
      * при невозможности открытия счета возвращает null (предусмотрено на будущее)
      * */
     public Account openCardAccount(String firstName, String lastName, Currency currency) {
+        printLog();
         Account account;
         AccountTypes type = AccountTypes.CARD;
         Client client;
 
-        printLog(String.format("попытка открыть %s счет", type.rusName));
+        printLog("\t", "попытка открыть счет", type.rusName);
         account = findAccount(firstName, lastName, type, currency);
         if ((account) != null) {                                                    //если такой счет существует                                                              //возвращаем существующий счет
-            printLog("такой счет уже существует");                              //и бросаем сообщение в лог
+            printLog("\t", "такой счет уже существует");                              //и бросаем сообщение в лог
         } else {                                                                    //если не существует
             client = findClient(firstName, lastName);
             if (client == null) {                                                       //если такого клиента нет
@@ -248,11 +235,26 @@ public class Bank {
         printLog(String.format("попытка проведения транзакции\n\tаккаунт %s\n\tсумма %s", account, amount));
         if (account != null && account.getStatus() == AccountStatus.ACTIVE) {
             account.setBalance(account.getBalance() + amount);
-            printLog("транзакция прошла успешно");
+            printLog("\t", "транзакция прошла успешно");
         } else {
-            printLog("транзакция невозможна");
+            printLog("\t", "транзакция невозможна");
         }
-        printLog(String.format("результат проведения транзакции\n\tсумма на счету %s", account.getBalance()));
+        printLog("\t", String.format("текущий баланс %s", account.getBalance()));
+    }
+
+    /*
+     * проводит транзакцию со счетом
+     * */
+    public void transaction(Account account, double amount) {
+
+        printLog(String.format("попытка проведения транзакции\n\tаккаунт %s\n\tсумма %s", account, amount));
+        if (isAccountExist(account) && account.getStatus() == AccountStatus.ACTIVE) {
+            account.setBalance(account.getBalance() + amount);
+            printLog("\t", "транзакция прошла успешно");
+        } else {
+            printLog("\t", "транзакция невозможна");
+        }
+        printLog("\t", String.format("текущий баланс %s", account.getBalance()));
     }
 
     /*
@@ -282,6 +284,7 @@ public class Bank {
      * выводит на консоль все счета указанного клиента
      * */
     public void printAllAccounts(Client client) {
+        printLog("\t", "список всех cчетов банка:");
         for (Account a : accounts) {
             if (a.getClient().equals(client)) {
                 System.out.println(a);
@@ -293,15 +296,15 @@ public class Bank {
      * выводит на консоль всех клиентов банка
      * */
     public void printAllClients() {
-        printLog("\tсписок всех клиентов банка:");
+        printLog("\t", "список всех клиентов банка:");
         for (Client c : clients) {
             System.out.println(c);
         }
     }
 
     /*
-    * включает вывод лога операций в консоль
-    * */
+     * включает вывод лога операций в консоль
+     * */
     public static void logOff(){
         log = false;
     }
@@ -314,19 +317,23 @@ public class Bank {
     }
 
     /*
-    * печатает в консоль лог операций
-    * если атрибут класса log = true
-    * */
+     * печатает в консоль лог операций
+     * если атрибут класса log = true
+     * */
     private static void printLog(String... str){
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
         if (log){
+            if(str.length > 0 && str[0] == "\t"){
+                System.out.print("\t");
+            }
+            System.out.print("[" + stackTraceElements[2].getMethodName() + "] ");
+
             for (String s : str) {
-                System.out.print(s + " / ");
+                if(s != "\t") {
+                    System.out.print(s + " ");
+                }
             }
-            if (str.length != 0) {
-                System.out.print("\b\b\b");
-            }
-            System.out.print(" [" + stackTraceElements[2].getMethodName() + "]");
+
             System.out.println("");
         }
     }

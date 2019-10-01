@@ -3,39 +3,40 @@ public class Demo {
         //создаем банк
         Bank bankNB = new Bank();
 
-        //набираем базу клиентов банка
-        Client tmpClient = new Client("Иван", "Иванов");
-        System.out.println(bankNB.addClient(tmpClient));
-        System.out.println(bankNB.addClient(new Client("Петр", "Петров")));
-        System.out.println(bankNB.addClient(new Client("Яков", "Яковлев")));
-        System.out.println(bankNB.addClient(new Client("Сидор", "Сидоров")));
-        System.out.println(bankNB.addClient(new Client("Ирина", "Иринова")));
-        System.out.println(bankNB.addClient(new Client("Ольга", "Ольгина")));
+        //открываем текущий счет в банке для Ивана Иванова
+        Account a1 = bankNB.openCurrentAccount("Иван", "Иванов");
 
-        //
-        bankNB.makeAccount("Петр", "Петров", AccountTypes.CURRENT, Currency.BYN);
-        bankNB.makeAccount("Петр", "Петров", AccountTypes.DEPOSIT, Currency.BYN);
-        bankNB.makeAccount("Петр", "Петров", AccountTypes.CARD, Currency.BYN);
-        bankNB.makeAccount("Петр", "Петров", AccountTypes.FOREIGN_CURRENCY, Currency.EUR);
-        bankNB.makeAccount("Петр", "Петров", AccountTypes.PAYMENT, Currency.BYN);
+        //зачисляем на счет 5000 BYN
+        bankNB.transaction(a1, 5000);
 
-        bankNB.makeAccount("Яков", "Яковлев", AccountTypes.CURRENT, Currency.BYN);
-        bankNB.makeAccount("Сидор", "Сидоров", AccountTypes.CURRENT, Currency.BYN);
-        bankNB.makeAccount("Ирина", "Иринова", AccountTypes.CURRENT, Currency.BYN);
-        bankNB.makeAccount("Ольга", "Ольгина", AccountTypes.CURRENT, Currency.BYN);
-        bankNB.makeAccount("Ольга", "Ольгина", AccountTypes.CURRENT, Currency.BYN);
+        //открываем текущий счет в банке для Ивана Иванова
+        Account a2 = bankNB.openCurrentAccount("Петр", "Петров");
+        //зачисляем на счет 3000 BYN
+        bankNB.transaction(a2, 3000);
+        //снимаем со щета 3500
+        bankNB.transaction(a2, -3500);
 
-        bankNB.makeAccount("Федор", "Федоров", AccountTypes.CURRENT, Currency.BYN);
+        Bank.logOff();
 
-
-        bankNB.printAllClients();
-
-        System.out.println("");
-
-        bankNB.printAllAccounts();
-        //заводим счета для клиентов
-        //Account tmpAccount = new Account();
-
-
+        //наполняем базу счетов
+        Account a3 = bankNB.openCurrentAccount("Мария", "Петрова");
+        bankNB.transaction(a3, 3000);
+        Account a4 = bankNB.openCurrentAccount("Ольга", "Суворова");
+        bankNB.transaction(a4, 6000);
+        Account a5 = bankNB.openCurrentAccount("Сергей", "Сергеев");
+        bankNB.transaction(a5, 2000);
+        Account a6 = bankNB.openForeignCurrencyAccount("Сергей", "Сергеев", Currency.EUR);
+        bankNB.transaction(a6, 2000);
+        Account a7 = bankNB.openCardAccount("Сергей", "Сергеев", Currency.BYN);
+        bankNB.transaction(a7, 2000);
+        Account a8 = bankNB.openCurrentAccount("Яков", "Яковлев");
+        bankNB.transaction(a8, 5000);
+        Account a9 = bankNB.openCurrentAccount("Василий", "Васильев");
+        bankNB.transaction(a9, 5000);
+        Bank.logOn();
+        a9.blockAccount();
+        bankNB.transaction(a9, 200);
+        a9.unBlockAccount();
+        bankNB.transaction(a9, 200);
     }
 }

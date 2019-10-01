@@ -1,5 +1,4 @@
 public enum AccountStatus {
     ACTIVE,
-    BLOCKED,
-    CANCELED;
+    BLOCKED;
 }
