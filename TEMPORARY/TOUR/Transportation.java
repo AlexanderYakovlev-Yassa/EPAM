@@ -1,7 +1,6 @@
 public enum Transportation {
-    AIRLINES,
+    AIR,
     BUS,
     TRAIN,
-    SHIP,
-    WALKING;
+    SHIP;
 }
