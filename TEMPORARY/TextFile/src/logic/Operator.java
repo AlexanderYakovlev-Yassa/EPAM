@@ -12,6 +12,32 @@ import java.util.regex.Pattern;
 
 public class Operator {
 
+    private class Path {
+        private Directory[] path;
+
+        Path(){
+            this.path = new Directory[0];
+        }
+
+        public void add(Directory dir){
+            path = Arrays.copyOf(path, path.length + 1);
+            path[path.length -1] = dir;
+        }
+
+        public String getPathString(){
+            StringBuilder sb = new StringBuilder();
+            for (int i = path.length-1; i >= 0 ; i--) {
+                //System.out.println(path.length);
+                if (path[i] instanceof File){
+                    sb.append(path[i].getName()+((File)path[i]).getExtension());
+                } else {
+                    sb.append(path[i].getName() + "\\");
+                }
+            }
+            return sb.toString();
+        }
+    }
+
     /*
     *проверяет правильность написания имени папки (файла)
     * можно применять буквы цыфры и знаки препинания кроме '\' и ':'
@@ -79,16 +105,6 @@ public class Operator {
         return  res;
     }
 
-    /*public boolean isFileNameExists(Storage storage, File file, String name, String extension){
-        boolean res = false;
-        for (Relation r : storage.getRelations()){
-            if (r.getParent() == dir && r.getChild().getName().equals(name)){
-                res = true;
-                break;
-            }
-        }
-        return  res;
-    }*/
 
     public boolean addRelation(Storage storage, Record relation){
         boolean res = false;
@@ -111,6 +127,23 @@ public class Operator {
             }
         }
         return res;
+    }
+
+    public String getPath(Storage storage, Directory file){
+        Path path = new Path();
+        path.add(file);
+        Directory parent = file;
+        while (parent != storage.getRoot()){
+            for (Record rec : storage.getRecords()){
+                if (rec.getChild() == parent){
+                    parent = rec.getParent();
+                    path.add(parent);
+                    break;
+                }
+            }
+        }
+
+        return path.getPathString();
     }
 
     private void log(Object o){
