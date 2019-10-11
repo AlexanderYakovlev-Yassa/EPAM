@@ -2,8 +2,11 @@ package main;
 
 import file.Directory;
 import file.Storage;
+import file.File;
 import logic.*;
 import report.Report;
+import java.io.*;
+import java.nio.charset.Charset;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +23,7 @@ public class Main {
         operator.createDirectory(flashCard, book, "scientific");
         Directory mith = operator.createDirectory(flashCard, book, "mithes");
         operator.createDirectory(flashCard, book, "mithes");
-        operator.createFile(flashCard, mith, "ghosts", ".txt");
+        Directory f1 = operator.createFile(flashCard, mith, "ghosts", ".txt");
         operator.createFile(flashCard, mith, "yetty", ".txt");
         operator.createFile(flashCard, mith, "vampires", ".txt");
 
@@ -31,6 +34,17 @@ public class Main {
 
         System.out.println(report.dir(flashCard.getRoot(), 0));
         //report.dir(book);
+
+        String str = "Hello from big bada boom!!!";
+        System.out.println(str);
+        Charset charset = Charset.forName("UTF-16");
+        byte[] file = str.getBytes(charset);
+
+        System.out.println(charset.name());
+        String str1 = new String(file, charset);
+        System.out.println(str1);
+
+        System.out.println(operator.getPath(flashCard, f1));
 
        /* Directory[] a = new Directory[2];
         Directory d = new Directory("dir");
