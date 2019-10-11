@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class File extends Directory{
     private String extension;
+    private byte[] content;
 
     public File(String name, String extension){
         super(name);
@@ -24,6 +25,14 @@ public class File extends Directory{
 
     public void setName(String name) {
         super.setName(name);
+    }
+
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
     }
 
     @Override
