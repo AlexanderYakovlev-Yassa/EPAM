@@ -99,9 +99,25 @@ public class Logic {
         return res;
     }
 
-    public DayOfWeek getDayOfWeek(Calendar calendar, Month month, int day){
+    public DayOfWeek dayOfWeek(Calendar calendar,int dayOfYear){
         DayOfWeek dW;
-        int yearDay = getDayOfYear(calendar.isLeapYear(),month,day);
-        int nWD = (yearDay + calendar.getFirstDay().getDayNom())%7;
+        int maxDays = calendar.isLeapYear() ? 366 : 365;
+
+        int nWD = (dayOfYear + calendar.getFirstDay().getDayNom() - 1)%7;
+        dW = DayOfWeek.getDayByNumber(nWD);
+
+        return dW;
+    }
+
+    public DayOfWeek dayOfWeek(Calendar calendar, Month month, int day){
+
+        DayOfWeek dW = null;
+
+        if (isDateCorrect(calendar.isLeapYear(),month,day)) {
+            int dayOfYear = getDayOfYear(calendar.isLeapYear(), month, day);
+            dW = dayOfWeek(calendar, dayOfYear);
+        }
+
+        return dW;
     }
 }

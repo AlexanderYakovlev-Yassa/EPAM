@@ -21,4 +21,20 @@ public enum Month {
         this.monthNum = monthNom;
         this.rusName = rusName;
     }
+
+    public int getMonthNum() {
+        return monthNum;
+    }
+
+    public void setMonthNum(int monthNum) {
+        this.monthNum = monthNum;
+    }
+
+    public String getRusName() {
+        return rusName;
+    }
+
+    public void setRusName(String rusName) {
+        this.rusName = rusName;
+    }
 }

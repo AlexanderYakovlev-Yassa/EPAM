@@ -11,7 +11,8 @@ public enum DayOfWeek {
 
     private int dayNom;
     private String rusName;
-    DayOfWeek(int dayNom, String rusName){
+
+    DayOfWeek(int dayNom, String rusName) {
         this.dayNom = dayNom;
         this.rusName = rusName;
     }
@@ -24,7 +25,23 @@ public enum DayOfWeek {
         return rusName;
     }
 
-    public DayOfWeek getDayOfWeekByNumber(int number){
-        
+    public static DayOfWeek getDayByNumber(int num) {
+        DayOfWeek dw = null;
+        if (num > 0) {
+            num = num % 7 + 1;
+        } else {
+            num = 7 + num % 7 + 1;
+        }
+
+        System.out.println("n " + num);
+
+        for (DayOfWeek d : DayOfWeek.values()) {
+            if (d.getDayNom() == num) {
+                dw = d;
+                break;
+            }
+        }
+
+        return dw;
     }
 }
