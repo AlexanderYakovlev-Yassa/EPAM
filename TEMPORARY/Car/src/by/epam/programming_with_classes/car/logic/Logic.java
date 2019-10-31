@@ -8,7 +8,7 @@ public class Logic {
 
     public void startEngine(Car car) {
 
-        if (car.getEngine() != null) {
+        if (isEngineInstalled(car)) {
 
             startEngine(car.getEngine());
         }
@@ -17,7 +17,7 @@ public class Logic {
 
     public void startEngine(Engine engine) {
 
-        if (engine != null) {
+        if (isEngineExists(engine)) {
 
             engine.setStatus(true);
         }
@@ -26,7 +26,7 @@ public class Logic {
 
     public void stopEngine(Engine engine) {
 
-        if (engine != null) {
+        if (isEngineExists(engine)) {
 
             engine.setStatus(false);
         }
@@ -34,7 +34,7 @@ public class Logic {
 
     public void stopEngine(Car car) {
 
-        if (car.getEngine() != null && !car.isMoving()) {
+        if (isCarExists(car) && isEngineInstalled(car) && !car.isMoving()) {
 
             stopEngine(car.getEngine());
         }
@@ -42,22 +42,24 @@ public class Logic {
 
     public void driveCar(Car car) {
 
-        car.setMoving((car != null) && isAllWheelInstalled(car) && car.getEngine().isStatus());
+        car.setMoving(isCarExists(car) && isAllWheelInstalled(car) && car.getEngine().isStatus());
     }
 
     public void stopCar(Car car) {
-
+        if (isCarExists(car) && car.isMoving()){
+            car.setMoving(false);
+        }
     }
 
     public boolean isAllWheelInstalled(Car car) {
 
         boolean flag = true;
 
-        if (car != null) {
+        if (isCarExists(car)) {
 
             for (int i = 0; i < car.getWheelNumber(); i++) {
 
-                if (car.getWheel(i) == null) {
+                if (!isWheelInstalled(car, i)) {
                     flag = false;
                     break;
                 }
@@ -69,51 +71,75 @@ public class Logic {
         return flag;
     }
 
-    public void removeWheel(Car car, int index){
+    public void removeWheel(Car car, int index) {
 
-       if (car != null) {
+        if (isCarExists(car) &&
+                isWheelIndexCorrect(car, index) &&
+                isWheelInstalled(car, index)) {
 
-           if (index > 0 && index <= car.getWheelNumber()) {
-
-               car.setWheel(null, index);
-           }
-       }
-    }
-
-    public void installWheel(Car car, Wheel wheel, int index){
-
-        if (car != null) {
-
-            if (index > 0 && index <= car.getWheelNumber()) {
-
-                if (car.getWheel(index) == null &&
-                        car.getWheelsDimension() == wheel.getDimension() &&
-                        wheel.getHost() == null){
-
-                    car.setWheel(wheel, index);
-                }
-            }
+            car.getWheel(index).setHost(null);
+            car.setWheel(null, index);
         }
     }
 
-    public void changeWheels(Car car, Wheel[] wheels){
+    public void installWheel(Car car, Wheel wheel, int index) {
+        if (isCarExists(car) &&
+                isWheelIndexCorrect(car, index) &&
+                !isWheelInstalled(car, index) &&
+                isWheelExists(wheel) &&
+                !hasWheelHost(wheel) &&
+                isWheelMeetsRequirements(car, wheel)) {
 
-        if (car != null) {
-
-            for (int i = 0; i < car.getWheelNumber(); i++) {
-
-                if (car.getWheel(i) != null){
-
-                    removeWheel(car, i);
-
-                }
-
-                for (Wheel w : wheels){
-
-                    installWheel(car, w, i);
-
-                }
-            }
+            car.setWheel(wheel, index);
+            wheel.setHost(car);
         }
+
+    }
+
+    public void changeWheel(Car car, Wheel wheel, int index) {
+
+        if (isCarExists(car) &&
+        isWheelIndexCorrect(car, index) &&
+        isWheelExists(wheel) &&
+        !hasWheelHost(wheel)){
+
+            if (isWheelInstalled(car, index)){
+                removeWheel(car,index);
+            }
+
+            installWheel(car, wheel, index);
+        }
+    }
+
+    private boolean isWheelMeetsRequirements(Car car, Wheel wheel) {
+        return car.getWheelsDimension() == wheel.getDimension();
+    }
+
+    private boolean isWheelIndexCorrect(Car car, int index) {
+        return index >= 0 && index < car.getWheelNumber();
+    }
+
+    private boolean isWheelInstalled(Car car, int index) {
+        return car.getWheel(index) != null;
+    }
+
+    private boolean hasWheelHost(Wheel wheel) {
+        return wheel.getHost() != null;
+    }
+
+    private boolean isCarExists(Car car) {
+        return car != null;
+    }
+
+    private boolean isWheelExists(Wheel wheel){
+        return wheel != null;
+    }
+
+    private boolean isEngineInstalled(Car car){
+        return car.getEngine() != null;
+    }
+
+    private boolean isEngineExists(Engine engine){
+        return engine != null;
     }
 }

@@ -8,12 +8,14 @@ public class Engine {
 
     private int id;
     private int power;
+    private Car host;
     private boolean status;
 
     public Engine(int power) {
         this.id = ++lastID;
         this.power = power;
         this.status = false;
+        this.host = null;
     }
 
     public int getId() {
@@ -34,6 +36,14 @@ public class Engine {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Car getHost() {
+        return host;
+    }
+
+    public void setHost(Car host) {
+        this.host = host;
     }
 
     @Override
