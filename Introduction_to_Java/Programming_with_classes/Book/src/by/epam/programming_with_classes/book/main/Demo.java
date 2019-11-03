@@ -29,7 +29,7 @@ public class Demo {
         view.printBooks(logic.findByPublisher(books, publisher));
 
         int year = 2018;
-        System.out.println("\nAll the books in the library which published by \"" + year + "\"\n");
+        System.out.println("\nAll the books in the library which published after \"" + year + "\"\n");
         view.printBooks(logic.findBooksYounger(books, year));
     }
 }
