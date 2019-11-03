@@ -127,14 +127,4 @@ public class Book {
                 "name='" + name + '\'' +
                 '}';
     }
-
-    public String shortInfo() {
-        StringBuilder res = new StringBuilder("book " + id + "\n\"" + name + "\"\n");
-        for (int i = 0; i < this.authors.length; i++) {
-            res.append(this.authors[i] + ", ");
-        }
-        res.append("\b\b.\n");
-
-        return res.toString();
-    }
 }
