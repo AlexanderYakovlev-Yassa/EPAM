@@ -1,13 +1,84 @@
-package by.epam.programming_with_classes.time.view;
+package by.epam.programming_with_classes.text.view;
 
-import by.epam.programming_with_classes.time.objects.Time;
+import by.epam.programming_with_classes.text.text.Sentence;
+import by.epam.programming_with_classes.text.text.Text;
+import by.epam.programming_with_classes.text.text.Word;
 
 public class View {
-    public void printTimeHMS(Time time){
-        System.out.println(String.format("%02d:%02d:%02d", time.getHour(), time.getMinute(), time.getSecond()));
+
+    public String print(Word word){
+
+        StringBuilder sb = new StringBuilder();
+
+        if (word != null) {
+
+            sb.append(word.getChars());
+        } else {
+
+            sb.append("there is no word");
+        }
+
+        return sb.toString();
     }
 
-    public void printTimeHM(Time time){
-        System.out.println(String.format("%02d:%02d", time.getHour(), time.getMinute()));
+    public String print(Sentence sentence){
+
+        StringBuilder sb = new StringBuilder();
+
+        if(sentence != null) {
+
+            for (Word w : sentence.getWords()) {
+                sb.append(print(w));
+            }
+        } else {
+
+            sb.append("there is no sentence");
+        }
+
+        return sb.toString();
+    }
+
+
+
+    public String print(Text text){
+
+        StringBuilder sb = new StringBuilder("\t\t");
+
+        if(text != null) {
+            sb.append(print(text.getHead()));
+            sb.append("\n\n\t");
+
+            for (Sentence s : text.getSentences()) {
+
+                sb.append(print(s));
+                sb.append(" ");
+            }
+        } else {
+
+            sb.append("there is no text");
+        }
+
+        return sb.toString();
+    }
+
+    public String printHead(Text text){
+
+        StringBuilder sb = new StringBuilder("\t\t");
+
+        if(text != null) {
+
+            if(text.getHead() != null && text.getHead().getWords() != null) {
+
+                sb.append(print(text.getHead()));
+            } else {
+
+                sb.append("there is no head");
+            }
+        } else {
+
+            sb.append("there is no text");
+        }
+
+        return sb.toString();
     }
 }
