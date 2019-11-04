@@ -48,5 +48,8 @@ public class Main {
         text.setSentences(sentences);
 
         System.out.println(view.print(text));
+
+        System.out.println();
+        System.out.println(view.printHead(text));
     }
 }
