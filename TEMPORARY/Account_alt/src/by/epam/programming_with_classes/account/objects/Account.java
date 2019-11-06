@@ -1,6 +1,5 @@
 package by.epam.programming_with_classes.account.objects;
 
-import by.epam.programming_with_classes.account.enumerators.AccountStatus;
 import by.epam.programming_with_classes.account.enumerators.AccountTypes;
 
 import java.util.Objects;
@@ -8,19 +7,15 @@ import java.util.Objects;
 public class Account {
 
     private AccountTypes type;
-    private AccountStatus status;
+    private boolean status;
     private Client client;
     private float balance;
 
     public Account(AccountTypes type, Client client) {
         this.type = type;
-        this.status = AccountStatus.ACTIVE;
+        this.status = true;
         this.client = client;
         this.balance = 0f;
-    }
-
-    enum compareCriteria{
-        
     }
 
     public AccountTypes getType() {
@@ -31,11 +26,11 @@ public class Account {
         this.type = type;
     }
 
-    public AccountStatus getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(AccountStatus status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -53,10 +48,6 @@ public class Account {
 
     public void setBalance(float balance) {
         this.balance = balance;
-    }
-
-    public int compare(Account account_1, Account account_2){
-
     }
 
     @Override
