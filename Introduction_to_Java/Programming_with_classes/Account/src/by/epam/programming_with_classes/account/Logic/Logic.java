@@ -50,26 +50,26 @@ public class Logic {
 
         if (account_1 != null && account_2 != null) {
 
-            switch (criteria.name()) {
-                case "CLIENT_A_Z": {
+            switch (criteria) {
+                case CLIENT_A_Z: {
                     res = compareClients(account_1.getClient(), account_2.getClient());
                     break;
                 }
-                case "CLIENT_Z_A": {
+                case CLIENT_Z_A: {
                     res = -compareClients(account_1.getClient(), account_2.getClient());
                     break;
                 }
-                case "TYPE": {
+                case TYPE: {
                     res = account_1.getType().name().compareTo(account_2.getType().name());
                     break;
                 }
-                case "STATUS": {
+                case STATUS: {
                     int a1 = account_1.getStatus() ? 1 : 0;
                     int a2 = account_2.getStatus() ? 1 : 0;
                     res = a1 - a2;
                     break;
                 }
-                case "BALANCE": {
+                case BALANCE: {
                     res = (int) ((account_1.getBalance() * 100) - (int) (account_2.getBalance() * 100));
                     break;
                 }
@@ -110,39 +110,39 @@ public class Logic {
 
             for (Account a : accounts.getAccounts()) {
 
-                switch (filter.name()) {
+                switch (filter) {
 
-                    case "BALANCE_POSITIVE": {
+                    case BALANCE_POSITIVE: {
                         if (a.getBalance() >= 0) {
                             addAccount(newAccounts, a);
                         }
                         break;
                     }
-                    case "BALANCE_NEGATIVE": {
+                    case BALANCE_NEGATIVE: {
                         if (a.getBalance() < 0) {
                             addAccount(newAccounts, a);
                         }
                         break;
                     }
-                    case "ACCOUNT_TYPE_CARD": {
+                    case ACCOUNT_TYPE_CARD: {
                         if (a.getType() == AccountType.CARD) {
                             addAccount(newAccounts, a);
                         }
                         break;
                     }
-                    case "ACCOUNT_TYPE_CURRENT": {
+                    case ACCOUNT_TYPE_CURRENT: {
                         if (a.getType() == AccountType.CURRENT) {
                             addAccount(newAccounts, a);
                         }
                         break;
                     }
-                    case "STATUS_ACTIVE": {
+                    case STATUS_ACTIVE: {
                         if (a.getStatus()) {
                             addAccount(newAccounts, a);
                         }
                         break;
                     }
-                    case "STATUS_BLOCKED": {
+                    case STATUS_BLOCKED: {
                         if (!a.getStatus()) {
                             addAccount(newAccounts, a);
                         }
