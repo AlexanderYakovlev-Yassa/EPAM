@@ -187,28 +187,6 @@ public class Logic {
         return balance;
     }
 
-    public AccountType stringToAccountType(String string) {
-
-        AccountType type;
-        string = string.toUpperCase();
-
-        switch (string) {
-            case "CURRENT": {
-                type = AccountType.CURRENT;
-                break;
-            }
-            case "CARD": {
-                type = AccountType.CARD;
-                break;
-            }
-            default: {
-                throw new EnumConstantNotPresentException(AccountType.class, string);
-            }
-        }
-
-        return type;
-    }
-
     private void swapAccounts(Accounts accounts, int index_1, int index_2) {
 
         if (accounts != null) {

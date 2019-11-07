@@ -26,7 +26,7 @@ public class Data {
         }
 
         try {
-            type = logic.stringToAccountType(fields[2]);
+            type = AccountType.valueOf(fields[2]);
         } catch (NullPointerException e) {
             flag = false;
         } catch (EnumConstantNotPresentException e) {
