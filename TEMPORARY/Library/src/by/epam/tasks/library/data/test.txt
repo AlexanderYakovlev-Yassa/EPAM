@@ -1,0 +1,33 @@
+name: Think Java: How to Think Like a Computer Scientist
+author: Allen B. Downey
+author: Chris Mayfield
+publisher: O'Reilly Media
+year: 2016
+pages: 252
+
+name: Scam Me If You Can: Simple Strategies to Outsmart Today's Rip-off Artists
+author: Mike Meyers
+publisher: McGraw-Hill Education
+year: 2019
+pages: 352
+
+name: CompTIA A+ Certification All-in-One Exam Guide, Tenth Edition (Exams 220-1001 & 220-1002)
+author: Frank Abagnale
+publisher: Portfolio
+year: 2019
+pages: 1568
+
+name: Adobe Photoshop CC Classroom in a by.epam.programming_with_classes.book.book.Book (2019 Release) 
+author: Andrew Faulkner
+author: Conrad Chavez
+publisher: Adobe Press
+year: 2018
+pages: 416
+
+name: Gone with the Wind
+author: Margaret Mitchell
+author: Pat Conroy
+publisher: Scribner
+year: 2011
+pages: 960
+
