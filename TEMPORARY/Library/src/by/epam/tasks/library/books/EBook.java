@@ -6,9 +6,13 @@ import java.util.Objects;
 public class EBook extends Book {
     String fileName;
 
-    public EBook(String name, ArrayList<String> authors, String fileName) {
-        super(name, authors);
+    public EBook(String name, ArrayList<String> authors, String publisher, int year, String fileName) {
+        super(name, authors, publisher, year);
         this.fileName = fileName;
+    }
+
+    public EBook() {
+        super();
     }
 
     public String getFileName() {

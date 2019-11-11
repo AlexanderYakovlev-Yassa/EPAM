@@ -15,15 +15,15 @@ public class View {
             sb.append("name: " + book.getName() + separator);
             for (String a : book.getAuthors()) {
                 sb.append("author: " + a + separator);
+                sb.append("publisher: " + book.getPublisher() + separator);
+                sb.append("year: " + book.getYear() + separator);
             }
 
             if (book instanceof PBook) {
-
-                sb.append("publisher: " + ((PBook) (book)).getPublisher() + separator);
-                sb.append("year: " + ((PBook) (book)).getYear() + separator);
+                sb.insert(0, "type: PaperBook:\n");
                 sb.append("pages: " + ((PBook) (book)).getPages());
             } else if (book instanceof EBook) {
-
+                sb.insert(0, "type: EBook:\n");
                 sb.append("fileName: " + ((EBook) (book)).getFileName());
             }
 

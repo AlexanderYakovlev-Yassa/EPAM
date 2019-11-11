@@ -7,6 +7,8 @@ public class Book {
     private int id;
     private String name;
     private ArrayList<String> authors;
+    private String publisher;
+    private int year;
     private static int lastID = 0;
 
     public Book() {
@@ -15,9 +17,11 @@ public class Book {
         this.id = ++lastID;
     }
 
-    public Book(String name, ArrayList<String> authors) {
+    public Book(String name, ArrayList<String> authors, String publisher, int year) {
         this.name = name;
         this.authors = authors;
+        this.publisher = publisher;
+        this.year = year;
         this.id = ++lastID;
     }
 
@@ -41,9 +45,25 @@ public class Book {
         this.authors = authors;
     }
 
-    /*public void setAuthor(int index, String author) {
-        this.authors.set(index, author);
-    }*/
+    public int getId() {
+        return id;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     public void addAuthor(String author){
         authors.add(author);
@@ -54,13 +74,15 @@ public class Book {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
-        return Objects.equals(name, book.name) &&
-                Objects.equals(authors, book.authors);
+        return getYear() == book.getYear() &&
+                Objects.equals(getName(), book.getName()) &&
+                Objects.equals(getAuthors(), book.getAuthors()) &&
+                Objects.equals(getPublisher(), book.getPublisher());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, authors);
+        return Objects.hash(getName(), getAuthors(), getPublisher(), getYear());
     }
 
     @Override
