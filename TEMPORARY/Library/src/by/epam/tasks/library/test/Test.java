@@ -1,10 +1,9 @@
 package by.epam.tasks.library.test;
 
-import by.epam.tasks.library.books.Book;
 import by.epam.tasks.library.books.Books;
 import by.epam.tasks.library.books.PBook;
 import by.epam.tasks.library.data.DataLogic;
-import by.epam.tasks.library.util.TextFileRW;
+import by.epam.tasks.library.util.util;
 import by.epam.tasks.library.view.View;
 
 import java.io.IOException;
@@ -16,7 +15,7 @@ public class Test {
 
         View view = new View();
         DataLogic dataLogic = new DataLogic();
-        TextFileRW textFileRW = new TextFileRW();
+        util util = new util();
 
         //Books books = readTestLibrary();
         //System.out.println(books.size());
@@ -27,14 +26,16 @@ public class Test {
 
         /*StringBuilder sb = view.printBooks(books);
         String fileName = "src\\by\\epam\\tasks\\library\\data\\test.txt";
-        textFileRW.addToTextFile(fileName, sb, false);*/
+        util.addToTextFile(fileName, sb, false);*/
 
-        /*StringBuilder sb1 = textFileRW.readTextFile(fileName);
+        /*StringBuilder sb1 = util.readTextFile(fileName);
         System.out.println("\n\tfile content:\n");
         System.out.println(sb1.toString());*/
 
         //dataLogic.saveLibrary(books);
         Books books = dataLogic.readLibrary();
+        System.out.println(view.printBooks(books));
+        dataLogic.saveLibrary(books);
 
         /*Book book = dataLogic.parseRecord("type: PaperBook\nname: Scam Me If You Can: Simple Strategies to Outsmart Today's Rip-off Artists\n" +
                 "author: Mike Meyers\n" +

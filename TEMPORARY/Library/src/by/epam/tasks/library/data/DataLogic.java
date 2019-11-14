@@ -4,43 +4,47 @@ import by.epam.tasks.library.books.Book;
 import by.epam.tasks.library.books.Books;
 import by.epam.tasks.library.books.EBook;
 import by.epam.tasks.library.books.PBook;
-import by.epam.tasks.library.util.TextFileRW;
+import by.epam.tasks.library.util.util;
 import by.epam.tasks.library.view.View;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class DataLogic {
 
     public void saveLibrary(Books books) throws IOException {
 
         View view = new View();
-        TextFileRW textFileRW = new TextFileRW();
+        util util = new util();
 
-        String fileName = "src\\by\\epam\\tasks\\library\\data\\library.txt";
+        String fileName = "src\\by\\epam\\tasks\\library\\data\\test.txt";
         StringBuilder text = view.printBooks(books);
 
-        textFileRW.addToTextFile(fileName, text, false);
+        util.addToTextFile(fileName, text, false);
     }
 
     public Books readLibrary() {
 
-        TextFileRW textFileRW = new TextFileRW();
+
+
+        util util = new util();
         Books books = new Books();
         String fileName = "src\\by\\epam\\tasks\\library\\data\\library.txt";
         StringBuilder sb = new StringBuilder();
 
+
         try {
-            sb = textFileRW.readTextFile(fileName);
-            String[] fields = sb.spl
+            sb = util.readTextFile(fileName);
+            //String[] fields = sb.spl
         } catch (IOException e) {
 
             e.printStackTrace();
         }
 
-        System.out.println(sb.toString());
+        ArrayList<String> arrayList = util.splitStringBuilder(sb, "\n\n");
+        for(String r: arrayList){
+            books.add(parseRecord(r));
+        }
 
         return books;
     }

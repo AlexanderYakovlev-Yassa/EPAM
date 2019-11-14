@@ -1,4 +1,4 @@
-type: Paper
+type: PaperBook
 name: Think Java: How to Think Like a Computer Scientist
 author: Allen B. Downey
 author: Chris Mayfield
