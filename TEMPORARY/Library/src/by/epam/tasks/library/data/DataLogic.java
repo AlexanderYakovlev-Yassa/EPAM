@@ -1,10 +1,7 @@
 package by.epam.tasks.library.data;
 
-import by.epam.tasks.library.books.Book;
-import by.epam.tasks.library.books.Books;
-import by.epam.tasks.library.books.EBook;
-import by.epam.tasks.library.books.PBook;
-import by.epam.tasks.library.util.util;
+import by.epam.tasks.library.books.*;
+import by.epam.tasks.library.util.Util;
 import by.epam.tasks.library.view.View;
 
 import java.io.*;
@@ -12,10 +9,10 @@ import java.util.ArrayList;
 
 public class DataLogic {
 
-    public void saveLibrary(Books books) throws IOException {
+    public void saveBooks(Books books) throws IOException {
 
         View view = new View();
-        util util = new util();
+        Util util = new Util();
 
         String fileName = "src\\by\\epam\\tasks\\library\\data\\test.txt";
         StringBuilder text = view.printBooks(books);
@@ -23,11 +20,9 @@ public class DataLogic {
         util.addToTextFile(fileName, text, false);
     }
 
-    public Books readLibrary() {
+    public Books readBooks() {
 
-
-
-        util util = new util();
+        Util util = new Util();
         Books books = new Books();
         String fileName = "src\\by\\epam\\tasks\\library\\data\\library.txt";
         StringBuilder sb = new StringBuilder();
@@ -35,7 +30,7 @@ public class DataLogic {
 
         try {
             sb = util.readTextFile(fileName);
-            //String[] fields = sb.spl
+
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -119,6 +114,23 @@ public class DataLogic {
             }
         }
         return book;
+    }
+
+    public Users readUsers(){
+        Users users = new Users();//----------------------------- needs to change
+
+        return users;
+    }
+
+    public User stringToUser(String string){
+
+        Util util = new Util();
+        User user = new User();
+
+        string = util.suppressExcessWhiteSpaces(string);
+        String[] fields = string.split("/s");
+
+        return user;
     }
 
     private PBook createPaperBook(String name, ArrayList<String> authors, String publisher, int year, int pages) {

@@ -3,7 +3,7 @@ package by.epam.tasks.library.test;
 import by.epam.tasks.library.books.Books;
 import by.epam.tasks.library.books.PBook;
 import by.epam.tasks.library.data.DataLogic;
-import by.epam.tasks.library.util.util;
+import by.epam.tasks.library.util.Util;
 import by.epam.tasks.library.view.View;
 
 import java.io.IOException;
@@ -15,27 +15,27 @@ public class Test {
 
         View view = new View();
         DataLogic dataLogic = new DataLogic();
-        util util = new util();
+        Util util = new Util();
 
         //Books books = readTestLibrary();
         //System.out.println(books.size());
 
-        //books = dataLogic.readLibrary();
+        //books = dataLogic.readBooks();
 
 
 
         /*StringBuilder sb = view.printBooks(books);
         String fileName = "src\\by\\epam\\tasks\\library\\data\\test.txt";
-        util.addToTextFile(fileName, sb, false);*/
+        Util.addToTextFile(fileName, sb, false);*/
 
-        /*StringBuilder sb1 = util.readTextFile(fileName);
+        /*StringBuilder sb1 = Util.readTextFile(fileName);
         System.out.println("\n\tfile content:\n");
         System.out.println(sb1.toString());*/
 
-        //dataLogic.saveLibrary(books);
-        Books books = dataLogic.readLibrary();
+        //dataLogic.saveBooks(books);
+        Books books = dataLogic.readBooks();
         System.out.println(view.printBooks(books));
-        dataLogic.saveLibrary(books);
+        dataLogic.saveBooks(books);
 
         /*Book book = dataLogic.parseRecord("type: PaperBook\nname: Scam Me If You Can: Simple Strategies to Outsmart Today's Rip-off Artists\n" +
                 "author: Mike Meyers\n" +

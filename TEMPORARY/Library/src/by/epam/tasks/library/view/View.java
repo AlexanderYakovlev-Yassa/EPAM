@@ -4,8 +4,6 @@ import by.epam.tasks.library.books.Book;
 import by.epam.tasks.library.books.Books;
 import by.epam.tasks.library.books.EBook;
 import by.epam.tasks.library.books.PBook;
-import by.epam.tasks.library.ui.Menu;
-import by.epam.tasks.library.ui.MenuItem;
 
 public class View {
 
@@ -39,6 +37,20 @@ public class View {
         return sb.toString();
     }
 
+    public String printBookShort(Book book){
+
+        StringBuilder sb = new StringBuilder();
+
+        for(String author:book.getAuthors()){
+            sb.append(author + ", ");
+        }
+
+        sb.append("\b\b\n");
+        sb.append(book.getName() + "\n");
+
+        return sb.toString();
+    }
+
     public StringBuilder printBooks(Books books) {
 
         StringBuilder booksInfo = new StringBuilder();
@@ -56,14 +68,20 @@ public class View {
         return booksInfo;
     }
 
-    public void printMenu(Menu menu){
+    public void showCatalog(Books books){
 
-        if(menu != null){
-            if(menu.getItems().size() != 0){
-                for(int i = 0; i < menu.getItems().size(); i++){
-                    System.out.println(String.format("%2d. %s", i, menu.getItem(i).getName()));
-                }
+        if(books != null) {
+            for (int i = 0; i < books.size(); i++) {
+                System.out.println(printBookShort(books.get(i)));
             }
+        }else{
+            System.out.println("There is no catalog");
         }
+    }
+
+    public void printHelp(){
+        System.out.println("HELP           - допустимые команды.\n" +
+                "CATALOG           - просмотреть каталог библиотеки\n" +
+                "EXIT           - выход из приложения\n");
     }
 }
