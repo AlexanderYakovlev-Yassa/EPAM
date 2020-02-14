@@ -1,0 +1,2629 @@
+
+The source matrix:
+[20][20][30][20][10]
+[10][21][10][40][ 0]
+[20][20][22][20][10]
+[ 0][ 0][10][23][20]
+[10][ 0][ 0][ 0][24]
+
+Tread N 0 has returned sum = 130.
+Tread N 4 has returned sum = 70.
+Tread N 1 has returned sum = 110.
+Tread N 2 has returned sum = 130.
+Tread N 3 has returned sum = 140.
+
+[ 0][20][30][20][10]
+[10][ 1][10][50][ 0]
+[20][20][ 2][30][10]
+[10][ 0][10][ 3][20]
+[20][10][ 0][ 0][ 4]
+
+Tread N 6 has returned sum = 130.
+Tread N 5 has returned sum = 160.
+Tread N 8 has returned sum = 150.
+Tread N 7 has returned sum = 150.
+Tread N 9 has returned sum = 80.
+
+[ 5][20][30][20][10]
+[20][ 6][10][50][ 0]
+[30][20][ 7][40][10]
+[10][10][10][ 8][20]
+[20][10][ 0][10][ 9]
+
+Tread N 10 has returned sum = 170.
+Tread N 12 has returned sum = 160.
+Tread N 14 has returned sum = 100.
+Tread N 11 has returned sum = 150.
+Tread N 13 has returned sum = 190.
+
+[10][20][30][30][10]
+[30][11][10][50][ 0]
+[30][20][12][50][10]
+[10][10][10][13][20]
+[30][10][10][10][14]
+
+Tread N 16 has returned sum = 160.
+Tread N 18 has returned sum = 210.
+Tread N 15 has returned sum = 200.
+Tread N 17 has returned sum = 200.
+Tread N 19 has returned sum = 110.
+
+[15][20][30][30][10]
+[30][16][10][60][ 0]
+[40][20][17][50][10]
+[10][10][30][18][20]
+[30][20][10][10][19]
+
+Tread N 20 has returned sum = 210.
+Tread N 21 has returned sum = 180.
+Tread N 24 has returned sum = 120.
+Tread N 23 has returned sum = 240.
+Tread N 22 has returned sum = 220.
+
+[20][20][40][30][10]
+[30][21][10][70][ 0]
+[40][20][22][50][20]
+[10][20][30][23][20]
+[30][30][10][10][24]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 10.
+Tread N 2 has returned sum = 10.
+Tread N 4 has returned sum = 20.
+Tread N 1 has returned sum = 20.
+Tread N 3 has returned sum = 10.
+
+[ 0][ 0][ 0][ 0][ 0]
+[10][ 1][10][ 0][ 0]
+[ 0][ 0][ 2][ 0][10]
+[ 0][ 0][10][ 3][ 0]
+[ 0][ 0][10][ 0][ 4]
+
+Tread N 6 has returned sum = 30.
+Tread N 8 has returned sum = 20.
+Tread N 5 has returned sum = 20.
+Tread N 7 has returned sum = 70.
+Tread N 9 has returned sum = 40.
+
+[ 5][ 0][ 0][ 0][ 0]
+[10][ 6][30][ 0][ 0]
+[10][ 0][ 7][ 0][10]
+[ 0][ 0][10][ 8][10]
+[10][ 0][10][ 0][ 9]
+
+Tread N 10 has returned sum = 40.
+Tread N 12 has returned sum = 80.
+Tread N 14 has returned sum = 60.
+Tread N 11 has returned sum = 60.
+Tread N 13 has returned sum = 40.
+
+[10][ 0][ 0][ 0][ 0]
+[10][11][30][ 0][ 0]
+[10][10][12][ 0][10]
+[ 0][10][10][13][20]
+[20][10][10][ 0][14]
+
+Tread N 16 has returned sum = 80.
+Tread N 18 has returned sum = 50.
+Tread N 15 has returned sum = 50.
+Tread N 17 has returned sum = 100.
+Tread N 19 has returned sum = 110.
+
+[15][ 0][ 0][ 0][10]
+[10][16][30][ 0][ 0]
+[10][20][17][ 0][10]
+[ 0][10][10][18][30]
+[20][10][20][10][19]
+
+Tread N 21 has returned sum = 90.
+Tread N 20 has returned sum = 60.
+Tread N 24 has returned sum = 130.
+Tread N 22 has returned sum = 120.
+Tread N 23 has returned sum = 90.
+
+[20][ 0][ 0][ 0][10]
+[10][21][30][10][ 0]
+[10][20][22][ 0][20]
+[ 0][10][20][23][30]
+[30][10][20][20][24]
+
+14
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 10.
+Tread N 2 has returned sum = 10.
+Tread N 4 has returned sum = 20.
+Tread N 1 has returned sum = 10.
+Tread N 3 has returned sum = 30.
+
+[ 0][ 0][ 0][ 0][10]
+[ 0][ 1][ 0][ 0][ 0]
+[ 0][ 0][ 2][ 0][ 0]
+[ 0][ 0][10][ 3][ 0]
+[ 0][10][ 0][20][ 4]
+
+Tread N 5 has returned sum = 20.
+Tread N 6 has returned sum = 20.
+Tread N 8 has returned sum = 50.
+Tread N 7 has returned sum = 20.
+Tread N 9 has returned sum = 70.
+
+[ 5][ 0][ 0][10][10]
+[ 0][ 6][ 0][ 0][ 0]
+[ 0][ 0][ 7][ 0][10]
+[ 0][10][10][ 8][ 0]
+[ 0][20][10][20][ 9]
+
+Tread N 10 has returned sum = 30.
+Tread N 12 has returned sum = 40.
+Tread N 14 has returned sum = 80.
+Tread N 11 has returned sum = 40.
+Tread N 13 has returned sum = 70.
+
+[10][ 0][ 0][20][10]
+[10][11][ 0][ 0][ 0]
+[10][ 0][12][ 0][10]
+[10][10][10][13][ 0]
+[ 0][20][20][20][14]
+
+Tread N 16 has returned sum = 50.
+Tread N 18 has returned sum = 80.
+Tread N 19 has returned sum = 110.
+Tread N 15 has returned sum = 70.
+Tread N 17 has returned sum = 60.
+
+[15][ 0][ 0][20][10]
+[10][16][ 0][ 0][10]
+[20][ 0][17][ 0][10]
+[20][10][10][18][10]
+[ 0][20][20][30][19]
+
+Tread N 20 has returned sum = 90.
+Tread N 22 has returned sum = 70.
+Tread N 24 has returned sum = 130.
+Tread N 21 has returned sum = 60.
+Tread N 23 has returned sum = 110.
+
+[20][ 0][10][20][30]
+[10][21][ 0][ 0][10]
+[20][ 0][22][ 0][10]
+[20][10][10][23][10]
+[ 0][30][20][40][24]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 3 has returned sum = 10.
+Tread N 4 has returned sum = 10.
+Tread N 0 has returned sum = 10.
+Tread N 1 has returned sum = 20.
+Tread N 2 has returned sum = 20.
+
+[ 0][ 0][10][10][ 0]
+[ 0][ 1][ 0][ 0][10]
+[10][ 0][ 2][ 0][ 0]
+[ 0][ 0][ 0][ 3][ 0]
+[ 0][10][ 0][ 0][ 4]
+
+Tread N 5 has returned sum = 40.
+Tread N 6 has returned sum = 30.
+Tread N 8 has returned sum = 40.
+Tread N 7 has returned sum = 30.
+Tread N 9 has returned sum = 30.
+
+[ 5][ 0][10][20][ 0]
+[ 0][ 6][ 0][10][20]
+[20][ 0][ 7][ 0][ 0]
+[ 0][10][ 0][ 8][ 0]
+[ 0][10][ 0][ 0][ 9]
+
+Tread N 10 has returned sum = 60.
+Tread N 12 has returned sum = 40.
+Tread N 11 has returned sum = 70.
+Tread N 14 has returned sum = 50.
+Tread N 13 has returned sum = 60.
+
+[10][ 0][10][20][ 0]
+[10][11][ 0][10][20]
+[20][ 0][12][ 0][10]
+[ 0][30][ 0][13][ 0]
+[ 0][10][10][ 0][14]
+
+Tread N 16 has returned sum = 90.
+Tread N 18 has returned sum = 80.
+Tread N 15 has returned sum = 70.
+Tread N 19 has returned sum = 70.
+Tread N 17 has returned sum = 80.
+
+[15][ 0][10][20][ 0]
+[10][16][ 0][10][20]
+[20][ 0][17][10][30]
+[ 0][40][ 0][18][ 0]
+[10][10][10][ 0][19]
+
+Tread N 24 has returned sum = 90.
+Tread N 22 has returned sum = 100.
+Tread N 21 has returned sum = 100.
+Tread N 20 has returned sum = 80.
+Tread N 23 has returned sum = 110.
+
+[20][ 0][10][20][ 0]
+[10][21][ 0][20][20]
+[30][ 0][22][10][30]
+[10][50][ 0][23][ 0]
+[10][10][20][ 0][24]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 3 has returned sum = 20.
+Tread N 1 has returned sum = 20.
+Tread N 4 has returned sum = 10.
+Tread N 2 has returned sum = 10.
+Tread N 0 has returned sum = 10.
+
+[ 0][ 0][ 0][ 0][ 0]
+[20][ 1][ 0][10][ 0]
+[ 0][ 0][ 2][ 0][ 0]
+[ 0][ 0][10][ 3][ 0]
+[10][ 0][ 0][ 0][ 4]
+
+Tread N 6 has returned sum = 40.
+Tread N 8 has returned sum = 40.
+Tread N 5 has returned sum = 40.
+Tread N 7 has returned sum = 30.
+Tread N 9 has returned sum = 30.
+
+[ 5][ 0][ 0][ 0][ 0]
+[20][ 6][ 0][20][ 0]
+[10][ 0][ 7][ 0][10]
+[ 0][10][10][ 8][ 0]
+[20][ 0][ 0][ 0][ 9]
+
+Tread N 10 has returned sum = 60.
+Tread N 12 has returned sum = 40.
+Tread N 14 has returned sum = 40.
+Tread N 11 has returned sum = 70.
+Tread N 13 has returned sum = 60.
+
+[10][ 0][ 0][ 0][10]
+[40][11][ 0][20][ 0]
+[10][ 0][12][10][10]
+[ 0][10][20][13][ 0]
+[20][ 0][ 0][ 0][14]
+
+Tread N 15 has returned sum = 90.
+Tread N 17 has returned sum = 60.
+Tread N 18 has returned sum = 70.
+Tread N 16 has returned sum = 90.
+Tread N 19 has returned sum = 60.
+
+[15][ 0][ 0][ 0][10]
+[50][16][ 0][20][10]
+[20][ 0][17][10][10]
+[ 0][10][30][18][ 0]
+[30][ 0][ 0][ 0][19]
+
+Tread N 20 has returned sum = 120.
+Tread N 22 has returned sum = 80.
+Tread N 23 has returned sum = 90.
+Tread N 24 has returned sum = 90.
+Tread N 21 has returned sum = 100.
+
+[20][ 0][ 0][ 0][10]
+[50][21][ 0][30][10]
+[20][ 0][22][20][20]
+[ 0][10][30][23][10]
+[40][ 0][ 0][ 0][24]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+
+[4][0][0][0][0]
+[1][0][0][0][0]
+[0][0][3][0][0]
+[0][0][0][1][0]
+[0][0][0][0][0]
+
+
+[5][0][0][0][0]
+[1][0][0][0][0]
+[0][0][8][0][0]
+[0][0][0][7][0]
+[0][0][0][0][0]
+
+
+[ 5][ 0][ 0][ 0][ 0]
+[ 1][13][ 0][ 0][ 0]
+[ 0][ 0][14][ 0][ 0]
+[ 0][ 0][ 0][11][ 0]
+[ 0][ 0][ 0][ 0][ 0]
+
+
+[19][ 0][ 0][ 0][ 0]
+[ 1][16][ 0][ 0][ 0]
+[ 0][ 0][17][ 0][ 0]
+[ 0][ 0][ 0][18][ 0]
+[ 0][ 0][ 0][ 0][ 0]
+
+
+[22][ 0][ 0][ 0][ 0]
+[ 1][24][ 0][ 0][ 0]
+[ 0][ 0][23][ 0][ 0]
+[ 0][ 0][ 0][21][ 0]
+[ 0][ 0][ 0][ 0][ 0]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+
+[4][0][0][0][0]
+[0][0][0][0][0]
+[0][0][2][0][0]
+[0][0][0][1][0]
+[1][0][0][0][0]
+
+
+[5][0][0][0][0]
+[0][6][0][0][0]
+[0][0][2][0][0]
+[0][0][0][9][0]
+[1][0][0][0][0]
+
+
+[11][ 0][ 0][ 0][ 0]
+[ 0][ 6][ 0][ 0][ 0]
+[ 0][ 0][13][ 0][ 0]
+[ 0][ 0][ 0][12][ 0]
+[ 1][ 0][ 0][ 0][14]
+
+
+[11][ 0][ 0][ 0][ 0]
+[ 0][15][ 0][ 0][ 0]
+[ 0][ 0][19][ 0][ 0]
+[ 0][ 0][ 0][16][ 0]
+[ 1][ 0][ 0][ 0][18]
+
+
+[22][ 0][ 0][ 0][ 0]
+[ 0][23][ 0][ 0][ 0]
+[ 0][ 0][20][ 0][ 0]
+[ 0][ 0][ 0][16][ 0]
+[ 1][ 0][ 0][ 0][24]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+
+[0][0][0][0][0]
+[0][1][0][0][1]
+[0][0][0][0][0]
+[0][0][0][4][0]
+[0][0][0][0][3]
+
+
+[0][0][0][0][0]
+[0][8][0][0][1]
+[0][0][0][0][0]
+[0][0][0][5][0]
+[0][0][0][0][9]
+
+
+[11][ 0][ 0][ 0][ 0]
+[ 0][ 8][ 0][ 0][ 1]
+[ 0][ 0][ 0][ 0][ 0]
+[ 0][ 0][ 0][13][ 0]
+[ 0][ 0][ 0][ 0][ 9]
+
+
+[19][ 0][ 0][ 0][ 0]
+[ 0][18][ 0][ 0][ 1]
+[ 0][ 0][ 0][ 0][ 0]
+[ 0][ 0][ 0][13][ 0]
+[ 0][ 0][ 0][ 0][17]
+
+
+[23][ 0][ 0][ 0][ 0]
+[ 0][20][ 0][ 0][ 1]
+[ 0][ 0][22][ 0][ 0]
+[ 0][ 0][ 0][21][ 0]
+[ 0][ 0][ 0][ 0][24]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+
+[0][0][1][0][0]
+[0][3][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][4]
+
+
+[0][0][1][0][0]
+[0][7][0][0][0]
+[0][0][0][0][0]
+[0][0][0][6][0]
+[0][0][0][0][9]
+
+
+[13][ 0][ 1][ 0][ 0]
+[ 0][11][ 0][ 0][ 0]
+[ 0][ 0][ 0][ 0][ 0]
+[ 0][ 0][ 0][ 6][ 0]
+[ 0][ 0][ 0][ 0][ 9]
+
+
+[15][ 0][ 1][ 0][ 0]
+[ 0][11][ 0][ 0][ 0]
+[ 0][ 0][19][ 0][ 0]
+[ 0][ 0][ 0][ 6][ 0]
+[ 0][ 0][ 0][ 0][18]
+
+
+[15][ 0][ 1][ 0][ 0]
+[ 0][21][ 0][ 0][ 0]
+[ 0][ 0][19][ 0][ 0]
+[ 0][ 0][ 0][23][ 0]
+[ 0][ 0][ 0][ 0][24]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 3.
+Tread N 1 has returned sum = 2.
+Tread N 3 has returned sum = 5.
+
+[0][0][0][0][1]
+[0][1][0][0][0]
+[0][0][2][0][1]
+[0][0][0][0][0]
+[0][2][1][0][3]
+
+Tread N 6 has returned sum = 3.
+Tread N 8 has returned sum = 2.
+Tread N 5 has returned sum = 3.
+Tread N 7 has returned sum = 5.
+Tread N 9 has returned sum = 6.
+
+[5][2][0][0][1]
+[0][7][0][0][1]
+[0][1][6][0][1]
+[0][0][1][0][0]
+[0][2][1][0][9]
+
+Tread N 10 has returned sum = 7.
+Tread N 12 has returned sum = 7.
+Tread N 14 has returned sum = 8.
+Tread N 11 has returned sum = 9.
+Tread N 13 has returned sum = 9.
+
+[ 5][ 2][ 0][ 0][ 2]
+[ 0][13][ 0][ 1][ 2]
+[ 0][ 1][ 6][ 0][ 2]
+[ 0][ 1][ 1][ 0][ 0]
+[ 0][ 2][ 1][ 0][11]
+
+Tread N 15 has returned sum = 4.
+Tread N 17 has returned sum = 6.
+Tread N 19 has returned sum = 6.
+Tread N 16 has returned sum = 7.
+Tread N 18 has returned sum = 6.
+
+[16][ 3][ 0][ 2][ 2]
+[ 0][13][ 0][ 1][ 2]
+[ 0][ 1][19][ 0][ 2]
+[ 0][ 1][ 1][18][ 1]
+[ 0][ 2][ 2][ 0][11]
+
+Tread N 20 has returned sum = 7.
+Tread N 22 has returned sum = 12.
+Tread N 21 has returned sum = 12.
+Tread N 23 has returned sum = 8.
+Tread N 24 has returned sum = 9.
+
+[24][ 3][ 1][ 2][ 2]
+[ 0][22][ 1][ 1][ 2]
+[ 1][ 1][20][ 0][ 2]
+[ 0][ 2][ 1][18][ 1]
+[ 0][ 2][ 3][ 0][21]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 1.
+Tread N 3 has returned sum = 3.
+
+[1][0][1][0][0]
+[0][0][0][0][1]
+[0][0][0][0][0]
+[0][2][1][3][0]
+[0][0][0][0][2]
+
+Tread N 6 has returned sum = 4.
+Tread N 8 has returned sum = 2.
+Tread N 5 has returned sum = 5.
+Tread N 7 has returned sum = 5.
+Tread N 9 has returned sum = 6.
+
+[8][0][2][0][0]
+[0][0][0][0][1]
+[0][0][9][2][1]
+[0][3][1][7][0]
+[0][0][0][0][2]
+
+Tread N 10 has returned sum = 3.
+Tread N 12 has returned sum = 4.
+Tread N 14 has returned sum = 7.
+Tread N 11 has returned sum = 7.
+Tread N 13 has returned sum = 6.
+
+[12][ 0][ 2][ 0][ 1]
+[ 0][ 0][ 0][ 0][ 2]
+[ 0][ 0][11][ 2][ 1]
+[ 0][ 3][ 2][14][ 0]
+[ 1][ 0][ 0][ 1][13]
+
+Tread N 15 has returned sum = 7.
+Tread N 17 has returned sum = 5.
+Tread N 19 has returned sum = 8.
+Tread N 16 has returned sum = 6.
+Tread N 18 has returned sum = 7.
+
+[17][ 2][ 2][ 1][ 1]
+[ 0][18][ 0][ 0][ 2]
+[ 0][ 0][11][ 2][ 1]
+[ 0][ 3][ 2][14][ 0]
+[ 1][ 0][ 0][ 3][19]
+
+Tread N 20 has returned sum = 8.
+Tread N 22 has returned sum = 9.
+Tread N 23 has returned sum = 9.
+Tread N 21 has returned sum = 10.
+Tread N 24 has returned sum = 12.
+
+[17][ 2][ 2][ 1][ 1]
+[ 0][24][ 1][ 0][ 3]
+[ 0][ 2][23][ 2][ 1]
+[ 0][ 3][ 2][14][ 0]
+[ 1][ 1][ 0][ 3][21]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 3.
+Tread N 3 has returned sum = 3.
+
+[0][0][0][0][0]
+[0][3][0][0][0]
+[0][1][4][1][0]
+[0][2][0][1][1]
+[0][0][0][0][2]
+
+Tread N 6 has returned sum = 1.
+Tread N 8 has returned sum = 3.
+Tread N 5 has returned sum = 6.
+Tread N 7 has returned sum = 4.
+Tread N 9 has returned sum = 2.
+
+[9][0][0][0][0]
+[0][3][0][0][0]
+[0][1][7][2][0]
+[0][2][1][5][2]
+[2][0][0][0][8]
+
+Tread N 11 has returned sum = 3.
+Tread N 13 has returned sum = 5.
+Tread N 10 has returned sum = 4.
+Tread N 12 has returned sum = 6.
+Tread N 14 has returned sum = 7.
+
+[14][ 1][ 0][ 1][ 0]
+[ 0][10][ 0][ 0][ 0]
+[ 1][ 1][13][ 2][ 0]
+[ 2][ 2][ 1][ 5][ 2]
+[ 2][ 0][ 0][ 0][ 8]
+
+Tread N 15 has returned sum = 8.
+Tread N 17 has returned sum = 5.
+Tread N 16 has returned sum = 9.
+Tread N 18 has returned sum = 7.
+Tread N 19 has returned sum = 11.
+
+[16][ 2][ 1][ 1][ 0]
+[ 0][17][ 0][ 0][ 0]
+[ 1][ 1][18][ 2][ 1]
+[ 2][ 2][ 1][19][ 2]
+[ 2][ 1][ 0][ 1][ 8]
+
+Tread N 20 has returned sum = 10.
+Tread N 22 has returned sum = 8.
+Tread N 23 has returned sum = 12.
+Tread N 24 has returned sum = 7.
+Tread N 21 has returned sum = 8.
+
+[23][ 2][ 2][ 1][ 0]
+[ 0][24][ 1][ 0][ 0]
+[ 2][ 1][22][ 2][ 1]
+[ 3][ 2][ 1][19][ 2]
+[ 2][ 1][ 0][ 2][21]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 2.
+Tread N 4 has returned sum = 3.
+Tread N 3 has returned sum = 3.
+Tread N 1 has returned sum = 4.
+
+[0][0][0][1][0]
+[1][4][0][1][0]
+[0][0][0][0][0]
+[0][1][0][3][0]
+[0][1][0][0][0]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 6 has returned sum = 2.
+Tread N 8 has returned sum = 4.
+Tread N 5 has returned sum = 5.
+Tread N 7 has returned sum = 4.
+Tread N 9 has returned sum = 1.
+
+[5][0][0][1][1]
+[2][4][0][1][0]
+[0][0][9][1][0]
+[0][1][0][3][0]
+[1][2][0][0][7]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 10 has returned sum = 6.
+Tread N 12 has returned sum = 7.
+Tread N 14 has returned sum = 3.
+Tread N 11 has returned sum = 8.
+Tread N 13 has returned sum = 9.
+
+[10][ 0][ 1][ 1][ 1]
+[ 2][13][ 0][ 1][ 0]
+[ 0][ 1][14][ 1][ 0]
+[ 0][ 3][ 1][ 3][ 0]
+[ 1][ 2][ 0][ 0][ 7]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 16 has returned sum = 8.
+Tread N 15 has returned sum = 5.
+Tread N 17 has returned sum = 10.
+Tread N 18 has returned sum = 9.
+Tread N 19 has returned sum = 6.
+
+[18][ 1][ 2][ 1][ 1]
+[ 2][17][ 0][ 1][ 0]
+[ 0][ 2][19][ 1][ 0]
+[ 1][ 3][ 1][16][ 0]
+[ 1][ 2][ 0][ 1][15]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 20 has returned sum = 7.
+Tread N 22 has returned sum = 7.
+Tread N 21 has returned sum = 10.
+Tread N 23 has returned sum = 10.
+Tread N 24 has returned sum = 11.
+
+[24][ 1][ 2][ 2][ 2]
+[ 2][17][ 0][ 1][ 0]
+[ 0][ 2][19][ 1][ 0]
+[ 1][ 4][ 1][23][ 0]
+[ 1][ 3][ 1][ 1][22]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 2.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 2.
+Tread N 3 has returned sum = 3.
+
+[0][0][0][0][0]
+[0][3][2][0][0]
+[0][0][0][0][0]
+[1][1][0][2][1]
+[0][0][0][0][4]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 5 has returned sum = 3.
+Tread N 6 has returned sum = 2.
+Tread N 7 has returned sum = 5.
+Tread N 8 has returned sum = 6.
+Tread N 9 has returned sum = 7.
+
+[6][0][0][0][0]
+[0][3][4][0][0]
+[2][0][9][1][0]
+[1][1][0][2][1]
+[0][0][0][0][4]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 10 has returned sum = 5.
+Tread N 11 has returned sum = 4.
+Tread N 12 has returned sum = 4.
+Tread N 14 has returned sum = 5.
+Tread N 13 has returned sum = 7.
+
+[14][ 0][ 0][ 2][ 1]
+[ 0][ 3][ 4][ 0][ 0]
+[ 2][ 0][ 9][ 1][ 0]
+[ 1][ 1][ 0][13][ 2]
+[ 0][ 0][ 1][ 0][12]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 15 has returned sum = 7.
+Tread N 16 has returned sum = 8.
+Tread N 18 has returned sum = 6.
+Tread N 17 has returned sum = 9.
+Tread N 19 has returned sum = 9.
+
+[16][ 0][ 0][ 2][ 1]
+[ 1][18][ 4][ 0][ 0]
+[ 2][ 0][17][ 1][ 0]
+[ 1][ 2][ 1][19][ 2]
+[ 2][ 0][ 1][ 0][12]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 20 has returned sum = 10.
+Tread N 22 has returned sum = 11.
+Tread N 24 has returned sum = 11.
+Tread N 21 has returned sum = 8.
+Tread N 23 has returned sum = 9.
+
+[16][ 0][ 0][ 2][ 1]
+[ 1][18][ 5][ 0][ 0]
+[ 2][ 0][22][ 2][ 0]
+[ 1][ 2][ 1][24][ 4]
+[ 2][ 0][ 2][ 0][23]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 3.
+Tread N 3 has returned sum = 3.
+
+[0][0][0][1][0]
+[0][0][2][0][0]
+[0][0][1][0][0]
+[0][0][1][3][1]
+[0][0][0][0][4]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 6 has returned sum = 2.
+Tread N 8 has returned sum = 2.
+Tread N 9 has returned sum = 3.
+Tread N 7 has returned sum = 4.
+Tread N 5 has returned sum = 4.
+
+[5][1][0][1][0]
+[2][7][2][0][0]
+[0][0][1][0][1]
+[0][0][1][3][2]
+[0][0][0][0][9]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 11 has returned sum = 4.
+Tread N 13 has returned sum = 5.
+Tread N 10 has returned sum = 7.
+Tread N 12 has returned sum = 7.
+Tread N 14 has returned sum = 5.
+
+[ 5][ 1][ 0][ 1][ 0]
+[ 2][12][ 2][ 0][ 1]
+[ 0][ 1][10][ 0][ 2]
+[ 0][ 0][ 1][14][ 2]
+[ 0][ 0][ 1][ 1][13]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 15 has returned sum = 6.
+Tread N 17 has returned sum = 7.
+Tread N 16 has returned sum = 8.
+Tread N 18 has returned sum = 8.
+Tread N 19 has returned sum = 10.
+
+[ 5][ 1][ 1][ 1][ 0]
+[ 3][18][ 2][ 0][ 1]
+[ 0][ 1][16][ 0][ 2]
+[ 0][ 0][ 1][17][ 3]
+[ 0][ 0][ 1][ 3][19]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 20 has returned sum = 11.
+Tread N 21 has returned sum = 9.
+Tread N 22 has returned sum = 7.
+Tread N 24 has returned sum = 10.
+Tread N 23 has returned sum = 10.
+
+[22][ 1][ 1][ 1][ 1]
+[ 3][24][ 2][ 0][ 2]
+[ 0][ 1][23][ 1][ 3]
+[ 0][ 0][ 1][17][ 3]
+[ 0][ 1][ 1][ 3][20]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 2.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 1.
+Tread N 3 has returned sum = 3.
+
+[0][0][0][0][0]
+[0][3][1][0][1]
+[1][1][2][0][0]
+[0][0][1][4][0]
+[0][0][0][0][1]
+[X][X][X][X][X]
+[X][X][X][X][X]
+[X][X][X][X][X]
+[X][X][X][X][X]
+[X][X][X][X][X]
+
+Tread N 6 has returned sum = 4.
+Tread N 8 has returned sum = 2.
+Tread N 5 has returned sum = 3.
+Tread N 7 has returned sum = 5.
+Tread N 9 has returned sum = 7.
+
+[8][0][1][0][0]
+[0][7][1][0][2]
+[1][2][9][0][0]
+[0][0][1][4][0]
+[1][0][1][0][5]
+[X][ ][X][ ][ ]
+[ ][X][ ][ ][X]
+[ ][X][X][ ][ ]
+[ ][ ][ ][ ][ ]
+[X][ ][X][ ][X]
+
+Tread N 10 has returned sum = 2.
+Tread N 12 has returned sum = 4.
+Tread N 11 has returned sum = 8.
+Tread N 14 has returned sum = 6.
+Tread N 13 has returned sum = 7.
+
+[12][ 1][ 1][ 0][ 1]
+[ 0][13][ 1][ 0][ 3]
+[ 2][ 2][11][ 0][ 0]
+[ 0][ 0][ 1][10][ 0]
+[ 1][ 0][ 1][ 1][14]
+[X][X][ ][ ][X]
+[ ][X][ ][ ][X]
+[X][ ][X][ ][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][ ][X][X]
+
+Tread N 16 has returned sum = 8.
+Tread N 18 has returned sum = 7.
+Tread N 15 has returned sum = 9.
+Tread N 17 has returned sum = 10.
+Tread N 19 has returned sum = 10.
+
+[18][ 2][ 1][ 0][ 2]
+[ 0][13][ 2][ 0][ 3]
+[ 2][ 2][17][ 0][ 1]
+[ 0][ 0][ 1][10][ 1]
+[ 1][ 0][ 1][ 1][19]
+[X][X][ ][ ][X]
+[ ][ ][X][ ][ ]
+[ ][ ][X][ ][X]
+[ ][ ][ ][ ][X]
+[ ][ ][ ][ ][X]
+
+Tread N 20 has returned sum = 10.
+Tread N 22 has returned sum = 10.
+Tread N 24 has returned sum = 4.
+Tread N 21 has returned sum = 11.
+Tread N 23 has returned sum = 11.
+
+[21][ 2][ 1][ 0][ 2]
+[ 2][20][ 2][ 1][ 3]
+[ 3][ 2][17][ 0][ 1]
+[ 0][ 0][ 1][24][ 1]
+[ 1][ 0][ 1][ 2][23]
+[X][ ][ ][ ][ ]
+[X][X][ ][X][ ]
+[X][ ][ ][ ][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][ ][X][X]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 3.
+Tread N 3 has returned sum = 2.
+
+[1][1][1][0][0]
+[1][3][0][0][0]
+[0][0][0][0][0]
+[0][0][1][0][0]
+[1][0][0][0][4]
+[X][X][X][X][X]
+[X][X][X][X][X]
+[X][X][X][X][X]
+[X][X][X][X][X]
+[X][X][X][X][X]
+
+Tread N 6 has returned sum = 2.
+Tread N 5 has returned sum = 2.
+Tread N 7 has returned sum = 3.
+Tread N 8 has returned sum = 5.
+Tread N 9 has returned sum = 7.
+
+[9][1][1][0][1]
+[2][8][0][1][0]
+[1][0][0][0][0]
+[0][0][1][6][0]
+[1][1][0][0][7]
+[X][ ][ ][ ][X]
+[X][X][ ][X][ ]
+[X][ ][ ][ ][ ]
+[ ][ ][ ][X][ ]
+[ ][X][ ][ ][X]
+
+Tread N 10 has returned sum = 4.
+Tread N 12 has returned sum = 5.
+Tread N 11 has returned sum = 5.
+Tread N 14 has returned sum = 4.
+Tread N 13 has returned sum = 7.
+
+[ 9][ 1][ 1][ 0][ 1]
+[ 2][ 8][ 1][ 1][ 0]
+[ 1][ 0][13][ 1][ 2]
+[ 0][ 1][ 1][14][ 0]
+[ 1][ 1][ 0][ 0][11]
+[ ][ ][ ][ ][ ]
+[ ][ ][X][ ][ ]
+[ ][ ][X][X][X]
+[ ][X][ ][X][ ]
+[ ][ ][ ][ ][X]
+
+Tread N 15 has returned sum = 5.
+Tread N 17 has returned sum = 8.
+Tread N 19 has returned sum = 9.
+Tread N 16 has returned sum = 9.
+Tread N 18 has returned sum = 10.
+
+[16][ 2][ 2][ 0][ 1]
+[ 2][18][ 1][ 2][ 0]
+[ 1][ 1][13][ 1][ 2]
+[ 0][ 1][ 2][15][ 0]
+[ 1][ 1][ 0][ 0][11]
+[X][X][X][ ][ ]
+[ ][X][ ][X][ ]
+[ ][X][ ][ ][ ]
+[ ][ ][X][X][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 20 has returned sum = 11.
+Tread N 22 has returned sum = 7.
+Tread N 24 has returned sum = 11.
+Tread N 21 has returned sum = 11.
+Tread N 23 has returned sum = 12.
+
+[23][ 4][ 2][ 0][ 1]
+[ 3][20][ 1][ 2][ 0]
+[ 1][ 1][21][ 2][ 2]
+[ 0][ 1][ 2][22][ 1]
+[ 1][ 1][ 0][ 0][11]
+[X][X][ ][ ][ ]
+[X][X][ ][ ][ ]
+[ ][ ][X][X][ ]
+[ ][ ][ ][X][X]
+[ ][ ][ ][ ][ ]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 2.
+Tread N 3 has returned sum = 2.
+
+[0][0][0][0][0]
+[0][4][0][1][0]
+[0][1][1][0][0]
+[0][0][0][3][0]
+[1][0][1][1][0]
+[X][ ][ ][ ][ ]
+[ ][X][ ][X][ ]
+[ ][X][X][ ][ ]
+[ ][ ][ ][X][ ]
+[X][ ][X][X][ ]
+
+Tread N 6 has returned sum = 3.
+Tread N 7 has returned sum = 3.
+Tread N 5 has returned sum = 5.
+Tread N 8 has returned sum = 6.
+Tread N 9 has returned sum = 6.
+
+[7][0][0][0][0]
+[1][9][1][1][0]
+[0][1][1][0][0]
+[0][0][0][3][0]
+[2][2][1][1][8]
+[X][ ][ ][ ][ ]
+[X][X][X][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[X][X][ ][ ][X]
+
+Tread N 10 has returned sum = 7.
+Tread N 11 has returned sum = 8.
+Tread N 12 has returned sum = 8.
+Tread N 14 has returned sum = 5.
+Tread N 13 has returned sum = 6.
+
+[ 7][ 1][ 1][ 0][ 0]
+[ 1][12][ 1][ 1][ 1]
+[ 0][ 1][13][ 0][ 2]
+[ 0][ 0][ 0][ 3][ 0]
+[ 2][ 2][ 1][ 1][11]
+[ ][X][X][ ][ ]
+[ ][X][ ][ ][X]
+[ ][ ][X][ ][X]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][X]
+
+Tread N 16 has returned sum = 10.
+Tread N 18 has returned sum = 7.
+Tread N 15 has returned sum = 10.
+Tread N 17 has returned sum = 7.
+Tread N 19 has returned sum = 11.
+
+[18][ 2][ 1][ 0][ 0]
+[ 1][15][ 1][ 1][ 1]
+[ 0][ 1][17][ 1][ 2]
+[ 0][ 1][ 0][ 3][ 1]
+[ 3][ 2][ 1][ 1][19]
+[X][X][ ][ ][ ]
+[ ][X][ ][ ][ ]
+[ ][ ][X][X][ ]
+[ ][X][ ][ ][X]
+[X][ ][ ][ ][X]
+
+Tread N 20 has returned sum = 6.
+Tread N 22 has returned sum = 8.
+Tread N 21 has returned sum = 9.
+Tread N 24 has returned sum = 9.
+Tread N 23 has returned sum = 11.
+
+[18][ 2][ 1][ 0][ 0]
+[ 2][23][ 1][ 1][ 1]
+[ 0][ 1][21][ 3][ 2]
+[ 0][ 1][ 1][24][ 2]
+[ 3][ 2][ 1][ 1][19]
+[ ][ ][ ][ ][ ]
+[X][X][ ][ ][ ]
+[ ][ ][X][X][ ]
+[ ][ ][X][X][X]
+[ ][ ][ ][ ][ ]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 3.
+Tread N 3 has returned sum = 4.
+
+[0][0][0][0][0]
+[0][2][1][0][0]
+[1][0][1][0][0]
+[0][0][0][4][0]
+[0][1][2][1][3]
+[X][ ][ ][ ][ ]
+[ ][X][X][ ][ ]
+[X][ ][X][ ][ ]
+[ ][ ][ ][X][ ]
+[ ][X][X][X][X]
+
+Tread N 6 has returned sum = 2.
+Tread N 8 has returned sum = 7.
+Tread N 5 has returned sum = 3.
+Tread N 7 has returned sum = 6.
+Tread N 9 has returned sum = 2.
+
+[6][0][2][0][0]
+[0][5][2][0][0]
+[1][0][8][0][1]
+[1][0][0][9][0]
+[0][2][2][1][7]
+[X][ ][X][ ][ ]
+[ ][X][X][ ][ ]
+[ ][ ][X][ ][X]
+[X][ ][ ][X][ ]
+[ ][X][ ][ ][X]
+
+Tread N 10 has returned sum = 7.
+Tread N 11 has returned sum = 5.
+Tread N 12 has returned sum = 4.
+Tread N 13 has returned sum = 6.
+Tread N 14 has returned sum = 9.
+
+[13][ 1][ 2][ 0][ 0]
+[ 0][11][ 2][ 0][ 0]
+[ 2][ 0][14][ 0][ 1]
+[ 2][ 0][ 0][12][ 1]
+[ 0][ 2][ 2][ 2][10]
+[X][X][ ][ ][ ]
+[ ][X][ ][ ][ ]
+[X][ ][X][ ][ ]
+[X][ ][ ][X][X]
+[ ][ ][ ][X][X]
+
+Tread N 16 has returned sum = 8.
+Tread N 18 has returned sum = 6.
+Tread N 17 has returned sum = 9.
+Tread N 15 has returned sum = 10.
+Tread N 19 has returned sum = 10.
+
+[16][ 2][ 2][ 0][ 0]
+[ 1][15][ 2][ 2][ 1]
+[ 3][ 0][19][ 0][ 1]
+[ 2][ 0][ 0][18][ 1]
+[ 0][ 2][ 2][ 2][17]
+[X][X][ ][ ][ ]
+[X][X][ ][X][X]
+[X][ ][X][ ][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][ ][ ][X]
+
+Tread N 20 has returned sum = 8.
+Tread N 21 has returned sum = 10.
+Tread N 23 has returned sum = 11.
+Tread N 22 has returned sum = 12.
+Tread N 24 has returned sum = 14.
+
+[23][ 2][ 3][ 0][ 0]
+[ 1][22][ 3][ 2][ 1]
+[ 4][ 0][24][ 1][ 1]
+[ 2][ 0][ 0][20][ 1]
+[ 0][ 3][ 2][ 2][21]
+[X][ ][X][ ][ ]
+[ ][X][X][ ][ ]
+[X][ ][X][X][ ]
+[ ][ ][ ][X][ ]
+[ ][X][ ][ ][X]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 2.
+Tread N 3 has returned sum = 4.
+
+[1][0][0][0][0]
+[0][2][0][0][1]
+[1][0][4][0][0]
+[0][0][0][0][1]
+[1][0][0][1][3]
+[X][ ][ ][ ][ ]
+[ ][X][ ][ ][X]
+[X][ ][X][ ][ ]
+[ ][ ][ ][X][X]
+[X][ ][ ][X][X]
+
+Tread N 5 has returned sum = 3.
+Tread N 6 has returned sum = 2.
+Tread N 8 has returned sum = 3.
+Tread N 7 has returned sum = 7.
+Tread N 9 has returned sum = 3.
+
+[9][0][0][0][0]
+[0][8][1][0][1]
+[2][0][6][0][0]
+[0][0][0][5][2]
+[1][1][0][2][7]
+[X][ ][ ][ ][ ]
+[ ][X][X][ ][ ]
+[X][ ][X][ ][ ]
+[ ][ ][ ][X][X]
+[ ][X][ ][X][X]
+
+Tread N 11 has returned sum = 4.
+Tread N 10 has returned sum = 7.
+Tread N 12 has returned sum = 4.
+Tread N 14 has returned sum = 8.
+Tread N 13 has returned sum = 6.
+
+[11][ 0][ 1][ 0][ 0]
+[ 3][10][ 1][ 0][ 1]
+[ 2][ 0][12][ 0][ 1]
+[ 0][ 1][ 1][13][ 2]
+[ 1][ 1][ 0][ 2][14]
+[X][ ][X][ ][ ]
+[X][X][ ][ ][ ]
+[ ][ ][X][ ][X]
+[ ][X][X][X][ ]
+[ ][ ][ ][ ][X]
+
+Tread N 15 has returned sum = 7.
+Tread N 16 has returned sum = 8.
+Tread N 17 has returned sum = 10.
+Tread N 18 has returned sum = 8.
+Tread N 19 has returned sum = 9.
+
+[16][ 1][ 1][ 0][ 0]
+[ 3][18][ 1][ 1][ 1]
+[ 2][ 0][15][ 1][ 1]
+[ 0][ 1][ 1][19][ 3]
+[ 2][ 1][ 0][ 2][17]
+[X][X][ ][ ][ ]
+[ ][X][ ][X][ ]
+[ ][ ][X][X][ ]
+[ ][ ][ ][X][X]
+[X][ ][ ][ ][X]
+
+Tread N 20 has returned sum = 11.
+Tread N 23 has returned sum = 8.
+Tread N 22 has returned sum = 10.
+Tread N 21 has returned sum = 12.
+Tread N 24 has returned sum = 13.
+
+[22][ 1][ 1][ 0][ 0]
+[ 3][24][ 1][ 1][ 2]
+[ 2][ 0][23][ 3][ 1]
+[ 0][ 3][ 1][21][ 3]
+[ 3][ 2][ 0][ 2][20]
+[X][ ][ ][ ][ ]
+[ ][X][ ][ ][X]
+[ ][ ][X][X][ ]
+[ ][X][ ][X][ ]
+[X][X][ ][ ][X]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 2.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 3.
+Tread N 3 has returned sum = 2.
+
+[1][1][0][1][0]
+[0][0][1][0][0]
+[1][0][4][0][0]
+[0][0][1][3][0]
+[0][0][0][0][0]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 5 has returned sum = 4.
+Tread N 6 has returned sum = 4.
+Tread N 8 has returned sum = 5.
+Tread N 7 has returned sum = 4.
+Tread N 9 has returned sum = 3.
+
+[6][1][0][1][1]
+[0][0][1][0][1]
+[1][0][8][0][2]
+[0][0][2][9][0]
+[0][0][0][0][7]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 10 has returned sum = 4.
+Tread N 12 has returned sum = 6.
+Tread N 14 has returned sum = 4.
+Tread N 11 has returned sum = 5.
+Tread N 13 has returned sum = 8.
+
+[12][ 2][ 1][ 1][ 1]
+[ 0][10][ 1][ 0][ 1]
+[ 2][ 0][13][ 0][ 2]
+[ 0][ 1][ 2][14][ 0]
+[ 0][ 1][ 0][ 0][11]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 15 has returned sum = 5.
+Tread N 17 has returned sum = 9.
+Tread N 16 has returned sum = 10.
+Tread N 18 has returned sum = 8.
+Tread N 19 has returned sum = 7.
+
+[18][ 2][ 1][ 1][ 2]
+[ 0][10][ 2][ 0][ 1]
+[ 2][ 0][16][ 1][ 2]
+[ 0][ 2][ 2][19][ 1]
+[ 0][ 1][ 0][ 0][11]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 21 has returned sum = 8.
+Tread N 23 has returned sum = 9.
+Tread N 20 has returned sum = 10.
+Tread N 22 has returned sum = 10.
+Tread N 24 has returned sum = 11.
+
+[24][ 2][ 2][ 1][ 2]
+[ 0][10][ 2][ 0][ 1]
+[ 2][ 0][16][ 1][ 2]
+[ 0][ 2][ 2][23][ 1]
+[ 2][ 1][ 0][ 2][20]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 3.
+Tread N 3 has returned sum = 2.
+
+[1][0][0][0][0]
+[1][3][1][0][0]
+[1][0][2][0][0]
+[2][0][0][4][0]
+[0][0][0][0][0]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 6 has returned sum = 1.
+Tread N 8 has returned sum = 4.
+Tread N 5 has returned sum = 6.
+Tread N 7 has returned sum = 5.
+Tread N 9 has returned sum = 4.
+
+[5][0][0][0][0]
+[2][7][2][0][1]
+[1][0][2][0][0]
+[4][0][0][9][0]
+[0][0][0][0][6]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 10 has returned sum = 8.
+Tread N 12 has returned sum = 5.
+Tread N 14 has returned sum = 9.
+Tread N 11 has returned sum = 6.
+Tread N 13 has returned sum = 5.
+
+[14][ 0][ 0][ 0][ 1]
+[ 2][ 7][ 2][ 1][ 1]
+[ 1][ 0][13][ 2][ 0]
+[ 4][ 0][ 0][11][ 0]
+[ 1][ 0][ 0][ 0][ 6]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 15 has returned sum = 8.
+Tread N 16 has returned sum = 11.
+Tread N 18 has returned sum = 6.
+Tread N 17 has returned sum = 5.
+Tread N 19 has returned sum = 7.
+
+[16][ 0][ 0][ 2][ 1]
+[ 2][ 7][ 2][ 1][ 2]
+[ 1][ 1][19][ 2][ 0]
+[ 4][ 0][ 0][15][ 0]
+[ 1][ 0][ 1][ 0][17]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 23 has returned sum = 12.
+Tread N 21 has returned sum = 9.
+Tread N 20 has returned sum = 13.
+Tread N 24 has returned sum = 10.
+Tread N 22 has returned sum = 11.
+
+[20][ 0][ 0][ 2][ 1]
+[ 2][21][ 2][ 2][ 2]
+[ 1][ 1][19][ 2][ 0]
+[ 4][ 0][ 1][22][ 0]
+[ 3][ 1][ 1][ 0][17]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 2 has returned sum = 2.
+Tread N 1 has returned sum = 2.
+Tread N 3 has returned sum = 3.
+
+[3][0][0][0][0]
+[0][0][0][1][0]
+[1][0][4][0][0]
+[1][0][0][1][1]
+[1][0][0][0][0]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 6 has returned sum = 2.
+Tread N 8 has returned sum = 3.
+Tread N 5 has returned sum = 3.
+Tread N 7 has returned sum = 4.
+Tread N 9 has returned sum = 4.
+
+[3][0][0][0][1]
+[0][0][1][1][1]
+[1][0][9][0][0]
+[1][0][2][1][1]
+[1][0][0][0][7]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 10 has returned sum = 5.
+Tread N 12 has returned sum = 7.
+Tread N 14 has returned sum = 4.
+Tread N 11 has returned sum = 9.
+Tread N 13 has returned sum = 6.
+
+[10][ 0][ 0][ 1][ 1]
+[ 0][14][ 1][ 2][ 1]
+[ 1][ 0][ 9][ 0][ 0]
+[ 1][ 1][ 2][11][ 1]
+[ 1][ 1][ 0][ 1][13]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 15 has returned sum = 7.
+Tread N 16 has returned sum = 8.
+Tread N 18 has returned sum = 8.
+Tread N 17 has returned sum = 9.
+Tread N 19 has returned sum = 6.
+
+[10][ 0][ 0][ 1][ 1]
+[ 0][17][ 1][ 2][ 1]
+[ 1][ 0][19][ 0][ 2]
+[ 1][ 3][ 2][11][ 1]
+[ 1][ 2][ 0][ 1][18]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Tread N 23 has returned sum = 7.
+Tread N 21 has returned sum = 12.
+Tread N 20 has returned sum = 9.
+Tread N 24 has returned sum = 11.
+Tread N 22 has returned sum = 12.
+
+[10][ 0][ 0][ 1][ 1]
+[ 0][17][ 1][ 2][ 2]
+[ 2][ 0][20][ 1][ 3]
+[ 1][ 3][ 2][21][ 1]
+[ 1][ 3][ 0][ 1][22]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 2.
+Tread N 3 has returned sum = 2.
+
+[0][0][1][0][1]
+[1][4][0][0][0]
+[0][0][1][0][0]
+[0][1][0][2][0]
+[0][0][1][0][3]
+[X][ ][X][ ][X]
+[X][X][ ][ ][ ]
+[ ][ ][X][ ][ ]
+[ ][X][ ][X][ ]
+[ ][ ][X][ ][X]
+
+Tread N 6 has returned sum = 3.
+Tread N 8 has returned sum = 3.
+Tread N 5 has returned sum = 5.
+Tread N 7 has returned sum = 3.
+Tread N 9 has returned sum = 2.
+
+[5][0][1][0][1]
+[1][7][1][0][0]
+[1][0][8][0][1]
+[0][2][0][9][0]
+[1][0][1][0][6]
+[X][ ][ ][ ][ ]
+[ ][X][X][ ][ ]
+[X][ ][X][ ][X]
+[ ][X][ ][X][ ]
+[X][ ][ ][ ][X]
+
+Tread N 10 has returned sum = 6.
+Tread N 12 has returned sum = 6.
+Tread N 14 has returned sum = 7.
+Tread N 11 has returned sum = 6.
+Tread N 13 has returned sum = 3.
+
+[12][ 0][ 1][ 0][ 1]
+[ 2][14][ 1][ 0][ 0]
+[ 1][ 2][10][ 0][ 1]
+[ 0][ 2][ 1][13][ 0]
+[ 2][ 0][ 2][ 0][11]
+[X][ ][ ][ ][ ]
+[X][X][ ][ ][ ]
+[ ][X][X][ ][ ]
+[ ][ ][X][X][ ]
+[X][ ][X][ ][X]
+
+Tread N 16 has returned sum = 8.
+Tread N 15 has returned sum = 4.
+Tread N 17 has returned sum = 12.
+Tread N 18 has returned sum = 8.
+Tread N 19 has returned sum = 8.
+
+[19][ 0][ 1][ 0][ 1]
+[ 2][16][ 1][ 0][ 0]
+[ 2][ 3][17][ 0][ 2]
+[ 0][ 2][ 2][15][ 1]
+[ 2][ 0][ 2][ 0][18]
+[X][ ][ ][ ][ ]
+[ ][X][ ][ ][ ]
+[X][X][X][ ][X]
+[ ][ ][X][X][X]
+[ ][ ][ ][ ][X]
+
+Tread N 20 has returned sum = 9.
+Tread N 21 has returned sum = 14.
+Tread N 22 has returned sum = 6.
+Tread N 23 has returned sum = 11.
+Tread N 24 has returned sum = 10.
+
+[23][ 0][ 1][ 1][ 1]
+[ 2][20][ 1][ 0][ 1]
+[ 4][ 3][21][ 0][ 2]
+[ 0][ 3][ 2][22][ 1]
+[ 2][ 0][ 2][ 1][24]
+[X][ ][ ][X][ ]
+[ ][X][ ][ ][X]
+[X][ ][X][ ][ ]
+[ ][X][ ][X][ ]
+[ ][ ][ ][X][X]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 2.
+Tread N 3 has returned sum = 1.
+
+[1][0][0][0][0]
+[0][3][0][0][0]
+[1][1][0][0][1]
+[0][0][1][4][0]
+[1][0][0][0][2]
+[X][ ][ ][ ][ ]
+[ ][X][ ][ ][ ]
+[X][X][X][ ][X]
+[ ][ ][X][X][ ]
+[X][ ][ ][ ][X]
+
+Tread N 6 has returned sum = 2.
+Tread N 8 has returned sum = 6.
+Tread N 5 has returned sum = 3.
+Tread N 7 has returned sum = 3.
+Tread N 9 has returned sum = 3.
+
+[7][0][0][0][1]
+[0][6][0][1][0]
+[1][2][8][0][1]
+[1][0][2][5][0]
+[1][0][0][0][9]
+[X][ ][ ][ ][X]
+[ ][X][ ][X][ ]
+[ ][X][X][ ][ ]
+[X][ ][X][X][ ]
+[ ][ ][ ][ ][X]
+
+Tread N 10 has returned sum = 5.
+Tread N 12 has returned sum = 7.
+Tread N 14 has returned sum = 5.
+Tread N 11 has returned sum = 5.
+Tread N 13 has returned sum = 5.
+
+[13][ 1][ 0][ 0][ 1]
+[ 0][11][ 0][ 1][ 0]
+[ 1][ 2][12][ 0][ 1]
+[ 1][ 1][ 3][10][ 1]
+[ 1][ 1][ 0][ 0][14]
+[X][X][ ][ ][ ]
+[ ][X][ ][ ][ ]
+[ ][ ][X][ ][ ]
+[ ][X][X][X][X]
+[ ][X][ ][ ][X]
+
+Tread N 16 has returned sum = 8.
+Tread N 18 has returned sum = 7.
+Tread N 15 has returned sum = 8.
+Tread N 17 has returned sum = 8.
+Tread N 19 has returned sum = 7.
+
+[19][ 1][ 0][ 0][ 2]
+[ 0][18][ 0][ 1][ 0]
+[ 1][ 2][15][ 1][ 1]
+[ 1][ 1][ 3][16][ 1]
+[ 2][ 2][ 0][ 1][17]
+[X][ ][ ][ ][X]
+[ ][X][ ][ ][ ]
+[ ][ ][X][X][ ]
+[ ][ ][ ][X][ ]
+[X][X][ ][X][X]
+
+Tread N 20 has returned sum = 8.
+Tread N 21 has returned sum = 9.
+Tread N 22 has returned sum = 9.
+Tread N 23 has returned sum = 10.
+Tread N 24 has returned sum = 11.
+
+[22][ 2][ 0][ 1][ 2]
+[ 1][20][ 0][ 1][ 1]
+[ 1][ 2][21][ 2][ 1]
+[ 1][ 1][ 3][24][ 1]
+[ 2][ 2][ 0][ 1][23]
+[X][X][ ][X][ ]
+[X][X][ ][ ][X]
+[ ][ ][X][X][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][ ][ ][X]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 2.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 1.
+Tread N 3 has returned sum = 2.
+
+
+Result matrix:[3][0][0][0][1]
+[0][0][0][0][0]
+[1][1][4][0][0]
+[0][0][0][1][1]
+[0][1][0][0][2]
+[X][ ][ ][ ][X]
+[ ][X][ ][ ][ ]
+[X][X][X][ ][ ]
+[ ][ ][ ][X][X]
+[ ][X][ ][ ][X]
+
+Result state matrix:
+Tread N 5 has returned sum = 2.
+Tread N 6 has returned sum = 5.
+Tread N 7 has returned sum = 3.
+Tread N 9 has returned sum = 3.
+Tread N 8 has returned sum = 3.
+
+
+Result matrix:[7][0][0][0][1]
+[0][8][1][0][0]
+[1][1][9][0][1]
+[0][0][0][5][2]
+[1][1][0][1][6]
+[X][ ][ ][ ][ ]
+[ ][X][X][ ][ ]
+[ ][ ][X][ ][X]
+[ ][ ][ ][X][X]
+[X][ ][ ][X][X]
+
+Result state matrix:
+Tread N 10 has returned sum = 4.
+Tread N 12 has returned sum = 5.
+Tread N 14 has returned sum = 5.
+Tread N 11 has returned sum = 9.
+Tread N 13 has returned sum = 4.
+
+
+Result matrix:[13][ 0][ 0][ 0][ 1]
+[ 0][10][ 1][ 0][ 0]
+[ 1][ 1][12][ 0][ 2]
+[ 1][ 1][ 1][14][ 2]
+[ 1][ 1][ 1][ 1][11]
+[X][ ][ ][ ][ ]
+[ ][X][ ][ ][ ]
+[ ][ ][X][ ][X]
+[X][X][X][X][ ]
+[ ][ ][X][ ][X]
+
+Result state matrix:
+Tread N 15 has returned sum = 5.
+Tread N 17 has returned sum = 7.
+Tread N 19 has returned sum = 9.
+Tread N 16 has returned sum = 10.
+Tread N 18 has returned sum = 6.
+
+
+Result matrix:[15][ 0][ 1][ 0][ 2]
+[ 0][18][ 1][ 0][ 0]
+[ 2][ 1][19][ 0][ 2]
+[ 1][ 2][ 1][17][ 2]
+[ 1][ 2][ 1][ 1][16]
+[X][ ][X][ ][X]
+[ ][X][ ][ ][ ]
+[X][ ][X][ ][ ]
+[ ][X][ ][X][ ]
+[ ][X][ ][ ][X]
+
+Result state matrix:
+Tread N 20 has returned sum = 8.
+Tread N 23 has returned sum = 8.
+Tread N 21 has returned sum = 12.
+Tread N 22 has returned sum = 9.
+Tread N 24 has returned sum = 12.
+
+
+Result matrix:[20][ 0][ 1][ 0][ 2]
+[ 0][22][ 2][ 1][ 0]
+[ 3][ 1][24][ 0][ 2]
+[ 1][ 2][ 2][23][ 2]
+[ 1][ 3][ 1][ 1][21]
+[X][ ][ ][ ][ ]
+[ ][X][X][X][ ]
+[X][ ][X][ ][ ]
+[ ][ ][X][X][ ]
+[ ][X][ ][ ][X]
+
+Result state matrix:
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 2.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 1.
+Tread N 3 has returned sum = 2.
+
+
+Result matrix:[0][0][0][0][0]
+[0][3][0][1][1]
+[1][0][2][0][0]
+[0][0][0][1][0]
+[0][0][1][1][4]
+
+Result state matrix:
+[X][ ][ ][ ][ ]
+[ ][X][ ][X][X]
+[X][ ][X][ ][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][X][X][X]
+Tread N 5 has returned sum = 3.
+Tread N 7 has returned sum = 3.
+Tread N 9 has returned sum = 5.
+Tread N 6 has returned sum = 3.
+Tread N 8 has returned sum = 5.
+
+
+Result matrix:[8][0][1][0][1]
+[2][6][0][1][1]
+[1][0][7][0][0]
+[0][0][0][5][1]
+[0][0][1][2][9]
+
+Result state matrix:
+[X][ ][X][ ][X]
+[X][X][ ][ ][ ]
+[ ][ ][X][ ][ ]
+[ ][ ][ ][X][X]
+[ ][ ][ ][X][X]
+Tread N 10 has returned sum = 5.
+Tread N 12 has returned sum = 6.
+Tread N 11 has returned sum = 8.
+Tread N 13 has returned sum = 5.
+Tread N 14 has returned sum = 5.
+
+
+Result matrix:[12][ 0][ 1][ 0][ 1]
+[ 2][10][ 0][ 2][ 2]
+[ 2][ 1][14][ 0][ 0]
+[ 0][ 0][ 0][13][ 1]
+[ 1][ 0][ 1][ 2][11]
+
+Result state matrix:
+[X][ ][ ][ ][ ]
+[ ][X][ ][X][X]
+[X][X][X][ ][ ]
+[ ][ ][ ][X][ ]
+[X][ ][ ][ ][X]
+Tread N 16 has returned sum = 9.
+Tread N 18 has returned sum = 8.
+Tread N 15 has returned sum = 6.
+Tread N 17 has returned sum = 9.
+Tread N 19 has returned sum = 10.
+
+
+Result matrix:[18][ 0][ 3][ 0][ 1]
+[ 3][19][ 0][ 2][ 2]
+[ 2][ 2][17][ 1][ 0]
+[ 0][ 0][ 0][15][ 1]
+[ 1][ 1][ 1][ 2][16]
+
+Result state matrix:
+[X][ ][X][ ][ ]
+[X][X][ ][ ][ ]
+[ ][X][X][X][ ]
+[ ][ ][ ][X][ ]
+[ ][X][ ][ ][X]
+Tread N 24 has returned sum = 10.
+Tread N 23 has returned sum = 11.
+Tread N 21 has returned sum = 10.
+Tread N 20 has returned sum = 13.
+Tread N 22 has returned sum = 10.
+
+
+Result matrix:[20][ 0][ 5][ 1][ 1]
+[ 3][23][ 0][ 3][ 2]
+[ 2][ 2][24][ 1][ 0]
+[ 0][ 0][ 0][22][ 2]
+[ 1][ 1][ 1][ 3][21]
+
+Result state matrix:
+[X][ ][X][X][ ]
+[ ][X][ ][X][ ]
+[ ][ ][X][ ][ ]
+[ ][ ][ ][X][X]
+[ ][ ][ ][X][X]
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 1.
+Tread N 3 has returned sum = 3.
+
+Result matrix:
+[1][0][0][1][0]
+[0][2][0][1][0]
+[0][0][4][1][2]
+[0][0][0][0][0]
+[0][1][0][0][3]
+nResult state matrix:
+[X][ ][ ][X][ ]
+[ ][X][ ][X][ ]
+[ ][ ][X][X][X]
+[ ][ ][ ][X][ ]
+[ ][X][ ][ ][X]
+Tread N 6 has returned sum = 4.
+Tread N 8 has returned sum = 2.
+Tread N 5 has returned sum = 4.
+Tread N 7 has returned sum = 5.
+Tread N 9 has returned sum = 5.
+
+Result matrix:
+[8][0][0][2][0]
+[0][7][1][1][1]
+[0][0][5][1][2]
+[0][0][1][9][0]
+[0][2][0][0][6]
+nResult state matrix:
+[X][ ][ ][X][ ]
+[ ][X][X][ ][X]
+[ ][ ][X][ ][ ]
+[ ][ ][X][X][ ]
+[ ][X][ ][ ][X]
+Tread N 10 has returned sum = 6.
+Tread N 12 has returned sum = 4.
+Tread N 14 has returned sum = 7.
+Tread N 11 has returned sum = 7.
+Tread N 13 has returned sum = 7.
+
+Result matrix:
+[12][ 1][ 0][ 2][ 0]
+[ 0][14][ 1][ 1][ 1]
+[ 1][ 0][13][ 2][ 2]
+[ 0][ 1][ 1][11][ 0]
+[ 1][ 2][ 0][ 0][10]
+nResult state matrix:
+[X][X][ ][ ][ ]
+[ ][X][ ][ ][ ]
+[X][ ][X][X][ ]
+[ ][X][ ][X][ ]
+[X][ ][ ][ ][X]
+Tread N 16 has returned sum = 8.
+Tread N 18 has returned sum = 6.
+Tread N 15 has returned sum = 8.
+Tread N 17 has returned sum = 8.
+Tread N 19 has returned sum = 11.
+
+Result matrix:
+[18][ 1][ 0][ 2][ 1]
+[ 0][17][ 1][ 1][ 1]
+[ 1][ 0][15][ 2][ 2]
+[ 0][ 1][ 1][16][ 1]
+[ 2][ 3][ 1][ 0][19]
+nResult state matrix:
+[X][ ][ ][ ][X]
+[ ][X][ ][ ][ ]
+[ ][ ][X][ ][ ]
+[ ][ ][ ][X][X]
+[X][X][X][ ][X]
+Tread N 20 has returned sum = 9.
+Tread N 23 has returned sum = 8.
+Tread N 22 has returned sum = 10.
+Tread N 21 has returned sum = 9.
+Tread N 24 has returned sum = 13.
+
+Result matrix:
+[23][ 1][ 0][ 2][ 2]
+[ 0][21][ 1][ 1][ 1]
+[ 1][ 0][20][ 3][ 2]
+[ 0][ 2][ 2][22][ 1]
+[ 2][ 4][ 1][ 0][24]
+nResult state matrix:
+[X][ ][ ][ ][X]
+[ ][X][ ][ ][ ]
+[ ][ ][X][X][ ]
+[ ][X][X][X][ ]
+[ ][X][ ][ ][X]
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 2 has returned sum = 1.
+Tread N 0 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 1.
+Tread N 3 has returned sum = 3.
+
+Result matrix:
+[2][0][0][0][1]
+[0][1][0][0][0]
+[0][1][3][0][1]
+[0][0][0][4][0]
+[0][0][1][1][0]
+Result state matrix:
+[X][ ][ ][ ][X]
+[ ][X][ ][ ][ ]
+[ ][X][X][ ][X]
+[ ][ ][ ][X][ ]
+[ ][ ][X][X][X]
+Tread N 6 has returned sum = 2.
+Tread N 8 has returned sum = 5.
+Tread N 5 has returned sum = 2.
+Tread N 7 has returned sum = 6.
+Tread N 9 has returned sum = 4.
+
+Result matrix:
+[6][0][1][0][1]
+[1][5][0][0][0]
+[0][1][7][2][1]
+[1][0][0][9][0]
+[0][0][2][1][8]
+Result state matrix:
+[X][ ][X][ ][ ]
+[X][X][ ][ ][ ]
+[ ][ ][X][X][ ]
+[X][ ][ ][X][ ]
+[ ][ ][X][ ][X]
+Tread N 10 has returned sum = 5.
+Tread N 12 has returned sum = 3.
+Tread N 14 has returned sum = 8.
+Tread N 11 has returned sum = 5.
+Tread N 13 has returned sum = 9.
+
+Result matrix:
+[11][ 1][ 1][ 0][ 1]
+[ 1][12][ 0][ 0][ 1]
+[ 0][ 1][14][ 2][ 2]
+[ 1][ 0][ 0][10][ 0]
+[ 0][ 0][ 3][ 2][13]
+Result state matrix:
+[X][X][ ][ ][ ]
+[ ][X][ ][ ][X]
+[ ][ ][X][ ][X]
+[ ][ ][ ][X][ ]
+[ ][ ][X][X][X]
+Tread N 16 has returned sum = 10.
+Tread N 18 has returned sum = 6.
+Tread N 15 has returned sum = 10.
+Tread N 17 has returned sum = 7.
+Tread N 19 has returned sum = 10.
+
+Result matrix:
+[19][ 1][ 2][ 0][ 1]
+[ 2][17][ 1][ 1][ 1]
+[ 0][ 1][15][ 2][ 2]
+[ 1][ 0][ 0][18][ 0]
+[ 3][ 0][ 3][ 2][16]
+Result state matrix:
+[X][ ][X][ ][ ]
+[X][X][X][X][ ]
+[ ][ ][X][ ][ ]
+[ ][ ][ ][X][ ]
+[X][ ][ ][ ][X]
+Tread N 20 has returned sum = 8.
+Tread N 23 has returned sum = 13.
+Tread N 21 has returned sum = 11.
+Tread N 22 has returned sum = 13.
+Tread N 24 has returned sum = 8.
+
+Result matrix:
+[21][ 1][ 2][ 0][ 1]
+[ 2][20][ 1][ 1][ 2]
+[ 1][ 2][22][ 2][ 2]
+[ 1][ 1][ 0][24][ 0]
+[ 3][ 0][ 3][ 3][23]
+Result state matrix:
+[X][ ][ ][ ][ ]
+[ ][X][ ][ ][X]
+[X][X][X][ ][ ]
+[ ][X][ ][X][ ]
+[ ][ ][ ][X][X]
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 2 has returned sum = 1.
+Tread N 0 has returned sum = 1.
+Tread N 4 has returned sum = 2.
+Tread N 1 has returned sum = 1.
+Tread N 3 has returned sum = 3.
+
+Result matrix:
+[3][0][0][0][0]
+[0][2][0][0][0]
+[1][1][0][1][0]
+[1][0][0][4][0]
+[1][0][0][0][1]
+
+Result state matrix:
+[X][ ][ ][ ][ ]
+[ ][X][ ][ ][ ]
+[X][X][X][X][ ]
+[X][ ][ ][X][ ]
+[X][ ][ ][ ][X]
+Tread N 6 has returned sum = 3.
+Tread N 5 has returned sum = 4.
+Tread N 7 has returned sum = 2.
+Tread N 8 has returned sum = 4.
+Tread N 9 has returned sum = 4.
+
+Result matrix:
+[5][0][0][0][1]
+[1][8][0][1][1]
+[1][1][9][2][0]
+[1][0][0][6][0]
+[1][0][0][0][7]
+
+Result state matrix:
+[X][ ][ ][ ][X]
+[X][X][ ][X][X]
+[ ][ ][X][X][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][ ][ ][X]
+Tread N 10 has returned sum = 5.
+Tread N 12 has returned sum = 6.
+Tread N 14 has returned sum = 4.
+Tread N 11 has returned sum = 7.
+Tread N 13 has returned sum = 6.
+
+Result matrix:
+[12][ 0][ 1][ 0][ 1]
+[ 1][10][ 0][ 2][ 1]
+[ 2][ 1][11][ 2][ 1]
+[ 1][ 1][ 0][13][ 0]
+[ 1][ 0][ 0][ 0][14]
+
+Result state matrix:
+[X][ ][X][ ][ ]
+[ ][X][ ][X][ ]
+[X][ ][X][ ][X]
+[ ][X][ ][X][ ]
+[ ][ ][ ][ ][X]
+Tread N 15 has returned sum = 8.
+Tread N 17 has returned sum = 7.
+Tread N 16 has returned sum = 9.
+Tread N 19 has returned sum = 7.
+Tread N 18 has returned sum = 8.
+
+Result matrix:
+[16][ 0][ 1][ 0][ 1]
+[ 1][18][ 1][ 2][ 2]
+[ 3][ 1][15][ 2][ 3]
+[ 2][ 1][ 0][17][ 0]
+[ 1][ 0][ 0][ 0][19]
+
+Result state matrix:
+[X][ ][ ][ ][ ]
+[ ][X][X][ ][X]
+[X][ ][X][ ][X]
+[X][ ][ ][X][ ]
+[ ][ ][ ][ ][X]
+Tread N 20 has returned sum = 10.
+Tread N 24 has returned sum = 12.
+Tread N 22 has returned sum = 9.
+Tread N 21 has returned sum = 8.
+Tread N 23 has returned sum = 10.
+
+Result matrix:
+[20][ 0][ 1][ 1][ 1]
+[ 1][22][ 1][ 2][ 2]
+[ 3][ 2][24][ 3][ 3]
+[ 3][ 1][ 0][23][ 0]
+[ 1][ 0][ 1][ 0][21]
+
+Result state matrix:
+[X][ ][ ][X][ ]
+[ ][X][ ][ ][ ]
+[ ][X][X][X][ ]
+[X][ ][ ][X][ ]
+[ ][ ][X][ ][X]
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+Tread N 0 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 1 has returned sum = 1.
+Tread N 3 has returned sum = 2.
+
+Result matrix:
+[4][0][0][1][1]
+[0][3][1][0][1]
+[0][0][2][0][0]
+[0][0][0][1][0]
+[0][0][1][0][0]
+
+Result state matrix:
+[X][ ][ ][X][X]
+[ ][X][X][ ][X]
+[ ][ ][X][ ][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][X][ ][X]
+
+Tread N 6 has returned sum = 3.
+Tread N 5 has returned sum = 4.
+Tread N 7 has returned sum = 3.
+Tread N 8 has returned sum = 4.
+Tread N 9 has returned sum = 3.
+
+Result matrix:
+[6][0][1][1][1]
+[0][8][2][0][1]
+[0][0][7][0][0]
+[1][0][1][9][0]
+[0][1][1][0][5]
+
+Result state matrix:
+[X][ ][X][ ][ ]
+[ ][X][X][ ][ ]
+[ ][ ][X][ ][ ]
+[X][ ][X][X][ ]
+[ ][X][ ][ ][X]
+
+Tread N 10 has returned sum = 5.
+Tread N 12 has returned sum = 5.
+Tread N 14 has returned sum = 5.
+Tread N 11 has returned sum = 7.
+Tread N 13 has returned sum = 6.
+
+Result matrix:
+[14][ 0][ 1][ 2][ 1]
+[ 0][10][ 2][ 0][ 1]
+[ 0][ 1][13][ 0][ 0]
+[ 1][ 1][ 1][11][ 1]
+[ 0][ 1][ 1][ 1][12]
+
+Result state matrix:
+[X][ ][ ][X][ ]
+[ ][X][ ][ ][ ]
+[ ][X][X][ ][ ]
+[ ][X][ ][X][X]
+[ ][ ][ ][X][X]
+
+Tread N 16 has returned sum = 7.
+Tread N 18 has returned sum = 6.
+Tread N 15 has returned sum = 7.
+Tread N 17 has returned sum = 10.
+Tread N 19 has returned sum = 8.
+
+Result matrix:
+[18][ 0][ 1][ 3][ 1]
+[ 1][15][ 2][ 0][ 2]
+[ 0][ 1][16][ 1][ 0]
+[ 1][ 1][ 1][17][ 1]
+[ 0][ 1][ 1][ 2][19]
+
+Result state matrix:
+[X][ ][ ][X][ ]
+[X][X][ ][ ][X]
+[ ][ ][X][X][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][ ][X][X]
+
+Tread N 20 has returned sum = 8.
+Tread N 22 has returned sum = 9.
+Tread N 23 has returned sum = 9.
+Tread N 24 has returned sum = 12.
+Tread N 21 has returned sum = 11.
+
+Result matrix:
+[20][ 0][ 1][ 3][ 2]
+[ 1][22][ 2][ 0][ 2]
+[ 0][ 2][23][ 1][ 0]
+[ 1][ 1][ 1][21][ 2]
+[ 0][ 1][ 2][ 3][24]
+
+Result state matrix:
+[X][ ][ ][ ][X]
+[ ][X][ ][ ][ ]
+[ ][X][X][ ][ ]
+[ ][ ][ ][X][X]
+[ ][ ][X][X][X]
+
+The source matrix:
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+[0][0][0][0][0]
+
+
+Threads result:
+Tread N 0 has returned sum = 1.
+Tread N 4 has returned sum = 1.
+Tread N 2 has returned sum = 1.
+Tread N 1 has returned sum = 2.
+Tread N 3 has returned sum = 4.
+
+Result matrix:
+[4][0][0][0][0]
+[2][3][1][1][0]
+[0][0][1][1][0]
+[0][0][0][0][0]
+[0][0][0][1][2]
+
+Result state matrix:
+[X][ ][ ][ ][ ]
+[X][X][X][X][ ]
+[ ][ ][X][X][ ]
+[ ][ ][ ][X][ ]
+[ ][ ][ ][X][X]
+
+
+Threads result:
+Tread N 6 has returned sum = 3.
+Tread N 8 has returned sum = 5.
+Tread N 5 has returned sum = 4.
+Tread N 7 has returned sum = 3.
+Tread N 9 has returned sum = 5.
+
+Result matrix:
+[7][0][0][0][1]
+[2][9][1][1][0]
+[0][0][6][1][1]
+[0][1][1][8][0]
+[0][0][0][3][5]
+
+Result state matrix:
+[X][ ][ ][ ][X]
+[ ][X][ ][ ][ ]
+[ ][ ][X][ ][X]
+[ ][X][X][X][ ]
+[ ][ ][ ][X][X]
+
+
+Threads result:
+Tread N 10 has returned sum = 4.
+Tread N 11 has returned sum = 8.
+Tread N 12 has returned sum = 8.
+Tread N 14 has returned sum = 7.
+Tread N 13 has returned sum = 6.
+
+Result matrix:
+[10][ 0][ 0][ 0][ 1]
+[ 4][12][ 1][ 1][ 0]
+[ 0][ 0][13][ 2][ 1]
+[ 0][ 1][ 2][11][ 0]
+[ 0][ 1][ 0][ 4][14]
+
+Result state matrix:
+[X][ ][ ][ ][ ]
+[X][X][ ][ ][ ]
+[ ][ ][X][X][ ]
+[ ][ ][X][X][ ]
+[ ][X][ ][X][X]
+
+
+Threads result:
+Tread N 15 has returned sum = 9.
+Tread N 17 has returned sum = 6.
+Tread N 19 has returned sum = 11.
+Tread N 16 has returned sum = 10.
+Tread N 18 has returned sum = 7.
+
+Result matrix:
+[17][ 0][ 1][ 0][ 2]
+[ 4][15][ 1][ 1][ 0]
+[ 0][ 0][18][ 2][ 1]
+[ 0][ 2][ 2][19][ 1]
+[ 0][ 2][ 0][ 4][16]
+
+Result state matrix:
+[X][ ][X][ ][X]
+[ ][X][ ][ ][ ]
+[ ][ ][X][ ][ ]
+[ ][X][ ][X][X]
+[ ][X][ ][ ][X]
+
+
+Threads result:
+Tread N 21 has returned sum = 11.
+Tread N 20 has returned sum = 11.
+Tread N 22 has returned sum = 13.
+Tread N 23 has returned sum = 9.
+Tread N 24 has returned sum = 10.
+
+Result matrix:
+[23][ 1][ 1][ 1][ 2]
+[ 4][20][ 1][ 1][ 0]
+[ 1][ 0][24][ 3][ 2]
+[ 0][ 2][ 2][22][ 1]
+[ 0][ 2][ 0][ 4][21]
+
+Result state matrix:
+[X][X][ ][X][ ]
+[ ][X][ ][ ][ ]
+[X][ ][X][X][X]
+[ ][ ][ ][X][ ]
+[ ][ ][ ][ ][X]
